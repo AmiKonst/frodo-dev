@@ -30275,10 +30275,6 @@ const useModalsStore = defineStore('modals', {
     }
 });
 
-const darkSvgSprite = "/frodo-dev/assets/svg-sprite.9f7a0654.svg";
-
-const lightSvgSprite = "/frodo-dev/assets/svg-sprite.42f242fd.svg";
-
 const useOthersStore = defineStore('others', {
     state: () => ({
         ready: false
@@ -30294,7 +30290,10 @@ const useOthersStore = defineStore('others', {
             return new URL("/frodo-dev/assets/variables.85c9fa90.css?v=1", self.location).href;
         },
         svgSpritePath: (state) => {
-            return state.theme === 'dark' ? darkSvgSprite : lightSvgSprite;
+            if (state.theme === 'dark') {
+                return new URL("/frodo-dev/assets/svg-sprite.9f7a0654.svg", self.location).href;
+            }
+            return new URL("/frodo-dev/assets/svg-sprite.42f242fd.svg", self.location).href;
         },
         animateSvgSpritePath: (state) => {
             if (state.theme === 'dark') {
@@ -46095,49 +46094,49 @@ const routes = [
     {
         path: '/empty',
         name: 'empty',
-        component: () => __vitePreload(() => import('./Empty.7a3c7103.js'),true?["assets/Empty.7a3c7103.js","assets/Field.789dc7d1.js","assets/Field.3845c6b6.css","assets/Select.591daec0.js","assets/Select.080784f0.css","assets/EmptyLabel.51fbb106.js","assets/EmptyLabel.f5921f8a.css","assets/Empty.5cb543c2.css"]:void 0),
+        component: () => __vitePreload(() => import('./Empty.b1b7722b.js'),true?["assets/Empty.b1b7722b.js","assets/Field.c1325c10.js","assets/Field.3845c6b6.css","assets/Select.d10dbc2d.js","assets/Select.080784f0.css","assets/EmptyLabel.8fa45ea7.js","assets/EmptyLabel.f5921f8a.css","assets/Empty.5cb543c2.css"]:void 0),
         abort: []
     },
     {
         path: '/music',
         name: 'music',
-        component: () => __vitePreload(() => import('./Music.b049a4af.js'),true?["assets/Music.b049a4af.js","assets/Ready.3709b2f6.js"]:void 0),
+        component: () => __vitePreload(() => import('./Music.d06450e0.js'),true?["assets/Music.d06450e0.js","assets/Ready.80aad79c.js"]:void 0),
         abort: []
     },
     {
         path: '/favorite',
         name: 'favorite',
-        component: () => __vitePreload(() => import('./Favorite.32fbb1f0.js'),true?["assets/Favorite.32fbb1f0.js","assets/EmptyLabel.51fbb106.js","assets/EmptyLabel.f5921f8a.css","assets/Ready.3709b2f6.js","assets/Favorite.3396c1d9.css"]:void 0),
+        component: () => __vitePreload(() => import('./Favorite.4490a5b6.js'),true?["assets/Favorite.4490a5b6.js","assets/EmptyLabel.8fa45ea7.js","assets/EmptyLabel.f5921f8a.css","assets/Ready.80aad79c.js","assets/Favorite.3396c1d9.css"]:void 0),
         abort: []
     },
         {
             path: '/favorite/artists',
             name: 'favorite-artists',
-            component: () => __vitePreload(() => import('./Artists.b2c6ed35.js'),true?["assets/Artists.b2c6ed35.js","assets/Ready.3709b2f6.js","assets/EmptyLabel.51fbb106.js","assets/EmptyLabel.f5921f8a.css","assets/Artists.d1d2aada.css"]:void 0),
+            component: () => __vitePreload(() => import('./Artists.8cd6abad.js'),true?["assets/Artists.8cd6abad.js","assets/Ready.80aad79c.js","assets/EmptyLabel.8fa45ea7.js","assets/EmptyLabel.f5921f8a.css","assets/Artists.d1d2aada.css"]:void 0),
             abort: []
         },
         {
             path: '/favorite/playlists',
             name: 'favorite-playlists',
-            component: () => __vitePreload(() => import('./Playlists.2b54037b.js'),true?["assets/Playlists.2b54037b.js","assets/Ready.3709b2f6.js","assets/EmptyLabel.51fbb106.js","assets/EmptyLabel.f5921f8a.css","assets/Playlists.82a285ca.css"]:void 0),
+            component: () => __vitePreload(() => import('./Playlists.db8521a1.js'),true?["assets/Playlists.db8521a1.js","assets/Ready.80aad79c.js","assets/EmptyLabel.8fa45ea7.js","assets/EmptyLabel.f5921f8a.css","assets/Playlists.82a285ca.css"]:void 0),
             abort: []
         },
     {
         path: '/settings',
         name: 'settings',
-        component: () => __vitePreload(() => import('./Settings.4db1e001.js'),true?["assets/Settings.4db1e001.js","assets/Ready.3709b2f6.js","assets/Select.591daec0.js","assets/Select.080784f0.css","assets/Settings.aa114096.css"]:void 0),
+        component: () => __vitePreload(() => import('./Settings.cbc3a0ce.js'),true?["assets/Settings.cbc3a0ce.js","assets/Ready.80aad79c.js","assets/Select.d10dbc2d.js","assets/Select.080784f0.css","assets/Settings.aa114096.css"]:void 0),
         abort: []
     },
     {
         path: '/error',
         name: 'error',
-        component: () => __vitePreload(() => import('./Error.2d3884c1.js'),true?["assets/Error.2d3884c1.js","assets/EmptyLabel.51fbb106.js","assets/EmptyLabel.f5921f8a.css"]:void 0),
+        component: () => __vitePreload(() => import('./Error.7b466269.js'),true?["assets/Error.7b466269.js","assets/EmptyLabel.8fa45ea7.js","assets/EmptyLabel.f5921f8a.css"]:void 0),
         abort: []
     },
     {
         path: '/access-denied',
         name: 'access-denied',
-        component: () => __vitePreload(() => import('./AccessDenied.eaf2bde1.js'),true?["assets/AccessDenied.eaf2bde1.js","assets/EmptyLabel.51fbb106.js","assets/EmptyLabel.f5921f8a.css","assets/AccessDenied.886229d6.css"]:void 0),
+        component: () => __vitePreload(() => import('./AccessDenied.f5e9ebaa.js'),true?["assets/AccessDenied.f5e9ebaa.js","assets/EmptyLabel.8fa45ea7.js","assets/EmptyLabel.f5921f8a.css","assets/AccessDenied.886229d6.css"]:void 0),
         abort: []
     },
     {
@@ -55123,7 +55122,7 @@ return (_ctx, _cache) => {
     height: props.size ? props.size[1] : null,
     fill: props.color ? props.color : null
   }, [
-    (url.value.includes('/svg-sprite.svg'))
+    (url.value.includes('/svg-sprite'))
       ? (openBlock(), createElementBlock(Fragment, { key: 0 }, [
           (props.title)
             ? (openBlock(), createElementBlock("title", _hoisted_2$a, toDisplayString$1(props.title), 1 /* TEXT */))
@@ -56826,7 +56825,7 @@ const { openedModals, confirmSettings, modalsComponents } = storeToRefs(modals);
 
 modals.register({
     loader: ModalLoader,
-    welcome: defineAsyncComponent(() => __vitePreload(() => import('./ModalWelcome.d8807912.js'),true?["assets/ModalWelcome.d8807912.js","assets/ModalWelcome.8956061c.css"]:void 0)),
+    welcome: defineAsyncComponent(() => __vitePreload(() => import('./ModalWelcome.8b056dcc.js'),true?["assets/ModalWelcome.8b056dcc.js","assets/ModalWelcome.8956061c.css"]:void 0)),
     success: ModalSuccess
 });
 
@@ -56871,13 +56870,26 @@ const _sfc_main$5 = {
 const others = stores$1.others();
 const { themePath } = storeToRefs(others);
 
-stores$1.tg();
-stores$1.user();
-stores$1.modals();
-stores$1.nav();
+const tg = stores$1.tg();
+const user = stores$1.user();
+const modals = stores$1.modals();
+const nav = stores$1.nav();
 
 onMounted(async () => {
-    return;
+    await tg.init();
+
+    modals.open('loader');
+    // Login
+    await user.login();
+
+    if (user.token) {
+        nav.open('music');
+        return;
+    }
+
+    setTimeout(() => {
+        modals.close('loader');
+    }, 2500);
 
 });
 
@@ -57140,7 +57152,7 @@ const browserExt = {
   },
   test: () => true,
   load: async () => {
-    await __vitePreload(() => import('./browserAll.d4defd4f.js'),true?["assets/browserAll.d4defd4f.js","assets/init.e2754694.js"]:void 0);
+    await __vitePreload(() => import('./browserAll.0c2e8a1f.js'),true?["assets/browserAll.0c2e8a1f.js","assets/init.dbbf6a72.js"]:void 0);
   }
 };
 
@@ -57152,7 +57164,7 @@ const webworkerExt = {
   },
   test: () => typeof self !== "undefined" && self.WorkerGlobalScope !== void 0,
   load: async () => {
-    await __vitePreload(() => import('./webworkerAll.a18d831a.js'),true?["assets/webworkerAll.a18d831a.js","assets/init.e2754694.js"]:void 0);
+    await __vitePreload(() => import('./webworkerAll.8f66640f.js'),true?["assets/webworkerAll.8f66640f.js","assets/init.dbbf6a72.js"]:void 0);
   }
 };
 
