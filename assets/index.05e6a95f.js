@@ -42285,9 +42285,10 @@ async function fetchData({ url, method, data, params, auth = true, formData, con
     }
 
     return await axios$1({
-        // baseURL: "https://api.wetap-tech-service.ru",
+        baseURL: "https://api.wetap-tech-service.ru",
         method,
-        url: `/proxy${ url }`,
+        url: `${ url }`,
+        // url: `/proxy${ url }`,
         data: formData || data,
         headers,
         signal,
@@ -46095,49 +46096,49 @@ const routes = [
     {
         path: '/empty',
         name: 'empty',
-        component: () => __vitePreload(() => import('./Empty.ec08678b.js'),true?["assets/Empty.ec08678b.js","assets/Field.f7bb5275.js","assets/Field.3845c6b6.css","assets/Select.1ed5f275.js","assets/Select.080784f0.css","assets/EmptyLabel.3dd3478f.js","assets/EmptyLabel.f5921f8a.css","assets/Empty.5cb543c2.css"]:void 0),
+        component: () => __vitePreload(() => import('./Empty.df68f7ac.js'),true?["assets/Empty.df68f7ac.js","assets/Field.029b66e6.js","assets/Field.3845c6b6.css","assets/Select.6967bfbd.js","assets/Select.080784f0.css","assets/EmptyLabel.5d80ca1a.js","assets/EmptyLabel.f5921f8a.css","assets/Empty.5cb543c2.css"]:void 0),
         abort: []
     },
     {
         path: '/music',
         name: 'music',
-        component: () => __vitePreload(() => import('./Music.9e77ed6a.js'),true?["assets/Music.9e77ed6a.js","assets/Ready.d8661fdf.js"]:void 0),
+        component: () => __vitePreload(() => import('./Music.b8502d8c.js'),true?["assets/Music.b8502d8c.js","assets/Ready.060ad2f1.js"]:void 0),
         abort: []
     },
     {
         path: '/favorite',
         name: 'favorite',
-        component: () => __vitePreload(() => import('./Favorite.5b5f5b5a.js'),true?["assets/Favorite.5b5f5b5a.js","assets/EmptyLabel.3dd3478f.js","assets/EmptyLabel.f5921f8a.css","assets/Ready.d8661fdf.js","assets/Favorite.3396c1d9.css"]:void 0),
+        component: () => __vitePreload(() => import('./Favorite.4e9dfaec.js'),true?["assets/Favorite.4e9dfaec.js","assets/EmptyLabel.5d80ca1a.js","assets/EmptyLabel.f5921f8a.css","assets/Ready.060ad2f1.js","assets/Favorite.3396c1d9.css"]:void 0),
         abort: []
     },
         {
             path: '/favorite/artists',
             name: 'favorite-artists',
-            component: () => __vitePreload(() => import('./Artists.6c8434d2.js'),true?["assets/Artists.6c8434d2.js","assets/Ready.d8661fdf.js","assets/EmptyLabel.3dd3478f.js","assets/EmptyLabel.f5921f8a.css","assets/Artists.d1d2aada.css"]:void 0),
+            component: () => __vitePreload(() => import('./Artists.0d6a983c.js'),true?["assets/Artists.0d6a983c.js","assets/Ready.060ad2f1.js","assets/EmptyLabel.5d80ca1a.js","assets/EmptyLabel.f5921f8a.css","assets/Artists.d1d2aada.css"]:void 0),
             abort: []
         },
         {
             path: '/favorite/playlists',
             name: 'favorite-playlists',
-            component: () => __vitePreload(() => import('./Playlists.c873b4a9.js'),true?["assets/Playlists.c873b4a9.js","assets/Ready.d8661fdf.js","assets/EmptyLabel.3dd3478f.js","assets/EmptyLabel.f5921f8a.css","assets/Playlists.82a285ca.css"]:void 0),
+            component: () => __vitePreload(() => import('./Playlists.f0e18e01.js'),true?["assets/Playlists.f0e18e01.js","assets/Ready.060ad2f1.js","assets/EmptyLabel.5d80ca1a.js","assets/EmptyLabel.f5921f8a.css","assets/Playlists.82a285ca.css"]:void 0),
             abort: []
         },
     {
         path: '/settings',
         name: 'settings',
-        component: () => __vitePreload(() => import('./Settings.6b6ab5e2.js'),true?["assets/Settings.6b6ab5e2.js","assets/Ready.d8661fdf.js","assets/Select.1ed5f275.js","assets/Select.080784f0.css","assets/Settings.aa114096.css"]:void 0),
+        component: () => __vitePreload(() => import('./Settings.b4e35ca4.js'),true?["assets/Settings.b4e35ca4.js","assets/Ready.060ad2f1.js","assets/Select.6967bfbd.js","assets/Select.080784f0.css","assets/Settings.aa114096.css"]:void 0),
         abort: []
     },
     {
         path: '/error',
         name: 'error',
-        component: () => __vitePreload(() => import('./Error.b40b523e.js'),true?["assets/Error.b40b523e.js","assets/EmptyLabel.3dd3478f.js","assets/EmptyLabel.f5921f8a.css"]:void 0),
+        component: () => __vitePreload(() => import('./Error.912208b5.js'),true?["assets/Error.912208b5.js","assets/EmptyLabel.5d80ca1a.js","assets/EmptyLabel.f5921f8a.css"]:void 0),
         abort: []
     },
     {
         path: '/access-denied',
         name: 'access-denied',
-        component: () => __vitePreload(() => import('./AccessDenied.0d11970a.js'),true?["assets/AccessDenied.0d11970a.js","assets/EmptyLabel.3dd3478f.js","assets/EmptyLabel.f5921f8a.css","assets/AccessDenied.886229d6.css"]:void 0),
+        component: () => __vitePreload(() => import('./AccessDenied.3ec02136.js'),true?["assets/AccessDenied.3ec02136.js","assets/EmptyLabel.5d80ca1a.js","assets/EmptyLabel.f5921f8a.css","assets/AccessDenied.886229d6.css"]:void 0),
         abort: []
     },
     {
@@ -56826,7 +56827,7 @@ const { openedModals, confirmSettings, modalsComponents } = storeToRefs(modals);
 
 modals.register({
     loader: ModalLoader,
-    welcome: defineAsyncComponent(() => __vitePreload(() => import('./ModalWelcome.55859ad7.js'),true?["assets/ModalWelcome.55859ad7.js","assets/ModalWelcome.8956061c.css"]:void 0)),
+    welcome: defineAsyncComponent(() => __vitePreload(() => import('./ModalWelcome.78d8fd65.js'),true?["assets/ModalWelcome.78d8fd65.js","assets/ModalWelcome.8956061c.css"]:void 0)),
     success: ModalSuccess
 });
 
@@ -57153,7 +57154,7 @@ const browserExt = {
   },
   test: () => true,
   load: async () => {
-    await __vitePreload(() => import('./browserAll.3b5a4b53.js'),true?["assets/browserAll.3b5a4b53.js","assets/init.1f7535fe.js"]:void 0);
+    await __vitePreload(() => import('./browserAll.929ab8a6.js'),true?["assets/browserAll.929ab8a6.js","assets/init.fcc483b4.js"]:void 0);
   }
 };
 
@@ -57165,7 +57166,7 @@ const webworkerExt = {
   },
   test: () => typeof self !== "undefined" && self.WorkerGlobalScope !== void 0,
   load: async () => {
-    await __vitePreload(() => import('./webworkerAll.539fe70e.js'),true?["assets/webworkerAll.539fe70e.js","assets/init.1f7535fe.js"]:void 0);
+    await __vitePreload(() => import('./webworkerAll.72ae6bae.js'),true?["assets/webworkerAll.72ae6bae.js","assets/init.fcc483b4.js"]:void 0);
   }
 };
 

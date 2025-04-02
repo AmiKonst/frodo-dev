@@ -1,5 +1,5 @@
-import { _ as _export_sfc, x as useI18n, D as stores, o as openBlock, c as createElementBlock, A as createTextVNode, g as createVNode, F as Fragment } from './index.883a354d.js';
-import { R as Ready } from './Ready.d8661fdf.js';
+import { _ as _export_sfc, x as useI18n, D as stores, o as openBlock, c as createElementBlock, A as createTextVNode, g as createVNode, F as Fragment } from './index.05e6a95f.js';
+import { R as Ready } from './Ready.060ad2f1.js';
 
 const _sfc_main = {
   __name: 'Music',
