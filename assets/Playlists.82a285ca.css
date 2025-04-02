@@ -1,0 +1,41 @@
+@keyframes fade-up-04c5d775 {
+0% {
+    opacity: 0;
+    transform: translateY(50px);
+}
+100% {
+    opacity: 1;
+    transform: translateY(0);
+}
+}
+@keyframes fade-center-04c5d775 {
+0% {
+    opacity: 0;
+    filter: blur(4px);
+}
+100% {
+    opacity: 1;
+    filter: blur(0);
+}
+}
+.head[data-v-04c5d775] {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  padding: 0 20px 0 6px;
+  height: 60px;
+  flex-shrink: 0;
+  width: 100%;
+}
+.head .title[data-v-04c5d775] {
+  font: var(--font-body-1);
+  font-weight: bold;
+  color: var(--dark-500);
+  margin-right: auto;
+  padding: 0;
+  margin-bottom: 0;
+}
+.empty-label[data-v-04c5d775] {
+  padding: 0 20px;
+}
