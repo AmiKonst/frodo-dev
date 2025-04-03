@@ -30275,40 +30275,6 @@ const useModalsStore = defineStore('modals', {
     }
 });
 
-const useOthersStore = defineStore('others', {
-    state: () => ({
-        ready: false
-    }),
-    getters: {
-        theme: (state) => {
-            return sharedStores.settings().theme || sharedStores.tg().theme;
-        },
-        themePath: (state) => {
-            if (state.theme === 'dark') {
-                return new URL("/frodo-dev/assets/variables.dfea30e4.css?v=1", self.location).href;
-            }
-            return new URL("/frodo-dev/assets/variables.85c9fa90.css?v=1", self.location).href;
-        },
-        svgSpritePath: (state) => {
-            if (state.theme === 'dark') {
-                return new URL("/frodo-dev/assets/svg-sprite.9f7a0654.svg", self.location).href;
-            }
-            return new URL("/frodo-dev/assets/svg-sprite.42f242fd.svg", self.location).href;
-        },
-        animateSvgSpritePath: (state) => {
-            if (state.theme === 'dark') {
-                return new URL("🔗/themes/dark/animate", self.location).href;
-            }
-            return new URL("🔗/themes/light/animate", self.location).href;
-        }
-    },
-    actions: {
-        setReady(payload) {
-            this.ready = payload;
-        }
-    }
-});
-
 function bind$2(fn, thisArg) {
   return function wrap() {
     return fn.apply(thisArg, arguments);
@@ -42323,6 +42289,40 @@ const timePeriodPreview = (values) => {
     return `${ from.format('HH:mm DD.MM.YYYY') } — ${ to.format('HH:mm DD.MM.YYYY') }`;
 };
 
+const useOthersStore = defineStore('others', {
+    state: () => ({
+        ready: false
+    }),
+    getters: {
+        theme: (state) => {
+            return sharedStores.settings().theme || sharedStores.tg().theme;
+        },
+        themePath: (state) => {
+            if (state.theme === 'dark') {
+                return new URL("/frodo-dev/assets/variables.dfea30e4.css?v=1", self.location).href;
+            }
+            return new URL("/frodo-dev/assets/variables.85c9fa90.css?v=1", self.location).href;
+        },
+        svgSpritePath: (state) => {
+            if (state.theme === 'dark') {
+                return new URL("/frodo-dev/assets/svg-sprite.9f7a0654.svg", self.location).href;
+            }
+            return new URL("/frodo-dev/assets/svg-sprite.42f242fd.svg", self.location).href;
+        },
+        animateSvgSpritePath: (state) => {
+            if (state.theme === 'dark') {
+                return `${baseUrl}/themes/dark/animate`;
+            }
+            return `${baseUrl}/themes/light/animate`;
+        }
+    },
+    actions: {
+        setReady(payload) {
+            this.ready = payload;
+        }
+    }
+});
+
 const scriptRel = 'modulepreload';const assetsURL = function(dep) { return "/frodo-dev/"+dep };const seen = {};const __vitePreload = function preload(baseModule, deps, importerUrl) {
     // @ts-ignore
     if (!true || !deps || deps.length === 0) {
@@ -46094,49 +46094,49 @@ const routes = [
     {
         path: '/empty',
         name: 'empty',
-        component: () => __vitePreload(() => import('./Empty.b1b7722b.js'),true?["assets/Empty.b1b7722b.js","assets/Field.c1325c10.js","assets/Field.3845c6b6.css","assets/Select.d10dbc2d.js","assets/Select.080784f0.css","assets/EmptyLabel.8fa45ea7.js","assets/EmptyLabel.f5921f8a.css","assets/Empty.5cb543c2.css"]:void 0),
+        component: () => __vitePreload(() => import('./Empty.f05682be.js'),true?["assets/Empty.f05682be.js","assets/Field.9698984e.js","assets/Field.3845c6b6.css","assets/Select.ded079bd.js","assets/Select.080784f0.css","assets/EmptyLabel.91d1812e.js","assets/EmptyLabel.f5921f8a.css","assets/Empty.5cb543c2.css"]:void 0),
         abort: []
     },
     {
         path: '/music',
         name: 'music',
-        component: () => __vitePreload(() => import('./Music.d06450e0.js'),true?["assets/Music.d06450e0.js","assets/Ready.80aad79c.js"]:void 0),
+        component: () => __vitePreload(() => import('./Music.9b38983a.js'),true?["assets/Music.9b38983a.js","assets/Ready.d6260fbb.js"]:void 0),
         abort: []
     },
     {
         path: '/favorite',
         name: 'favorite',
-        component: () => __vitePreload(() => import('./Favorite.4490a5b6.js'),true?["assets/Favorite.4490a5b6.js","assets/EmptyLabel.8fa45ea7.js","assets/EmptyLabel.f5921f8a.css","assets/Ready.80aad79c.js","assets/Favorite.3396c1d9.css"]:void 0),
+        component: () => __vitePreload(() => import('./Favorite.0840053c.js'),true?["assets/Favorite.0840053c.js","assets/EmptyLabel.91d1812e.js","assets/EmptyLabel.f5921f8a.css","assets/Ready.d6260fbb.js","assets/Favorite.3396c1d9.css"]:void 0),
         abort: []
     },
         {
             path: '/favorite/artists',
             name: 'favorite-artists',
-            component: () => __vitePreload(() => import('./Artists.8cd6abad.js'),true?["assets/Artists.8cd6abad.js","assets/Ready.80aad79c.js","assets/EmptyLabel.8fa45ea7.js","assets/EmptyLabel.f5921f8a.css","assets/Artists.d1d2aada.css"]:void 0),
+            component: () => __vitePreload(() => import('./Artists.af34845f.js'),true?["assets/Artists.af34845f.js","assets/Ready.d6260fbb.js","assets/EmptyLabel.91d1812e.js","assets/EmptyLabel.f5921f8a.css","assets/Artists.d1d2aada.css"]:void 0),
             abort: []
         },
         {
             path: '/favorite/playlists',
             name: 'favorite-playlists',
-            component: () => __vitePreload(() => import('./Playlists.db8521a1.js'),true?["assets/Playlists.db8521a1.js","assets/Ready.80aad79c.js","assets/EmptyLabel.8fa45ea7.js","assets/EmptyLabel.f5921f8a.css","assets/Playlists.82a285ca.css"]:void 0),
+            component: () => __vitePreload(() => import('./Playlists.de3c0346.js'),true?["assets/Playlists.de3c0346.js","assets/Ready.d6260fbb.js","assets/EmptyLabel.91d1812e.js","assets/EmptyLabel.f5921f8a.css","assets/Playlists.82a285ca.css"]:void 0),
             abort: []
         },
     {
         path: '/settings',
         name: 'settings',
-        component: () => __vitePreload(() => import('./Settings.cbc3a0ce.js'),true?["assets/Settings.cbc3a0ce.js","assets/Ready.80aad79c.js","assets/Select.d10dbc2d.js","assets/Select.080784f0.css","assets/Settings.aa114096.css"]:void 0),
+        component: () => __vitePreload(() => import('./Settings.218dbadb.js'),true?["assets/Settings.218dbadb.js","assets/Ready.d6260fbb.js","assets/Select.ded079bd.js","assets/Select.080784f0.css","assets/Settings.cbeceb52.css"]:void 0),
         abort: []
     },
     {
         path: '/error',
         name: 'error',
-        component: () => __vitePreload(() => import('./Error.7b466269.js'),true?["assets/Error.7b466269.js","assets/EmptyLabel.8fa45ea7.js","assets/EmptyLabel.f5921f8a.css"]:void 0),
+        component: () => __vitePreload(() => import('./Error.be3dd2b1.js'),true?["assets/Error.be3dd2b1.js","assets/EmptyLabel.91d1812e.js","assets/EmptyLabel.f5921f8a.css"]:void 0),
         abort: []
     },
     {
         path: '/access-denied',
         name: 'access-denied',
-        component: () => __vitePreload(() => import('./AccessDenied.f5e9ebaa.js'),true?["assets/AccessDenied.f5e9ebaa.js","assets/EmptyLabel.8fa45ea7.js","assets/EmptyLabel.f5921f8a.css","assets/AccessDenied.886229d6.css"]:void 0),
+        component: () => __vitePreload(() => import('./AccessDenied.be301cb7.js'),true?["assets/AccessDenied.be301cb7.js","assets/EmptyLabel.91d1812e.js","assets/EmptyLabel.f5921f8a.css","assets/AccessDenied.886229d6.css"]:void 0),
         abort: []
     },
     {
@@ -55143,7 +55143,7 @@ return (_ctx, _cache) => {
 }
 
 };
-const Icon = /*#__PURE__*/_export_sfc(_sfc_main$k, [['__file',"D:/job/bilbo/shared/components/ui/Icon.vue"]]);
+const Icon = /*#__PURE__*/_export_sfc(_sfc_main$k, [['__file',"D:/bilbo/bilbo/shared/components/ui/Icon.vue"]]);
 
 /**
  * @project   vue3-touch-events
@@ -55717,7 +55717,7 @@ return (_ctx, _cache) => {
 }
 
 };
-const Messages = /*#__PURE__*/_export_sfc(_sfc_main$j, [['__scopeId',"data-v-2c35b512"],['__file',"D:/job/bilbo/shared/components/ui/Messages.vue"]]);
+const Messages = /*#__PURE__*/_export_sfc(_sfc_main$j, [['__scopeId',"data-v-2c35b512"],['__file',"D:/bilbo/bilbo/shared/components/ui/Messages.vue"]]);
 
 const Loader_vue_vue_type_style_index_0_scoped_cc971575_lang = '';
 
@@ -55848,7 +55848,7 @@ return (_ctx, _cache) => {
 }
 
 };
-const Loader = /*#__PURE__*/_export_sfc(_sfc_main$i, [['__scopeId',"data-v-cc971575"],['__file',"D:/job/bilbo/shared/components/ui/Loader.vue"]]);
+const Loader = /*#__PURE__*/_export_sfc(_sfc_main$i, [['__scopeId',"data-v-cc971575"],['__file',"D:/bilbo/bilbo/shared/components/ui/Loader.vue"]]);
 
 const Button_vue_vue_type_style_index_0_scoped_702b1db3_lang = '';
 
@@ -55897,7 +55897,7 @@ return (_ctx, _cache) => {
 }
 
 };
-const Button = /*#__PURE__*/_export_sfc(_sfc_main$h, [['__scopeId',"data-v-702b1db3"],['__file',"D:/job/bilbo/shared/components/ui/Button.vue"]]);
+const Button = /*#__PURE__*/_export_sfc(_sfc_main$h, [['__scopeId',"data-v-702b1db3"],['__file',"D:/bilbo/bilbo/shared/components/ui/Button.vue"]]);
 
 const Toggler_vue_vue_type_style_index_0_scoped_c3740bd4_lang = '';
 
@@ -55971,7 +55971,7 @@ return (_ctx, _cache) => {
 }
 
 };
-const Toggler = /*#__PURE__*/_export_sfc(_sfc_main$g, [['__scopeId',"data-v-c3740bd4"],['__file',"D:/job/bilbo/shared/components/ui/Toggler.vue"]]);
+const Toggler = /*#__PURE__*/_export_sfc(_sfc_main$g, [['__scopeId',"data-v-c3740bd4"],['__file',"D:/bilbo/bilbo/shared/components/ui/Toggler.vue"]]);
 
 const IconButton_vue_vue_type_style_index_0_scoped_862161d4_lang = '';
 
@@ -56010,7 +56010,7 @@ return (_ctx, _cache) => {
 }
 
 };
-const IconButton = /*#__PURE__*/_export_sfc(_sfc_main$f, [['__scopeId',"data-v-862161d4"],['__file',"D:/job/bilbo/shared/components/ui/IconButton.vue"]]);
+const IconButton = /*#__PURE__*/_export_sfc(_sfc_main$f, [['__scopeId',"data-v-862161d4"],['__file',"D:/bilbo/bilbo/shared/components/ui/IconButton.vue"]]);
 
 const DateField_vue_vue_type_style_index_0_lang = '';
 
@@ -56086,7 +56086,7 @@ return (_ctx, _cache) => {
 }
 
 };
-const DateField = /*#__PURE__*/_export_sfc(_sfc_main$e, [['__scopeId',"data-v-41a0da30"],['__file',"D:/job/bilbo/shared/components/ui/DateField.vue"]]);
+const DateField = /*#__PURE__*/_export_sfc(_sfc_main$e, [['__scopeId',"data-v-41a0da30"],['__file',"D:/bilbo/bilbo/shared/components/ui/DateField.vue"]]);
 
 const AdditionFields_vue_vue_type_style_index_0_scoped_bce1a70e_lang = '';
 
@@ -56160,7 +56160,7 @@ return (_ctx, _cache) => {
 }
 
 };
-const AdditionFields = /*#__PURE__*/_export_sfc(_sfc_main$d, [['__scopeId',"data-v-bce1a70e"],['__file',"D:/job/bilbo/shared/components/ui/AdditionFields.vue"]]);
+const AdditionFields = /*#__PURE__*/_export_sfc(_sfc_main$d, [['__scopeId',"data-v-bce1a70e"],['__file',"D:/bilbo/bilbo/shared/components/ui/AdditionFields.vue"]]);
 
 const Message_vue_vue_type_style_index_0_scoped_740ad6d1_lang = '';
 
@@ -56203,7 +56203,7 @@ return (_ctx, _cache) => {
 }
 
 };
-const Message = /*#__PURE__*/_export_sfc(_sfc_main$c, [['__scopeId',"data-v-740ad6d1"],['__file',"D:/job/bilbo/shared/components/ui/Message.vue"]]);
+const Message = /*#__PURE__*/_export_sfc(_sfc_main$c, [['__scopeId',"data-v-740ad6d1"],['__file',"D:/bilbo/bilbo/shared/components/ui/Message.vue"]]);
 
 const ModalBox_vue_vue_type_style_index_0_lang = '';
 
@@ -56385,7 +56385,7 @@ return (_ctx, _cache) => {
 }
 
 };
-const ModalBox = /*#__PURE__*/_export_sfc(_sfc_main$b, [['__file',"D:/job/bilbo/shared/components/ui/ModalBox.vue"]]);
+const ModalBox = /*#__PURE__*/_export_sfc(_sfc_main$b, [['__file',"D:/bilbo/bilbo/shared/components/ui/ModalBox.vue"]]);
 
 const BaseModal_vue_vue_type_style_index_0_scoped_5bc2d25e_lang = '';
 
@@ -56542,7 +56542,7 @@ return (_ctx, _cache) => {
 }
 
 };
-const BaseModal = /*#__PURE__*/_export_sfc(_sfc_main$a, [['__scopeId',"data-v-5bc2d25e"],['__file',"D:/job/bilbo/shared/components/modals/BaseModal.vue"]]);
+const BaseModal = /*#__PURE__*/_export_sfc(_sfc_main$a, [['__scopeId',"data-v-5bc2d25e"],['__file',"D:/bilbo/bilbo/shared/components/modals/BaseModal.vue"]]);
 
 const ModalConfirm_vue_vue_type_style_index_0_lang = '';
 
@@ -56684,7 +56684,7 @@ return (_ctx, _cache) => {
 }
 
 };
-const ModalConfirm = /*#__PURE__*/_export_sfc(_sfc_main$9, [['__scopeId',"data-v-db94b51c"],['__file',"D:/job/bilbo/shared/components/modals/ModalConfirm.vue"]]);
+const ModalConfirm = /*#__PURE__*/_export_sfc(_sfc_main$9, [['__scopeId',"data-v-db94b51c"],['__file',"D:/bilbo/bilbo/shared/components/modals/ModalConfirm.vue"]]);
 
 const ModalLoader_vue_vue_type_style_index_0_scoped_5125e881_lang = '';
 
@@ -56738,7 +56738,7 @@ return (_ctx, _cache) => {
 }
 
 };
-const ModalLoader = /*#__PURE__*/_export_sfc(_sfc_main$8, [['__scopeId',"data-v-5125e881"],['__file',"D:/job/bilbo/shared/components/modals/ModalLoader.vue"]]);
+const ModalLoader = /*#__PURE__*/_export_sfc(_sfc_main$8, [['__scopeId',"data-v-5125e881"],['__file',"D:/bilbo/bilbo/shared/components/modals/ModalLoader.vue"]]);
 
 const ModalSuccess_vue_vue_type_style_index_0_lang = '';
 
@@ -56813,7 +56813,7 @@ return (_ctx, _cache) => {
 }
 
 };
-const ModalSuccess = /*#__PURE__*/_export_sfc(_sfc_main$7, [['__scopeId',"data-v-865f03e2"],['__file',"D:/job/bilbo/shared/components/modals/ModalSuccess.vue"]]);
+const ModalSuccess = /*#__PURE__*/_export_sfc(_sfc_main$7, [['__scopeId',"data-v-865f03e2"],['__file',"D:/bilbo/bilbo/shared/components/modals/ModalSuccess.vue"]]);
 
 const _sfc_main$6 = {
   __name: 'Modals',
@@ -56825,7 +56825,7 @@ const { openedModals, confirmSettings, modalsComponents } = storeToRefs(modals);
 
 modals.register({
     loader: ModalLoader,
-    welcome: defineAsyncComponent(() => __vitePreload(() => import('./ModalWelcome.8b056dcc.js'),true?["assets/ModalWelcome.8b056dcc.js","assets/ModalWelcome.8956061c.css"]:void 0)),
+    welcome: defineAsyncComponent(() => __vitePreload(() => import('./ModalWelcome.e0024f5d.js'),true?["assets/ModalWelcome.e0024f5d.js","assets/ModalWelcome.8956061c.css"]:void 0)),
     success: ModalSuccess
 });
 
@@ -56858,7 +56858,7 @@ return (_ctx, _cache) => {
 }
 
 };
-const Modals = /*#__PURE__*/_export_sfc(_sfc_main$6, [['__file',"D:/job/bilbo/src/components/modals/Modals.vue"]]);
+const Modals = /*#__PURE__*/_export_sfc(_sfc_main$6, [['__file',"D:/bilbo/bilbo/src/components/modals/Modals.vue"]]);
 
 const _hoisted_1$2 = ["href"];
 
@@ -56909,7 +56909,7 @@ return (_ctx, _cache) => {
 }
 
 };
-const empty = /*#__PURE__*/_export_sfc(_sfc_main$5, [['__file',"D:/job/bilbo/src/layouts/empty.vue"]]);
+const empty = /*#__PURE__*/_export_sfc(_sfc_main$5, [['__file',"D:/bilbo/bilbo/src/layouts/empty.vue"]]);
 
 const Navigation_vue_vue_type_style_index_0_scoped_e50ad98c_lang = '';
 
@@ -56937,7 +56937,7 @@ return (_ctx, _cache) => {
 }
 
 };
-const Navigation = /*#__PURE__*/_export_sfc(_sfc_main$4, [['__scopeId',"data-v-e50ad98c"],['__file',"D:/job/bilbo/src/layouts/components/Navigation/Navigation.vue"]]);
+const Navigation = /*#__PURE__*/_export_sfc(_sfc_main$4, [['__scopeId',"data-v-e50ad98c"],['__file',"D:/bilbo/bilbo/src/layouts/components/Navigation/Navigation.vue"]]);
 
 const Circle_vue_vue_type_style_index_0_scoped_ee7f456b_lang = '';
 
@@ -56966,7 +56966,7 @@ return (_ctx, _cache) => {
 }
 
 };
-const Circle = /*#__PURE__*/_export_sfc(_sfc_main$3, [['__scopeId',"data-v-ee7f456b"],['__file',"D:/job/bilbo/shared/components/ui/Circle.vue"]]);
+const Circle = /*#__PURE__*/_export_sfc(_sfc_main$3, [['__scopeId',"data-v-ee7f456b"],['__file',"D:/bilbo/bilbo/shared/components/ui/Circle.vue"]]);
 
 var ExtensionType = /* @__PURE__ */ ((ExtensionType2) => {
   ExtensionType2["Application"] = "application";
@@ -57152,7 +57152,7 @@ const browserExt = {
   },
   test: () => true,
   load: async () => {
-    await __vitePreload(() => import('./browserAll.0c2e8a1f.js'),true?["assets/browserAll.0c2e8a1f.js","assets/init.dbbf6a72.js"]:void 0);
+    await __vitePreload(() => import('./browserAll.bb4f5446.js'),true?["assets/browserAll.bb4f5446.js","assets/init.739d13cb.js"]:void 0);
   }
 };
 
@@ -57164,7 +57164,7 @@ const webworkerExt = {
   },
   test: () => typeof self !== "undefined" && self.WorkerGlobalScope !== void 0,
   load: async () => {
-    await __vitePreload(() => import('./webworkerAll.8f66640f.js'),true?["assets/webworkerAll.8f66640f.js","assets/init.dbbf6a72.js"]:void 0);
+    await __vitePreload(() => import('./webworkerAll.e28e1cbb.js'),true?["assets/webworkerAll.e28e1cbb.js","assets/init.739d13cb.js"]:void 0);
   }
 };
 
@@ -65780,7 +65780,7 @@ return (_ctx, _cache) => {
 }
 
 };
-const Pixi = /*#__PURE__*/_export_sfc(_sfc_main$2, [['__file',"D:/job/bilbo/shared/components/ui/Pixi.vue"]]);
+const Pixi = /*#__PURE__*/_export_sfc(_sfc_main$2, [['__file',"D:/bilbo/bilbo/shared/components/ui/Pixi.vue"]]);
 
 const index_vue_vue_type_style_index_0_scoped_dd9bf3bf_lang = '';
 
@@ -65867,7 +65867,7 @@ return (_ctx, _cache) => {
 }
 
 };
-const layout = /*#__PURE__*/_export_sfc(_sfc_main$1, [['__scopeId',"data-v-dd9bf3bf"],['__file',"D:/job/bilbo/src/layouts/index.vue"]]);
+const layout = /*#__PURE__*/_export_sfc(_sfc_main$1, [['__scopeId',"data-v-dd9bf3bf"],['__file',"D:/bilbo/bilbo/src/layouts/index.vue"]]);
 
 const _sfc_main = {
   __name: 'App',
@@ -65893,7 +65893,7 @@ return (_ctx, _cache) => {
 }
 
 };
-const App = /*#__PURE__*/_export_sfc(_sfc_main, [['__file',"D:/job/bilbo/src/App.vue"]]);
+const App = /*#__PURE__*/_export_sfc(_sfc_main, [['__file',"D:/bilbo/bilbo/src/App.vue"]]);
 
 var vueTheMask = {exports: {}};
 

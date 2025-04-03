@@ -1,5 +1,5 @@
-import { _ as _export_sfc, x as useI18n, a as reactive, o as openBlock, c as createElementBlock, i as createBaseVNode, g as createVNode, B as unref, F as Fragment } from './index.03d698b7.js';
-import { E as EmptyLabel } from './EmptyLabel.8fa45ea7.js';
+import { _ as _export_sfc, x as useI18n, a as reactive, o as openBlock, c as createElementBlock, i as createBaseVNode, g as createVNode, B as unref, F as Fragment } from './index.246eb193.js';
+import { E as EmptyLabel } from './EmptyLabel.91d1812e.js';
 
 const AccessDenied_vue_vue_type_style_index_0_scoped_277b3fba_lang = '';
 
@@ -28,6 +28,6 @@ return (_ctx, _cache) => {
 }
 
 };
-const AccessDenied = /*#__PURE__*/_export_sfc(_sfc_main, [['__scopeId',"data-v-277b3fba"],['__file',"D:/job/bilbo/src/pages/AccessDenied.vue"]]);
+const AccessDenied = /*#__PURE__*/_export_sfc(_sfc_main, [['__scopeId',"data-v-277b3fba"],['__file',"D:/bilbo/bilbo/src/pages/AccessDenied.vue"]]);
 
 export { AccessDenied as default };

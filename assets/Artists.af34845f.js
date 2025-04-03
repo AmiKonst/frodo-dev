@@ -1,6 +1,6 @@
-import { _ as _export_sfc, x as useI18n, D as stores, o as openBlock, c as createElementBlock, i as createBaseVNode, g as createVNode, B as unref, I as IconButton, t as toDisplayString, F as Fragment } from './index.03d698b7.js';
-import { R as Ready } from './Ready.80aad79c.js';
-import { E as EmptyLabel } from './EmptyLabel.8fa45ea7.js';
+import { _ as _export_sfc, x as useI18n, D as stores, o as openBlock, c as createElementBlock, i as createBaseVNode, g as createVNode, B as unref, I as IconButton, t as toDisplayString, F as Fragment } from './index.246eb193.js';
+import { R as Ready } from './Ready.d6260fbb.js';
+import { E as EmptyLabel } from './EmptyLabel.91d1812e.js';
 
 const Artists_vue_vue_type_style_index_0_scoped_c2eb6455_lang = '';
 
@@ -43,6 +43,6 @@ return (_ctx, _cache) => {
 }
 
 };
-const Artists = /*#__PURE__*/_export_sfc(_sfc_main, [['__scopeId',"data-v-c2eb6455"],['__file',"D:/job/bilbo/src/pages/Favorite/Artists/Artists.vue"]]);
+const Artists = /*#__PURE__*/_export_sfc(_sfc_main, [['__scopeId',"data-v-c2eb6455"],['__file',"D:/bilbo/bilbo/src/pages/Favorite/Artists/Artists.vue"]]);
 
 export { Artists as default };

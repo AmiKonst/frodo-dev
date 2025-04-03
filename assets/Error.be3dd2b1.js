@@ -1,5 +1,5 @@
-import { _ as _export_sfc, x as useI18n, a as reactive, o as openBlock, d as createBlock, B as unref } from './index.03d698b7.js';
-import { E as EmptyLabel } from './EmptyLabel.8fa45ea7.js';
+import { _ as _export_sfc, x as useI18n, a as reactive, o as openBlock, d as createBlock, B as unref } from './index.246eb193.js';
+import { E as EmptyLabel } from './EmptyLabel.91d1812e.js';
 
 const _sfc_main = {
   __name: 'Error',
@@ -22,6 +22,6 @@ return (_ctx, _cache) => {
 }
 
 };
-const Error = /*#__PURE__*/_export_sfc(_sfc_main, [['__file',"D:/job/bilbo/src/pages/Error.vue"]]);
+const Error = /*#__PURE__*/_export_sfc(_sfc_main, [['__file',"D:/bilbo/bilbo/src/pages/Error.vue"]]);
 
 export { Error as default };

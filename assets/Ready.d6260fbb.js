@@ -1,4 +1,4 @@
-import { _ as _export_sfc, D as stores, P as storeToRefs, l as watch } from './index.03d698b7.js';
+import { _ as _export_sfc, D as stores, P as storeToRefs, l as watch } from './index.246eb193.js';
 
 const _sfc_main = {
   __name: 'Ready',
@@ -49,6 +49,6 @@ return (_ctx, _cache) => {
 }
 
 };
-const Ready = /*#__PURE__*/_export_sfc(_sfc_main, [['__file',"D:/job/bilbo/shared/components/ui/Ready.vue"]]);
+const Ready = /*#__PURE__*/_export_sfc(_sfc_main, [['__file',"D:/bilbo/bilbo/shared/components/ui/Ready.vue"]]);
 
 export { Ready as R };
