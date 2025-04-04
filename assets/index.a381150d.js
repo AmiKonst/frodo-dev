@@ -46094,49 +46094,49 @@ const routes = [
     {
         path: '/empty',
         name: 'empty',
-        component: () => __vitePreload(() => import('./Empty.f708e30c.js'),true?["assets/Empty.f708e30c.js","assets/Field.d04aa021.js","assets/Field.3845c6b6.css","assets/Select.2eaaab24.js","assets/Select.c2eabf07.css","assets/EmptyLabel.5aefe469.js","assets/EmptyLabel.f5921f8a.css","assets/Empty.5cb543c2.css"]:void 0),
+        component: () => __vitePreload(() => import('./Empty.895ac58a.js'),true?["assets/Empty.895ac58a.js","assets/Field.43fd1185.js","assets/Field.3845c6b6.css","assets/Select.236fe3b8.js","assets/Select.c2eabf07.css","assets/EmptyLabel.a559ca6e.js","assets/EmptyLabel.f5921f8a.css","assets/Empty.5cb543c2.css"]:void 0),
         abort: []
     },
     {
         path: '/music',
         name: 'music',
-        component: () => __vitePreload(() => import('./Music.86c85b69.js'),true?["assets/Music.86c85b69.js","assets/Ready.231185ec.js"]:void 0),
+        component: () => __vitePreload(() => import('./Music.02d944de.js'),true?["assets/Music.02d944de.js","assets/Ready.37ff22fe.js"]:void 0),
         abort: []
     },
     {
         path: '/favorite',
         name: 'favorite',
-        component: () => __vitePreload(() => import('./Favorite.d8a90cb1.js'),true?["assets/Favorite.d8a90cb1.js","assets/EmptyLabel.5aefe469.js","assets/EmptyLabel.f5921f8a.css","assets/Ready.231185ec.js","assets/Favorite.3396c1d9.css"]:void 0),
+        component: () => __vitePreload(() => import('./Favorite.709d02e5.js'),true?["assets/Favorite.709d02e5.js","assets/EmptyLabel.a559ca6e.js","assets/EmptyLabel.f5921f8a.css","assets/Ready.37ff22fe.js","assets/Favorite.3396c1d9.css"]:void 0),
         abort: []
     },
         {
             path: '/favorite/artists',
             name: 'favorite-artists',
-            component: () => __vitePreload(() => import('./Artists.e44368b6.js'),true?["assets/Artists.e44368b6.js","assets/Ready.231185ec.js","assets/EmptyLabel.5aefe469.js","assets/EmptyLabel.f5921f8a.css","assets/Artists.d1d2aada.css"]:void 0),
+            component: () => __vitePreload(() => import('./Artists.9e25314a.js'),true?["assets/Artists.9e25314a.js","assets/Ready.37ff22fe.js","assets/EmptyLabel.a559ca6e.js","assets/EmptyLabel.f5921f8a.css","assets/Artists.d1d2aada.css"]:void 0),
             abort: []
         },
         {
             path: '/favorite/playlists',
             name: 'favorite-playlists',
-            component: () => __vitePreload(() => import('./Playlists.f39169f9.js'),true?["assets/Playlists.f39169f9.js","assets/Ready.231185ec.js","assets/EmptyLabel.5aefe469.js","assets/EmptyLabel.f5921f8a.css","assets/Playlists.82a285ca.css"]:void 0),
+            component: () => __vitePreload(() => import('./Playlists.d23b8cb5.js'),true?["assets/Playlists.d23b8cb5.js","assets/Ready.37ff22fe.js","assets/EmptyLabel.a559ca6e.js","assets/EmptyLabel.f5921f8a.css","assets/Playlists.82a285ca.css"]:void 0),
             abort: []
         },
     {
         path: '/settings',
         name: 'settings',
-        component: () => __vitePreload(() => import('./Settings.0943aa66.js'),true?["assets/Settings.0943aa66.js","assets/Ready.231185ec.js","assets/Select.2eaaab24.js","assets/Select.c2eabf07.css","assets/Settings.cbeceb52.css"]:void 0),
+        component: () => __vitePreload(() => import('./Settings.b9caf66a.js'),true?["assets/Settings.b9caf66a.js","assets/Ready.37ff22fe.js","assets/Select.236fe3b8.js","assets/Select.c2eabf07.css","assets/Settings.cbeceb52.css"]:void 0),
         abort: []
     },
     {
         path: '/error',
         name: 'error',
-        component: () => __vitePreload(() => import('./Error.e0dd64d1.js'),true?["assets/Error.e0dd64d1.js","assets/EmptyLabel.5aefe469.js","assets/EmptyLabel.f5921f8a.css"]:void 0),
+        component: () => __vitePreload(() => import('./Error.ee8da23b.js'),true?["assets/Error.ee8da23b.js","assets/EmptyLabel.a559ca6e.js","assets/EmptyLabel.f5921f8a.css"]:void 0),
         abort: []
     },
     {
         path: '/access-denied',
         name: 'access-denied',
-        component: () => __vitePreload(() => import('./AccessDenied.36a505f9.js'),true?["assets/AccessDenied.36a505f9.js","assets/EmptyLabel.5aefe469.js","assets/EmptyLabel.f5921f8a.css","assets/AccessDenied.886229d6.css"]:void 0),
+        component: () => __vitePreload(() => import('./AccessDenied.d1fcabc2.js'),true?["assets/AccessDenied.d1fcabc2.js","assets/EmptyLabel.a559ca6e.js","assets/EmptyLabel.f5921f8a.css","assets/AccessDenied.886229d6.css"]:void 0),
         abort: []
     },
     {
@@ -56845,7 +56845,7 @@ const { openedModals, confirmSettings, modalsComponents } = storeToRefs(modals);
 
 modals.register({
     loader: ModalLoader,
-    welcome: defineAsyncComponent(() => __vitePreload(() => import('./ModalWelcome.b018b8ec.js'),true?["assets/ModalWelcome.b018b8ec.js","assets/ModalWelcome.8956061c.css"]:void 0)),
+    welcome: defineAsyncComponent(() => __vitePreload(() => import('./ModalWelcome.2e84b894.js'),true?["assets/ModalWelcome.2e84b894.js","assets/ModalWelcome.8956061c.css"]:void 0)),
     success: ModalSuccess
 });
 
@@ -57172,7 +57172,7 @@ const browserExt = {
   },
   test: () => true,
   load: async () => {
-    await __vitePreload(() => import('./browserAll.4a012723.js'),true?["assets/browserAll.4a012723.js","assets/init.2a390cf5.js"]:void 0);
+    await __vitePreload(() => import('./browserAll.64a1de8f.js'),true?["assets/browserAll.64a1de8f.js","assets/init.ea6714a4.js"]:void 0);
   }
 };
 
@@ -57184,7 +57184,7 @@ const webworkerExt = {
   },
   test: () => typeof self !== "undefined" && self.WorkerGlobalScope !== void 0,
   load: async () => {
-    await __vitePreload(() => import('./webworkerAll.4b04b735.js'),true?["assets/webworkerAll.4b04b735.js","assets/init.2a390cf5.js"]:void 0);
+    await __vitePreload(() => import('./webworkerAll.9d16ec28.js'),true?["assets/webworkerAll.9d16ec28.js","assets/init.ea6714a4.js"]:void 0);
   }
 };
 
@@ -65822,7 +65822,7 @@ const user = stores$1.user();
 const modals = stores$1.modals();
 const nav = stores$1.nav();
 
-const right = () => {
+const left = () => {
     nav.back();
 };
 
@@ -65855,6 +65855,12 @@ const ready = async () => {
 };
 
 onMounted(async () => {
+    window.addEventListener('touchmove', function (e) {
+        if (window.scrollY < 0) {
+            e.preventDefault();
+        }
+    }, { passive: false });
+
     await tg.init();
 
     modals.open('loader');
@@ -65887,9 +65893,9 @@ return (_ctx, _cache) => {
     ])), [
       [
         _directive_touch,
-        right,
+        left,
         "swipe",
-        { right: true }
+        { left: true }
       ]
     ]),
     createBaseVNode("div", _hoisted_4, [
