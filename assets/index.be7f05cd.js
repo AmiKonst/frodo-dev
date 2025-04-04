@@ -42258,7 +42258,8 @@ async function fetchData({ url, method, data, params, auth = true, formData, con
         signal,
         params,
         responseType,
-        paramsSerializer
+        paramsSerializer,
+        withCredentials: true
     });
 }
 
@@ -46094,49 +46095,49 @@ const routes = [
     {
         path: '/empty',
         name: 'empty',
-        component: () => __vitePreload(() => import('./Empty.c11a0e33.js'),true?["assets/Empty.c11a0e33.js","assets/Field.2305ab01.js","assets/Field.3845c6b6.css","assets/Select.28afbee7.js","assets/Select.c2eabf07.css","assets/EmptyLabel.7125b423.js","assets/EmptyLabel.f5921f8a.css","assets/Empty.5cb543c2.css"]:void 0),
+        component: () => __vitePreload(() => import('./Empty.91083848.js'),true?["assets/Empty.91083848.js","assets/Field.7981cfd0.js","assets/Field.3845c6b6.css","assets/Select.bf474d40.js","assets/Select.c2eabf07.css","assets/EmptyLabel.3a7f292b.js","assets/EmptyLabel.f5921f8a.css","assets/Empty.5cb543c2.css"]:void 0),
         abort: []
     },
     {
         path: '/music',
         name: 'music',
-        component: () => __vitePreload(() => import('./Music.5e08837d.js'),true?["assets/Music.5e08837d.js","assets/Ready.a72485ce.js"]:void 0),
+        component: () => __vitePreload(() => import('./Music.139c413a.js'),true?["assets/Music.139c413a.js","assets/Ready.82d617a3.js"]:void 0),
         abort: []
     },
     {
         path: '/favorite',
         name: 'favorite',
-        component: () => __vitePreload(() => import('./Favorite.2e16f395.js'),true?["assets/Favorite.2e16f395.js","assets/EmptyLabel.7125b423.js","assets/EmptyLabel.f5921f8a.css","assets/Ready.a72485ce.js","assets/Favorite.3396c1d9.css"]:void 0),
+        component: () => __vitePreload(() => import('./Favorite.5727cf60.js'),true?["assets/Favorite.5727cf60.js","assets/EmptyLabel.3a7f292b.js","assets/EmptyLabel.f5921f8a.css","assets/Ready.82d617a3.js","assets/Favorite.3396c1d9.css"]:void 0),
         abort: []
     },
         {
             path: '/favorite/artists',
             name: 'favorite-artists',
-            component: () => __vitePreload(() => import('./Artists.78588760.js'),true?["assets/Artists.78588760.js","assets/Ready.a72485ce.js","assets/EmptyLabel.7125b423.js","assets/EmptyLabel.f5921f8a.css","assets/Artists.d1d2aada.css"]:void 0),
+            component: () => __vitePreload(() => import('./Artists.9d616152.js'),true?["assets/Artists.9d616152.js","assets/Ready.82d617a3.js","assets/EmptyLabel.3a7f292b.js","assets/EmptyLabel.f5921f8a.css","assets/Artists.d1d2aada.css"]:void 0),
             abort: []
         },
         {
             path: '/favorite/playlists',
             name: 'favorite-playlists',
-            component: () => __vitePreload(() => import('./Playlists.c7c971f6.js'),true?["assets/Playlists.c7c971f6.js","assets/Ready.a72485ce.js","assets/EmptyLabel.7125b423.js","assets/EmptyLabel.f5921f8a.css","assets/Playlists.82a285ca.css"]:void 0),
+            component: () => __vitePreload(() => import('./Playlists.bc70d99a.js'),true?["assets/Playlists.bc70d99a.js","assets/Ready.82d617a3.js","assets/EmptyLabel.3a7f292b.js","assets/EmptyLabel.f5921f8a.css","assets/Playlists.82a285ca.css"]:void 0),
             abort: []
         },
     {
         path: '/settings',
         name: 'settings',
-        component: () => __vitePreload(() => import('./Settings.6a359144.js'),true?["assets/Settings.6a359144.js","assets/Ready.a72485ce.js","assets/Select.28afbee7.js","assets/Select.c2eabf07.css","assets/Settings.cbeceb52.css"]:void 0),
+        component: () => __vitePreload(() => import('./Settings.80d1019a.js'),true?["assets/Settings.80d1019a.js","assets/Ready.82d617a3.js","assets/Select.bf474d40.js","assets/Select.c2eabf07.css","assets/Settings.cbeceb52.css"]:void 0),
         abort: []
     },
     {
         path: '/error',
         name: 'error',
-        component: () => __vitePreload(() => import('./Error.24cb5b09.js'),true?["assets/Error.24cb5b09.js","assets/EmptyLabel.7125b423.js","assets/EmptyLabel.f5921f8a.css"]:void 0),
+        component: () => __vitePreload(() => import('./Error.a1f2fc7d.js'),true?["assets/Error.a1f2fc7d.js","assets/EmptyLabel.3a7f292b.js","assets/EmptyLabel.f5921f8a.css"]:void 0),
         abort: []
     },
     {
         path: '/access-denied',
         name: 'access-denied',
-        component: () => __vitePreload(() => import('./AccessDenied.567445de.js'),true?["assets/AccessDenied.567445de.js","assets/EmptyLabel.7125b423.js","assets/EmptyLabel.f5921f8a.css","assets/AccessDenied.886229d6.css"]:void 0),
+        component: () => __vitePreload(() => import('./AccessDenied.95d330bc.js'),true?["assets/AccessDenied.95d330bc.js","assets/EmptyLabel.3a7f292b.js","assets/EmptyLabel.f5921f8a.css","assets/AccessDenied.886229d6.css"]:void 0),
         abort: []
     },
     {
@@ -56845,7 +56846,7 @@ const { openedModals, confirmSettings, modalsComponents } = storeToRefs(modals);
 
 modals.register({
     loader: ModalLoader,
-    welcome: defineAsyncComponent(() => __vitePreload(() => import('./ModalWelcome.d9346bb3.js'),true?["assets/ModalWelcome.d9346bb3.js","assets/ModalWelcome.8956061c.css"]:void 0)),
+    welcome: defineAsyncComponent(() => __vitePreload(() => import('./ModalWelcome.0f7d9063.js'),true?["assets/ModalWelcome.0f7d9063.js","assets/ModalWelcome.8956061c.css"]:void 0)),
     success: ModalSuccess
 });
 
@@ -57173,7 +57174,7 @@ const browserExt = {
   },
   test: () => true,
   load: async () => {
-    await __vitePreload(() => import('./browserAll.c0b99ffa.js'),true?["assets/browserAll.c0b99ffa.js","assets/init.ad57d777.js"]:void 0);
+    await __vitePreload(() => import('./browserAll.aa8f294e.js'),true?["assets/browserAll.aa8f294e.js","assets/init.6a36fb7e.js"]:void 0);
   }
 };
 
@@ -57185,7 +57186,7 @@ const webworkerExt = {
   },
   test: () => typeof self !== "undefined" && self.WorkerGlobalScope !== void 0,
   load: async () => {
-    await __vitePreload(() => import('./webworkerAll.61f3641a.js'),true?["assets/webworkerAll.61f3641a.js","assets/init.ad57d777.js"]:void 0);
+    await __vitePreload(() => import('./webworkerAll.ea023b25.js'),true?["assets/webworkerAll.ea023b25.js","assets/init.6a36fb7e.js"]:void 0);
   }
 };
 
@@ -65839,6 +65840,7 @@ const ready = async () => {
         }
         return;
     }
+        await user.me();
 
     if (!user?.profile) {
         await user.me();
