@@ -46094,49 +46094,49 @@ const routes = [
     {
         path: '/empty',
         name: 'empty',
-        component: () => __vitePreload(() => import('./Empty.895ac58a.js'),true?["assets/Empty.895ac58a.js","assets/Field.43fd1185.js","assets/Field.3845c6b6.css","assets/Select.236fe3b8.js","assets/Select.c2eabf07.css","assets/EmptyLabel.a559ca6e.js","assets/EmptyLabel.f5921f8a.css","assets/Empty.5cb543c2.css"]:void 0),
+        component: () => __vitePreload(() => import('./Empty.c11a0e33.js'),true?["assets/Empty.c11a0e33.js","assets/Field.2305ab01.js","assets/Field.3845c6b6.css","assets/Select.28afbee7.js","assets/Select.c2eabf07.css","assets/EmptyLabel.7125b423.js","assets/EmptyLabel.f5921f8a.css","assets/Empty.5cb543c2.css"]:void 0),
         abort: []
     },
     {
         path: '/music',
         name: 'music',
-        component: () => __vitePreload(() => import('./Music.02d944de.js'),true?["assets/Music.02d944de.js","assets/Ready.37ff22fe.js"]:void 0),
+        component: () => __vitePreload(() => import('./Music.5e08837d.js'),true?["assets/Music.5e08837d.js","assets/Ready.a72485ce.js"]:void 0),
         abort: []
     },
     {
         path: '/favorite',
         name: 'favorite',
-        component: () => __vitePreload(() => import('./Favorite.709d02e5.js'),true?["assets/Favorite.709d02e5.js","assets/EmptyLabel.a559ca6e.js","assets/EmptyLabel.f5921f8a.css","assets/Ready.37ff22fe.js","assets/Favorite.3396c1d9.css"]:void 0),
+        component: () => __vitePreload(() => import('./Favorite.2e16f395.js'),true?["assets/Favorite.2e16f395.js","assets/EmptyLabel.7125b423.js","assets/EmptyLabel.f5921f8a.css","assets/Ready.a72485ce.js","assets/Favorite.3396c1d9.css"]:void 0),
         abort: []
     },
         {
             path: '/favorite/artists',
             name: 'favorite-artists',
-            component: () => __vitePreload(() => import('./Artists.9e25314a.js'),true?["assets/Artists.9e25314a.js","assets/Ready.37ff22fe.js","assets/EmptyLabel.a559ca6e.js","assets/EmptyLabel.f5921f8a.css","assets/Artists.d1d2aada.css"]:void 0),
+            component: () => __vitePreload(() => import('./Artists.78588760.js'),true?["assets/Artists.78588760.js","assets/Ready.a72485ce.js","assets/EmptyLabel.7125b423.js","assets/EmptyLabel.f5921f8a.css","assets/Artists.d1d2aada.css"]:void 0),
             abort: []
         },
         {
             path: '/favorite/playlists',
             name: 'favorite-playlists',
-            component: () => __vitePreload(() => import('./Playlists.d23b8cb5.js'),true?["assets/Playlists.d23b8cb5.js","assets/Ready.37ff22fe.js","assets/EmptyLabel.a559ca6e.js","assets/EmptyLabel.f5921f8a.css","assets/Playlists.82a285ca.css"]:void 0),
+            component: () => __vitePreload(() => import('./Playlists.c7c971f6.js'),true?["assets/Playlists.c7c971f6.js","assets/Ready.a72485ce.js","assets/EmptyLabel.7125b423.js","assets/EmptyLabel.f5921f8a.css","assets/Playlists.82a285ca.css"]:void 0),
             abort: []
         },
     {
         path: '/settings',
         name: 'settings',
-        component: () => __vitePreload(() => import('./Settings.b9caf66a.js'),true?["assets/Settings.b9caf66a.js","assets/Ready.37ff22fe.js","assets/Select.236fe3b8.js","assets/Select.c2eabf07.css","assets/Settings.cbeceb52.css"]:void 0),
+        component: () => __vitePreload(() => import('./Settings.6a359144.js'),true?["assets/Settings.6a359144.js","assets/Ready.a72485ce.js","assets/Select.28afbee7.js","assets/Select.c2eabf07.css","assets/Settings.cbeceb52.css"]:void 0),
         abort: []
     },
     {
         path: '/error',
         name: 'error',
-        component: () => __vitePreload(() => import('./Error.ee8da23b.js'),true?["assets/Error.ee8da23b.js","assets/EmptyLabel.a559ca6e.js","assets/EmptyLabel.f5921f8a.css"]:void 0),
+        component: () => __vitePreload(() => import('./Error.24cb5b09.js'),true?["assets/Error.24cb5b09.js","assets/EmptyLabel.7125b423.js","assets/EmptyLabel.f5921f8a.css"]:void 0),
         abort: []
     },
     {
         path: '/access-denied',
         name: 'access-denied',
-        component: () => __vitePreload(() => import('./AccessDenied.d1fcabc2.js'),true?["assets/AccessDenied.d1fcabc2.js","assets/EmptyLabel.a559ca6e.js","assets/EmptyLabel.f5921f8a.css","assets/AccessDenied.886229d6.css"]:void 0),
+        component: () => __vitePreload(() => import('./AccessDenied.567445de.js'),true?["assets/AccessDenied.567445de.js","assets/EmptyLabel.7125b423.js","assets/EmptyLabel.f5921f8a.css","assets/AccessDenied.886229d6.css"]:void 0),
         abort: []
     },
     {
@@ -46207,7 +46207,7 @@ const useNavStore = defineStore('nav', {
     },
     actions: {
         setPage(name) {
-            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            let scrollTop = document.querySelector('.page')?.scrollTop;// window.pageYOffset || document.documentElement.scrollTop;
 
             if (this.page && scrollTop) {
                 this.scrollPositions[this.page] = { top: scrollTop };
@@ -46233,7 +46233,7 @@ const useNavStore = defineStore('nav', {
             }
 
             if (this.scrollPositions[this.page]?.top) {
-                window.scrollTo({
+                document.querySelector('.page')?.scrollTo({
                     top: this.scrollPositions[this.page]?.top,
                     left: 0
                 });
@@ -55053,8 +55053,8 @@ const useTgStore = defineStore('tg', {
                 window.Telegram?.WebApp.setHeaderColor('#ffffff');
                 window.Telegram?.WebApp.setBackgroundColor('#ffffff');
             } else {
-                window.Telegram?.WebApp.setHeaderColor('#323232');
-                window.Telegram?.WebApp.setBackgroundColor('#323232');
+                window.Telegram?.WebApp.setHeaderColor('#121212');
+                window.Telegram?.WebApp.setBackgroundColor('#121212');
             }
         },
         getRef() {
@@ -55111,7 +55111,7 @@ const _export_sfc = (sfc, props) => {
 };
 
 const _hoisted_1$e = ["width", "height", "fill"];
-const _hoisted_2$a = { key: 0 };
+const _hoisted_2$b = { key: 0 };
 const _hoisted_3$5 = ["href", "xlink:href"];
 const _hoisted_4$5 = ["xlink:href", "width", "height"];
 
@@ -55144,7 +55144,7 @@ return (_ctx, _cache) => {
     (url.value.includes('/svg-sprite'))
       ? (openBlock(), createElementBlock(Fragment, { key: 0 }, [
           (props.title)
-            ? (openBlock(), createElementBlock("title", _hoisted_2$a, toDisplayString$1(props.title), 1 /* TEXT */))
+            ? (openBlock(), createElementBlock("title", _hoisted_2$b, toDisplayString$1(props.title), 1 /* TEXT */))
             : createCommentVNode("v-if", true),
           createBaseVNode("use", {
             href: url.value,
@@ -55693,7 +55693,7 @@ function _typeof(e){return _typeof="function"==typeof Symbol&&"symbol"==typeof S
 const Messages_vue_vue_type_style_index_0_scoped_2c35b512_lang = '';
 
 const _hoisted_1$d = { class: "messages" };
-const _hoisted_2$9 = { class: "messages-container" };
+const _hoisted_2$a = { class: "messages-container" };
 
 const _sfc_main$j = {
   __name: 'Messages',
@@ -55717,7 +55717,7 @@ return (_ctx, _cache) => {
   const _component_Icon = resolveComponent("Icon");
 
   return (openBlock(), createElementBlock("div", _hoisted_1$d, [
-    createBaseVNode("div", _hoisted_2$9, [
+    createBaseVNode("div", _hoisted_2$a, [
       (openBlock(true), createElementBlock(Fragment, null, renderList(unref(messages).messages, (message) => {
         return (openBlock(), createElementBlock("div", {
           key: message.id,
@@ -55744,7 +55744,7 @@ const _hoisted_1$c = {
   key: 0,
   class: "inside"
 };
-const _hoisted_2$8 = ["stroke"];
+const _hoisted_2$9 = ["stroke"];
 const _hoisted_3$4 = ["stop-color"];
 const _hoisted_4$4 = ["stop-color"];
 const _hoisted_5$2 = ["stop-color"];
@@ -55844,7 +55844,7 @@ return (_ctx, _cache) => {
               values: "\r\n                    M0 77 \r\n                    C 473,283\r\n                      822,-40\r\n                      1920,116 \r\n                    \r\n                    V 359 \r\n                    H 0 \r\n                    V 67 \r\n                    Z; \r\n\r\n                    M0 77 \r\n                    C 473,-40\r\n                      1222,283\r\n                      1920,136 \r\n                    \r\n                    V 359 \r\n                    H 0 \r\n                    V 67 \r\n                    Z; \r\n\r\n                    M0 77 \r\n                    C 973,260\r\n                      1722,-53\r\n                      1920,120 \r\n                    \r\n                    V 359 \r\n                    H 0 \r\n                    V 67 \r\n                    Z; \r\n\r\n                    M0 77 \r\n                    C 473,283\r\n                      822,-40\r\n                      1920,116 \r\n                    \r\n                    V 359 \r\n                    H 0 \r\n                    V 67 \r\n                    Z\r\n                "
             }, null, 8 /* PROPS */, _hoisted_7$1)
           ], 8 /* PROPS */, _hoisted_6$2)
-        ], 8 /* PROPS */, _hoisted_2$8))
+        ], 8 /* PROPS */, _hoisted_2$9))
       ]))
     : (openBlock(), createElementBlock("ul", {
         key: 1,
@@ -55872,7 +55872,7 @@ const Loader = /*#__PURE__*/_export_sfc(_sfc_main$i, [['__scopeId',"data-v-cc971
 const Button_vue_vue_type_style_index_0_scoped_702b1db3_lang = '';
 
 const _hoisted_1$b = ["disabled"];
-const _hoisted_2$7 = { key: 1 };
+const _hoisted_2$8 = { key: 1 };
 
 
 const _sfc_main$h = {
@@ -55901,7 +55901,7 @@ return (_ctx, _cache) => {
         }, null, 8 /* PROPS */, ["icon"]))
       : createCommentVNode("v-if", true),
     (props.name)
-      ? (openBlock(), createElementBlock("span", _hoisted_2$7, toDisplayString$1(props.name), 1 /* TEXT */))
+      ? (openBlock(), createElementBlock("span", _hoisted_2$8, toDisplayString$1(props.name), 1 /* TEXT */))
       : createCommentVNode("v-if", true),
     renderSlot(_ctx.$slots, "default", {}, undefined, true),
     (props.loading)
@@ -55921,7 +55921,7 @@ const Button = /*#__PURE__*/_export_sfc(_sfc_main$h, [['__scopeId',"data-v-702b1
 const Toggler_vue_vue_type_style_index_0_scoped_c3740bd4_lang = '';
 
 const _hoisted_1$a = ["title"];
-const _hoisted_2$6 = { key: 0 };
+const _hoisted_2$7 = { key: 0 };
 const _hoisted_3$3 = { key: 1 };
 const _hoisted_4$3 = { key: 0 };
 
@@ -55975,7 +55975,7 @@ return (_ctx, _cache) => {
       title: props.name
     }, [
       (!props.inline)
-        ? (openBlock(), createElementBlock("span", _hoisted_2$6, toDisplayString$1(props.name), 1 /* TEXT */))
+        ? (openBlock(), createElementBlock("span", _hoisted_2$7, toDisplayString$1(props.name), 1 /* TEXT */))
         : createCommentVNode("v-if", true),
       _cache[0] || (_cache[0] = createBaseVNode("i", null, null, -1 /* HOISTED */)),
       (!props.inline)
@@ -56039,7 +56039,7 @@ const _hoisted_1$8 = {
   key: 0,
   class: "placeholder"
 };
-const _hoisted_2$5 = { class: "calendar-action-row" };
+const _hoisted_2$6 = { class: "calendar-action-row" };
 
     
 const _sfc_main$e = {
@@ -56090,7 +56090,7 @@ return (_ctx, _cache) => {
       }, null, 8 /* PROPS */, ["name"])
     ]),
     "action-row": withCtx(({ internalModelValue, selectDate }) => [
-      createBaseVNode("div", _hoisted_2$5, [
+      createBaseVNode("div", _hoisted_2$6, [
         createBaseVNode("span", null, toDisplayString$1(unref(timePeriodPreview)(internalModelValue)), 1 /* TEXT */),
         createVNode(Button, {
           class: "size-m",
@@ -56113,7 +56113,7 @@ const _hoisted_1$7 = {
   key: 0,
   class: "addition-fields"
 };
-const _hoisted_2$4 = { key: 1 };
+const _hoisted_2$5 = { key: 1 };
 
     
 const _sfc_main$d = {
@@ -56155,7 +56155,7 @@ return (_ctx, _cache) => {
                     class: "reverse",
                     checked: item.checked
                   }, null, 8 /* PROPS */, ["onOnClick", "name", "checked"]))
-                : (openBlock(), createElementBlock("span", _hoisted_2$4, toDisplayString$1(item.name), 1 /* TEXT */))
+                : (openBlock(), createElementBlock("span", _hoisted_2$5, toDisplayString$1(item.name), 1 /* TEXT */))
             ]),
             (item.type === 'period' && item.checked)
               ? (openBlock(), createBlock(DateField, {
@@ -56413,7 +56413,7 @@ const _hoisted_1$6 = {
   key: 0,
   class: "header"
 };
-const _hoisted_2$3 = { class: "content" };
+const _hoisted_2$4 = { class: "content" };
 const _hoisted_3$2 = {
   key: 1,
   class: "loader"
@@ -56513,7 +56513,7 @@ return (_ctx, _cache) => {
                     : createCommentVNode("v-if", true)
                 ]))
               : createCommentVNode("v-if", true),
-            createBaseVNode("div", _hoisted_2$3, [
+            createBaseVNode("div", _hoisted_2$4, [
               renderSlot(_ctx.$slots, "content", {}, undefined, true)
             ]),
             (props.isLoading)
@@ -56569,7 +56569,7 @@ const ModalConfirm_vue_vue_type_style_index_0_lang = '';
 const ModalConfirm_vue_vue_type_style_index_1_scoped_db94b51c_lang = '';
 
 const _hoisted_1$5 = { class: "title" };
-const _hoisted_2$2 = { class: "modal-confirm-body" };
+const _hoisted_2$3 = { class: "modal-confirm-body" };
 const _hoisted_3$1 = ["innerHTML"];
 const _hoisted_4$1 = {
   key: 2,
@@ -56634,7 +56634,7 @@ return (_ctx, _cache) => {
   }, {
     content: withCtx(() => [
       createBaseVNode("span", _hoisted_1$5, toDisplayString$1(unref(confirmSettings)?.title || ''), 1 /* TEXT */),
-      createBaseVNode("div", _hoisted_2$2, [
+      createBaseVNode("div", _hoisted_2$3, [
         (unref(confirmSettings)?.body)
           ? (openBlock(), createElementBlock("div", {
               key: 0,
@@ -56765,7 +56765,7 @@ const ModalSuccess_vue_vue_type_style_index_0_lang = '';
 const ModalSuccess_vue_vue_type_style_index_1_scoped_865f03e2_lang = '';
 
 const _hoisted_1$3 = { class: "title" };
-const _hoisted_2$1 = { class: "description" };
+const _hoisted_2$2 = { class: "description" };
 
 const _sfc_main$7 = {
   __name: 'ModalSuccess',
@@ -56820,7 +56820,7 @@ return (_ctx, _cache) => {
         onClick: animateItAgainPlease
       }),
       createBaseVNode("span", _hoisted_1$3, toDisplayString$1(data.title), 1 /* TEXT */),
-      createBaseVNode("span", _hoisted_2$1, toDisplayString$1(data.description), 1 /* TEXT */),
+      createBaseVNode("span", _hoisted_2$2, toDisplayString$1(data.description), 1 /* TEXT */),
       createVNode(Button, {
         onClick: close,
         class: "size-l",
@@ -56845,7 +56845,7 @@ const { openedModals, confirmSettings, modalsComponents } = storeToRefs(modals);
 
 modals.register({
     loader: ModalLoader,
-    welcome: defineAsyncComponent(() => __vitePreload(() => import('./ModalWelcome.2e84b894.js'),true?["assets/ModalWelcome.2e84b894.js","assets/ModalWelcome.8956061c.css"]:void 0)),
+    welcome: defineAsyncComponent(() => __vitePreload(() => import('./ModalWelcome.d9346bb3.js'),true?["assets/ModalWelcome.d9346bb3.js","assets/ModalWelcome.8956061c.css"]:void 0)),
     success: ModalSuccess
 });
 
@@ -56880,7 +56880,8 @@ return (_ctx, _cache) => {
 };
 const Modals = /*#__PURE__*/_export_sfc(_sfc_main$6, [['__file',"D:/bilbo/bilbo/src/components/modals/Modals.vue"]]);
 
-const _hoisted_1$2 = ["href"];
+const _hoisted_1$2 = { class: "page" };
+const _hoisted_2$1 = ["href"];
 
 
 const _sfc_main$5 = {
@@ -56916,15 +56917,15 @@ onMounted(async () => {
 return (_ctx, _cache) => {
   const _component_RouterView = resolveComponent("RouterView");
 
-  return (openBlock(), createElementBlock(Fragment, null, [
+  return (openBlock(), createElementBlock("div", _hoisted_1$2, [
     createVNode(_component_RouterView),
     createBaseVNode("link", {
       rel: "stylesheet",
       href: unref(themePath)
-    }, null, 8 /* PROPS */, _hoisted_1$2),
+    }, null, 8 /* PROPS */, _hoisted_2$1),
     createVNode(Modals),
     createVNode(Messages)
-  ], 64 /* STABLE_FRAGMENT */))
+  ]))
 }
 }
 
@@ -57172,7 +57173,7 @@ const browserExt = {
   },
   test: () => true,
   load: async () => {
-    await __vitePreload(() => import('./browserAll.64a1de8f.js'),true?["assets/browserAll.64a1de8f.js","assets/init.ea6714a4.js"]:void 0);
+    await __vitePreload(() => import('./browserAll.c0b99ffa.js'),true?["assets/browserAll.c0b99ffa.js","assets/init.ad57d777.js"]:void 0);
   }
 };
 
@@ -57184,7 +57185,7 @@ const webworkerExt = {
   },
   test: () => typeof self !== "undefined" && self.WorkerGlobalScope !== void 0,
   load: async () => {
-    await __vitePreload(() => import('./webworkerAll.9d16ec28.js'),true?["assets/webworkerAll.9d16ec28.js","assets/init.ea6714a4.js"]:void 0);
+    await __vitePreload(() => import('./webworkerAll.61f3641a.js'),true?["assets/webworkerAll.61f3641a.js","assets/init.ad57d777.js"]:void 0);
   }
 };
 
@@ -65804,9 +65805,9 @@ const Pixi = /*#__PURE__*/_export_sfc(_sfc_main$2, [['__file',"D:/bilbo/bilbo/sh
 
 const index_vue_vue_type_style_index_0_scoped_dd9bf3bf_lang = '';
 
-const _hoisted_1 = { class: "header" };
-const _hoisted_2 = ["href"];
-const _hoisted_3 = { class: "body" };
+const _hoisted_1 = { class: "page" };
+const _hoisted_2 = { class: "header" };
+const _hoisted_3 = ["href"];
 const _hoisted_4 = { class: "footer" };
 
 
@@ -65870,12 +65871,12 @@ return (_ctx, _cache) => {
   const _component_RouterView = resolveComponent("RouterView");
   const _directive_touch = resolveDirective("touch");
 
-  return (openBlock(), createElementBlock(Fragment, null, [
-    createBaseVNode("div", _hoisted_1, [
+  return withDirectives((openBlock(), createElementBlock("div", _hoisted_1, [
+    createBaseVNode("div", _hoisted_2, [
       createBaseVNode("link", {
         rel: "stylesheet",
         href: unref(themePath)
-      }, null, 8 /* PROPS */, _hoisted_2),
+      }, null, 8 /* PROPS */, _hoisted_3),
       createVNode(Pixi, { onReady: ready }),
       createVNode(Circle, {
         top: "0",
@@ -65888,22 +65889,20 @@ return (_ctx, _cache) => {
         class: "move-2"
       })
     ]),
-    withDirectives((openBlock(), createElementBlock("div", _hoisted_3, [
-      createVNode(_component_RouterView)
-    ])), [
-      [
-        _directive_touch,
-        left,
-        "swipe",
-        { left: true }
-      ]
-    ]),
+    createVNode(_component_RouterView),
     createBaseVNode("div", _hoisted_4, [
       createVNode(Navigation),
       createVNode(Messages),
       createVNode(Modals)
     ])
-  ], 64 /* STABLE_FRAGMENT */))
+  ])), [
+    [
+      _directive_touch,
+      left,
+      "swipe",
+      { left: true }
+    ]
+  ])
 }
 }
 
