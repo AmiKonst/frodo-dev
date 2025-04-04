@@ -1,4 +1,4 @@
-import { _ as _export_sfc, h as computed, o as openBlock, c as createElementBlock, F as Fragment, q as renderList, n as normalizeClass, D as stores, P as storeToRefs, x as useI18n, a as reactive, N as resolveDirective, d as createBlock, w as withCtx, s as withDirectives, j as normalizeStyle, B as unref, U as baseUrl, i as createBaseVNode, t as toDisplayString, e as createCommentVNode, A as createTextVNode, g as createVNode, G as Button, V as BaseModal } from './index.ac0ebcf4.js';
+import { _ as _export_sfc, h as computed, o as openBlock, c as createElementBlock, F as Fragment, q as renderList, n as normalizeClass, D as stores, P as storeToRefs, x as useI18n, a as reactive, N as resolveDirective, d as createBlock, w as withCtx, s as withDirectives, j as normalizeStyle, B as unref, U as baseUrl, i as createBaseVNode, t as toDisplayString, e as createCommentVNode, A as createTextVNode, g as createVNode, G as Button, f as withModifiers, V as BaseModal } from './index.2c958d5e.js';
 
 const Steps_vue_vue_type_style_index_0_scoped_8135f9bc_lang = '';
 
@@ -47,6 +47,7 @@ const _sfc_main = {
   setup(__props) {
 
 const others = stores.others();
+const tg = stores.tg();
 const { theme } = storeToRefs(others);
 
 const modals = stores.modals();
@@ -152,7 +153,10 @@ return (_ctx, _cache) => {
                     createTextVNode(toDisplayString(unref(t)('modals.welcome.terms')) + " ", 1 /* TEXT */),
                     createVNode(Button, {
                       name: unref(t)('modals.welcome.terms-button'),
-                      class: "tertiary size-s"
+                      class: "tertiary size-s",
+                      onClick: _cache[0] || (_cache[0] = withModifiers($event => (unref(tg).openLink({
+                                        'external_url': 'https://github.com/Bilbo-Music/bilbo-docs-public/blob/main/terms%20of%20service/Bilbo%20Music.md'
+                                    })), ["stop"]))
                     }, null, 8 /* PROPS */, ["name"]),
                     createTextVNode(" " + toDisplayString(unref(t)('modals.welcome.terms-2')), 1 /* TEXT */)
                   ])

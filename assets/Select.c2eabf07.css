@@ -216,3 +216,21 @@
   fill: var(--dark-80) !important;
   stroke: var(--dark-80) !important;
 }
+.select-field.icon-only > div {
+  width: 44px;
+  height: 44px;
+}
+.select-field.icon-only > div .placeholder,
+.select-field.icon-only > div input {
+  width: 44px;
+  opacity: 0;
+  padding: 0;
+}
+.select-field.icon-only > div > svg {
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+.select-field.icon-only > div .actions-block {
+  display: none;
+}

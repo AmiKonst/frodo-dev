@@ -102,7 +102,4 @@
     --font-body-2: normal 14px/16px 'circular-latin', 'circular-arabic', 'circular-cyrillic', 'circular-hebrew', sans-serif;
     --font-caption: normal 12px/16px 'circular-latin', 'circular-arabic', 'circular-cyrillic', 'circular-hebrew', sans-serif;
     --font-label: normal 11px/12px 'circular-latin', 'circular-arabic', 'circular-cyrillic', 'circular-hebrew', sans-serif;
-
-    --nav-height: 50px;
-    --block-gap: 16px;
 };

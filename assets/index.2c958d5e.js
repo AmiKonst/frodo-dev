@@ -42299,9 +42299,9 @@ const useOthersStore = defineStore('others', {
         },
         themePath: (state) => {
             if (state.theme === 'dark') {
-                return new URL("/frodo-dev/assets/variables.dfea30e4.css?v=1", self.location).href;
+                return new URL("/frodo-dev/assets/variables.f35c13f1.css?v=1", self.location).href;
             }
-            return new URL("/frodo-dev/assets/variables.85c9fa90.css?v=1", self.location).href;
+            return new URL("/frodo-dev/assets/variables.12e64ebd.css?v=1", self.location).href;
         },
         svgSpritePath: (state) => {
             if (state.theme === 'dark') {
@@ -46094,49 +46094,49 @@ const routes = [
     {
         path: '/empty',
         name: 'empty',
-        component: () => __vitePreload(() => import('./Empty.5eb87391.js'),true?["assets/Empty.5eb87391.js","assets/Field.c2adc72a.js","assets/Field.3845c6b6.css","assets/Select.7fef2a65.js","assets/Select.080784f0.css","assets/EmptyLabel.447667d0.js","assets/EmptyLabel.f5921f8a.css","assets/Empty.5cb543c2.css"]:void 0),
+        component: () => __vitePreload(() => import('./Empty.478f4b4c.js'),true?["assets/Empty.478f4b4c.js","assets/Field.9113ebc9.js","assets/Field.3845c6b6.css","assets/Select.f710d7e0.js","assets/Select.c2eabf07.css","assets/EmptyLabel.c51be36d.js","assets/EmptyLabel.f5921f8a.css","assets/Empty.5cb543c2.css"]:void 0),
         abort: []
     },
     {
         path: '/music',
         name: 'music',
-        component: () => __vitePreload(() => import('./Music.afd27e8a.js'),true?["assets/Music.afd27e8a.js","assets/Ready.aba09939.js"]:void 0),
+        component: () => __vitePreload(() => import('./Music.62da1055.js'),true?["assets/Music.62da1055.js","assets/Ready.4268d693.js"]:void 0),
         abort: []
     },
     {
         path: '/favorite',
         name: 'favorite',
-        component: () => __vitePreload(() => import('./Favorite.f8cf1804.js'),true?["assets/Favorite.f8cf1804.js","assets/EmptyLabel.447667d0.js","assets/EmptyLabel.f5921f8a.css","assets/Ready.aba09939.js","assets/Favorite.3396c1d9.css"]:void 0),
+        component: () => __vitePreload(() => import('./Favorite.95c16757.js'),true?["assets/Favorite.95c16757.js","assets/EmptyLabel.c51be36d.js","assets/EmptyLabel.f5921f8a.css","assets/Ready.4268d693.js","assets/Favorite.3396c1d9.css"]:void 0),
         abort: []
     },
         {
             path: '/favorite/artists',
             name: 'favorite-artists',
-            component: () => __vitePreload(() => import('./Artists.bfffa6af.js'),true?["assets/Artists.bfffa6af.js","assets/Ready.aba09939.js","assets/EmptyLabel.447667d0.js","assets/EmptyLabel.f5921f8a.css","assets/Artists.d1d2aada.css"]:void 0),
+            component: () => __vitePreload(() => import('./Artists.a6027dbf.js'),true?["assets/Artists.a6027dbf.js","assets/Ready.4268d693.js","assets/EmptyLabel.c51be36d.js","assets/EmptyLabel.f5921f8a.css","assets/Artists.d1d2aada.css"]:void 0),
             abort: []
         },
         {
             path: '/favorite/playlists',
             name: 'favorite-playlists',
-            component: () => __vitePreload(() => import('./Playlists.7c29b512.js'),true?["assets/Playlists.7c29b512.js","assets/Ready.aba09939.js","assets/EmptyLabel.447667d0.js","assets/EmptyLabel.f5921f8a.css","assets/Playlists.82a285ca.css"]:void 0),
+            component: () => __vitePreload(() => import('./Playlists.629fd274.js'),true?["assets/Playlists.629fd274.js","assets/Ready.4268d693.js","assets/EmptyLabel.c51be36d.js","assets/EmptyLabel.f5921f8a.css","assets/Playlists.82a285ca.css"]:void 0),
             abort: []
         },
     {
         path: '/settings',
         name: 'settings',
-        component: () => __vitePreload(() => import('./Settings.feafc43e.js'),true?["assets/Settings.feafc43e.js","assets/Ready.aba09939.js","assets/Select.7fef2a65.js","assets/Select.080784f0.css","assets/Settings.cbeceb52.css"]:void 0),
+        component: () => __vitePreload(() => import('./Settings.b5c9ec2f.js'),true?["assets/Settings.b5c9ec2f.js","assets/Ready.4268d693.js","assets/Select.f710d7e0.js","assets/Select.c2eabf07.css","assets/Settings.cbeceb52.css"]:void 0),
         abort: []
     },
     {
         path: '/error',
         name: 'error',
-        component: () => __vitePreload(() => import('./Error.452e228f.js'),true?["assets/Error.452e228f.js","assets/EmptyLabel.447667d0.js","assets/EmptyLabel.f5921f8a.css"]:void 0),
+        component: () => __vitePreload(() => import('./Error.e733e270.js'),true?["assets/Error.e733e270.js","assets/EmptyLabel.c51be36d.js","assets/EmptyLabel.f5921f8a.css"]:void 0),
         abort: []
     },
     {
         path: '/access-denied',
         name: 'access-denied',
-        component: () => __vitePreload(() => import('./AccessDenied.65a62a46.js'),true?["assets/AccessDenied.65a62a46.js","assets/EmptyLabel.447667d0.js","assets/EmptyLabel.f5921f8a.css","assets/AccessDenied.886229d6.css"]:void 0),
+        component: () => __vitePreload(() => import('./AccessDenied.5ca39a86.js'),true?["assets/AccessDenied.5ca39a86.js","assets/EmptyLabel.c51be36d.js","assets/EmptyLabel.f5921f8a.css","assets/AccessDenied.886229d6.css"]:void 0),
         abort: []
     },
     {
@@ -48209,7 +48209,10 @@ const useUserStore = defineStore('user', {
     state: () => ({
         theme: themes$2?.length ? (localStorage['theme'] && themes$2.includes(localStorage['theme']) ? localStorage['theme'] : null) : null,
         profile: {},
-        token: null
+        token: null,
+
+        externalToken: null,
+        externalCode: null
     }),
     actions: {
         setTheme(theme) {
@@ -48265,6 +48268,11 @@ const useUserStore = defineStore('user', {
             if (data?.id) {
                 this.profile = data;
             }
+        },
+        async createExternalLogin() {
+            const data = await api.user().createExternalLogin();
+            this.externalCode = data?.code;
+            this.externalToken = data?.token;
         }
     }
 });
@@ -55059,6 +55067,17 @@ const useTgStore = defineStore('tg', {
             });
 
             return ref;
+        },
+        openLink({ external_url, type }) {
+            if (window.Telegram?.WebApp) {
+                if (type === 'telegram') {
+                    window.Telegram?.WebApp.openTelegramLink(external_url);
+                } else {
+                    window.Telegram?.WebApp.openLink(external_url);
+                }
+            } else {
+                window.open(external_url, '_blank');
+            }
         }
     }
 });
@@ -55094,7 +55113,7 @@ const _export_sfc = (sfc, props) => {
 const _hoisted_1$e = ["width", "height", "fill"];
 const _hoisted_2$a = { key: 0 };
 const _hoisted_3$5 = ["href", "xlink:href"];
-const _hoisted_4$4 = ["xlink:href", "width", "height"];
+const _hoisted_4$5 = ["xlink:href", "width", "height"];
 
 
 const _sfc_main$k = {
@@ -55137,7 +55156,7 @@ return (_ctx, _cache) => {
           "xlink:href": url.value,
           width: props.size ? props.size[0] : null,
           height: props.size ? props.size[1] : null
-        }, null, 8 /* PROPS */, _hoisted_4$4))
+        }, null, 8 /* PROPS */, _hoisted_4$5))
   ], 8 /* PROPS */, _hoisted_1$e))
 }
 }
@@ -55727,7 +55746,7 @@ const _hoisted_1$c = {
 };
 const _hoisted_2$8 = ["stroke"];
 const _hoisted_3$4 = ["stop-color"];
-const _hoisted_4$3 = ["stop-color"];
+const _hoisted_4$4 = ["stop-color"];
 const _hoisted_5$2 = ["stop-color"];
 const _hoisted_6$2 = ["fill"];
 const _hoisted_7$1 = ["fill"];
@@ -55806,7 +55825,7 @@ return (_ctx, _cache) => {
             createBaseVNode("stop", {
               offset: "50%",
               "stop-color": insideColors.value[1]
-            }, null, 8 /* PROPS */, _hoisted_4$3),
+            }, null, 8 /* PROPS */, _hoisted_4$4),
             createBaseVNode("stop", {
               offset: "100%",
               "stop-color": insideColors.value[2]
@@ -55904,7 +55923,7 @@ const Toggler_vue_vue_type_style_index_0_scoped_c3740bd4_lang = '';
 const _hoisted_1$a = ["title"];
 const _hoisted_2$6 = { key: 0 };
 const _hoisted_3$3 = { key: 1 };
-const _hoisted_4$2 = { key: 0 };
+const _hoisted_4$3 = { key: 0 };
 
 
 const _sfc_main$g = {
@@ -55964,7 +55983,7 @@ return (_ctx, _cache) => {
         : createCommentVNode("v-if", true)
     ], 10 /* CLASS, PROPS */, _hoisted_1$a),
     (props.inline)
-      ? (openBlock(), createElementBlock("span", _hoisted_4$2, toDisplayString$1(props.name), 1 /* TEXT */))
+      ? (openBlock(), createElementBlock("span", _hoisted_4$3, toDisplayString$1(props.name), 1 /* TEXT */))
       : createCommentVNode("v-if", true)
   ], 2 /* CLASS */))
 }
@@ -56362,7 +56381,7 @@ return (_ctx, _cache) => {
       ref: optionsList,
       style: normalizeStyle({ transform: data.transform, opacity: data.opacity }),
       onTouchstart: startDrag,
-      onTouchmove: withModifiers(onDrag, ["prevent"]),
+      onTouchmove: withModifiers(onDrag, ["stop"]),
       onTouchend: endDrag,
       onClick: click
     }, [
@@ -56399,7 +56418,7 @@ const _hoisted_3$2 = {
   key: 1,
   class: "loader"
 };
-const _hoisted_4$1 = {
+const _hoisted_4$2 = {
   key: 0,
   class: "header"
 };
@@ -56515,7 +56534,7 @@ return (_ctx, _cache) => {
           }, {
             default: withCtx(() => [
               (unref(slots).title)
-                ? (openBlock(), createElementBlock("div", _hoisted_4$1, [
+                ? (openBlock(), createElementBlock("div", _hoisted_4$2, [
                     createBaseVNode("h3", null, [
                       renderSlot(_ctx.$slots, "title", {}, undefined, true)
                     ])
@@ -56552,7 +56571,7 @@ const ModalConfirm_vue_vue_type_style_index_1_scoped_db94b51c_lang = '';
 const _hoisted_1$5 = { class: "title" };
 const _hoisted_2$2 = { class: "modal-confirm-body" };
 const _hoisted_3$1 = ["innerHTML"];
-const _hoisted_4 = {
+const _hoisted_4$1 = {
   key: 2,
   class: "confirmations"
 };
@@ -56644,7 +56663,7 @@ return (_ctx, _cache) => {
           type: "attention"
         }, null, 8 /* PROPS */, ["text"]),
         (unref(confirmSettings).confirmations?.length)
-          ? (openBlock(), createElementBlock("ul", _hoisted_4, [
+          ? (openBlock(), createElementBlock("ul", _hoisted_4$1, [
               (openBlock(true), createElementBlock(Fragment, null, renderList(unref(confirmSettings).confirmations, (item, id) => {
                 return (openBlock(), createElementBlock("li", { key: id }, [
                   withDirectives(createBaseVNode("input", {
@@ -56826,14 +56845,14 @@ const { openedModals, confirmSettings, modalsComponents } = storeToRefs(modals);
 
 modals.register({
     loader: ModalLoader,
-    welcome: defineAsyncComponent(() => __vitePreload(() => import('./ModalWelcome.3adc6c04.js'),true?["assets/ModalWelcome.3adc6c04.js","assets/ModalWelcome.8956061c.css"]:void 0)),
+    welcome: defineAsyncComponent(() => __vitePreload(() => import('./ModalWelcome.8e4804c3.js'),true?["assets/ModalWelcome.8e4804c3.js","assets/ModalWelcome.8956061c.css"]:void 0)),
     success: ModalSuccess
 });
 
 const confirmIsShowed = computed(() => !!confirmSettings.value);
 
 onBeforeUnmount(() => {
-    modals.unRegister(['loader', 'text-error']);
+    modals.unRegister(['loader', 'welcome', 'success']);
 });
 
 return (_ctx, _cache) => {
@@ -57153,7 +57172,7 @@ const browserExt = {
   },
   test: () => true,
   load: async () => {
-    await __vitePreload(() => import('./browserAll.ec3a3fe6.js'),true?["assets/browserAll.ec3a3fe6.js","assets/init.c2e41688.js"]:void 0);
+    await __vitePreload(() => import('./browserAll.51dec431.js'),true?["assets/browserAll.51dec431.js","assets/init.c902936c.js"]:void 0);
   }
 };
 
@@ -57165,7 +57184,7 @@ const webworkerExt = {
   },
   test: () => typeof self !== "undefined" && self.WorkerGlobalScope !== void 0,
   load: async () => {
-    await __vitePreload(() => import('./webworkerAll.b7e327a5.js'),true?["assets/webworkerAll.b7e327a5.js","assets/init.c2e41688.js"]:void 0);
+    await __vitePreload(() => import('./webworkerAll.54a71528.js'),true?["assets/webworkerAll.54a71528.js","assets/init.c902936c.js"]:void 0);
   }
 };
 
@@ -65787,7 +65806,8 @@ const index_vue_vue_type_style_index_0_scoped_dd9bf3bf_lang = '';
 
 const _hoisted_1 = { class: "header" };
 const _hoisted_2 = ["href"];
-const _hoisted_3 = { class: "footer" };
+const _hoisted_3 = { class: "body" };
+const _hoisted_4 = { class: "footer" };
 
 
 const _sfc_main$1 = {
@@ -65801,6 +65821,10 @@ const { themePath } = storeToRefs(others);
 const user = stores$1.user();
 const modals = stores$1.modals();
 const nav = stores$1.nav();
+
+const left = () => {
+    nav.back();
+};
 
 const ready = async () => {
     // Login
@@ -65838,6 +65862,7 @@ onMounted(async () => {
 
 return (_ctx, _cache) => {
   const _component_RouterView = resolveComponent("RouterView");
+  const _directive_touch = resolveDirective("touch");
 
   return (openBlock(), createElementBlock(Fragment, null, [
     createBaseVNode("div", _hoisted_1, [
@@ -65857,8 +65882,17 @@ return (_ctx, _cache) => {
         class: "move-2"
       })
     ]),
-    createVNode(_component_RouterView),
-    createBaseVNode("div", _hoisted_3, [
+    withDirectives((openBlock(), createElementBlock("div", _hoisted_3, [
+      createVNode(_component_RouterView)
+    ])), [
+      [
+        _directive_touch,
+        left,
+        "swipe",
+        { left: true }
+      ]
+    ]),
+    createBaseVNode("div", _hoisted_4, [
       createVNode(Navigation),
       createVNode(Messages),
       createVNode(Modals)
@@ -65901,6 +65935,8 @@ var vueTheMask = {exports: {}};
 (function (module, exports) {
 	(function(e,t){module.exports=t();})(commonjsGlobal,function(){return function(e){function t(r){if(n[r])return n[r].exports;var a=n[r]={i:r,l:!1,exports:{}};return e[r].call(a.exports,a,a.exports,t),a.l=!0,a.exports}var n={};return t.m=e,t.c=n,t.i=function(e){return e},t.d=function(e,n,r){t.o(e,n)||Object.defineProperty(e,n,{configurable:!1,enumerable:!0,get:r});},t.n=function(e){var n=e&&e.__esModule?function(){return e.default}:function(){return e};return t.d(n,"a",n),n},t.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},t.p=".",t(t.s=10)}([function(e,t){e.exports={"#":{pattern:/\d/},X:{pattern:/[0-9a-zA-Z]/},S:{pattern:/[a-zA-Z]/},A:{pattern:/[a-zA-Z]/,transform:function(e){return e.toLocaleUpperCase()}},a:{pattern:/[a-zA-Z]/,transform:function(e){return e.toLocaleLowerCase()}},"!":{escape:!0}};},function(e,t,n){function r(e){var t=document.createEvent("Event");return t.initEvent(e,!0,!0),t}var a=n(2),o=n(0),i=n.n(o);t.a=function(e,t){var o=t.value;if((Array.isArray(o)||"string"==typeof o)&&(o={mask:o,tokens:i.a}),"INPUT"!==e.tagName.toLocaleUpperCase()){var u=e.getElementsByTagName("input");if(1!==u.length)throw new Error("v-mask directive requires 1 input, found "+u.length);e=u[0];}e.oninput=function(t){if(t.isTrusted){var i=e.selectionEnd,u=e.value[i-1];for(e.value=n.i(a.a)(e.value,o.mask,!0,o.tokens);i<e.value.length&&e.value.charAt(i-1)!==u;)i++;e===document.activeElement&&(e.setSelectionRange(i,i),setTimeout(function(){e.setSelectionRange(i,i);},0)),e.dispatchEvent(r("input"));}};var s=n.i(a.a)(e.value,o.mask,!0,o.tokens);s!==e.value&&(e.value=s,e.dispatchEvent(r("input")));};},function(e,t,n){var r=n(6),a=n(5);t.a=function(e,t){var o=!(arguments.length>2&&void 0!==arguments[2])||arguments[2],i=arguments[3];return Array.isArray(t)?n.i(a.a)(r.a,t,i)(e,t,o,i):n.i(r.a)(e,t,o,i)};},function(e,t,n){function r(e){e.component(s.a.name,s.a),e.directive("mask",i.a);}Object.defineProperty(t,"__esModule",{value:!0});var a=n(0),o=n.n(a),i=n(1),u=n(7),s=n.n(u);n.d(t,"TheMask",function(){return s.a}),n.d(t,"mask",function(){return i.a}),n.d(t,"tokens",function(){return o.a}),n.d(t,"version",function(){return c});var c="0.11.1";t.default=r,"undefined"!=typeof window&&window.Vue&&window.Vue.use(r);},function(e,t,n){Object.defineProperty(t,"__esModule",{value:!0});var r=n(1),a=n(0),o=n.n(a),i=n(2);t.default={name:"TheMask",props:{value:[String,Number],mask:{type:[String,Array],required:!0},masked:{type:Boolean,default:!1},tokens:{type:Object,default:function(){return o.a}}},directives:{mask:r.a},data:function(){return {lastValue:null,display:this.value}},watch:{value:function(e){e!==this.lastValue&&(this.display=e);},masked:function(){this.refresh(this.display);}},computed:{config:function(){return {mask:this.mask,tokens:this.tokens,masked:this.masked}}},methods:{onInput:function(e){e.isTrusted||this.refresh(e.target.value);},refresh:function(e){this.display=e;var e=n.i(i.a)(e,this.mask,this.masked,this.tokens);e!==this.lastValue&&(this.lastValue=e,this.$emit("input",e));}}};},function(e,t,n){function r(e,t,n){return t=t.sort(function(e,t){return e.length-t.length}),function(r,a){for(var o=!(arguments.length>2&&void 0!==arguments[2])||arguments[2],i=0;i<t.length;){var u=t[i];i++;var s=t[i];if(!(s&&e(r,s,!0,n).length>u.length))return e(r,u,o,n)}return ""}}t.a=r;},function(e,t,n){function r(e,t){var n=!(arguments.length>2&&void 0!==arguments[2])||arguments[2],r=arguments[3];e=e||"",t=t||"";for(var a=0,o=0,i="";a<t.length&&o<e.length;){var u=t[a],s=r[u],c=e[o];s&&!s.escape?(s.pattern.test(c)&&(i+=s.transform?s.transform(c):c,a++),o++):(s&&s.escape&&(a++,u=t[a]),n&&(i+=u),c===u&&o++,a++);}for(var f="";a<t.length&&n;){var u=t[a];if(r[u]){f="";break}f+=u,a++;}return i+f}t.a=r;},function(e,t,n){var r=n(8)(n(4),n(9),null,null);e.exports=r.exports;},function(e,t){e.exports=function(e,t,n,r){var a,o=e=e||{},i=typeof e.default;"object"!==i&&"function"!==i||(a=e,o=e.default);var u="function"==typeof o?o.options:o;if(t&&(u.render=t.render,u.staticRenderFns=t.staticRenderFns),n&&(u._scopeId=n),r){var s=u.computed||(u.computed={});Object.keys(r).forEach(function(e){var t=r[e];s[e]=function(){return t};});}return {esModule:a,exports:o,options:u}};},function(e,t){e.exports={render:function(){var e=this,t=e.$createElement;return (e._self._c||t)("input",{directives:[{name:"mask",rawName:"v-mask",value:e.config,expression:"config"}],attrs:{type:"text"},domProps:{value:e.display},on:{input:e.onInput}})},staticRenderFns:[]};},function(e,t,n){e.exports=n(3);}])});
 } (vueTheMask));
+
+const base$1 = '';
 
 const base = '';
 
