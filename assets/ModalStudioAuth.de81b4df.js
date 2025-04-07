@@ -1,4 +1,4 @@
-import { _ as _export_sfc, a as reactive, r as ref, l as watch, k as onMounted, o as openBlock, c as createElementBlock, F as Fragment, q as renderList, D as stores, x as useI18n, d as createBlock, w as withCtx, A as createTextVNode, t as toDisplayString, B as unref, i as createBaseVNode, g as createVNode, G as Button, V as BaseModal } from './index.e76124e4.js';
+import { _ as _export_sfc, a as reactive, r as ref, l as watch, k as onMounted, o as openBlock, c as createElementBlock, F as Fragment, q as renderList, D as stores, x as useI18n, d as createBlock, w as withCtx, A as createTextVNode, t as toDisplayString, B as unref, i as createBaseVNode, g as createVNode, G as Button, V as BaseModal, K as message } from './index.e6e82ee8.js';
 
 const Code_vue_vue_type_style_index_0_scoped_2f15865d_lang = '';
 
@@ -101,6 +101,7 @@ const _sfc_main = {
   setup(__props) {
 
 const modals = stores.modals();
+const user = stores.user();
 
 const { t } = useI18n();
 
@@ -121,8 +122,19 @@ const setCode = (code) => {
     }
 };
 
-const verify = () => {
+const verify = async () => {
     data.loading = true;
+
+    const payload = await user.externalLogin(data.code);
+
+    if (!payload) {
+        setTimeout(() => {
+            message.info(t('modals.studio-auth.fail.title'));
+            data.loading = false;
+        }, 500);
+        return;
+    }
+
     setTimeout(() => {
         modals.open('success', {
             data: {

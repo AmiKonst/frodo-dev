@@ -46095,49 +46095,49 @@ const routes = [
     {
         path: '/empty',
         name: 'empty',
-        component: () => __vitePreload(() => import('./Empty.d1e8af3f.js'),true?["assets/Empty.d1e8af3f.js","assets/Field.b4337b51.js","assets/Field.3845c6b6.css","assets/Select.ca61af09.js","assets/Select.c2eabf07.css","assets/EmptyLabel.80e8e034.js","assets/EmptyLabel.f5921f8a.css","assets/Empty.5cb543c2.css"]:void 0),
+        component: () => __vitePreload(() => import('./Empty.85773302.js'),true?["assets/Empty.85773302.js","assets/Field.8d752581.js","assets/Field.3845c6b6.css","assets/Select.5fc2f3b6.js","assets/Select.c2eabf07.css","assets/EmptyLabel.bd4bae71.js","assets/EmptyLabel.f5921f8a.css","assets/Empty.5cb543c2.css"]:void 0),
         abort: []
     },
     {
         path: '/music',
         name: 'music',
-        component: () => __vitePreload(() => import('./Music.399f68fc.js'),true?["assets/Music.399f68fc.js","assets/Ready.f644695f.js"]:void 0),
+        component: () => __vitePreload(() => import('./Music.5463f25b.js'),true?["assets/Music.5463f25b.js","assets/Ready.8c05492b.js"]:void 0),
         abort: []
     },
     {
         path: '/favorite',
         name: 'favorite',
-        component: () => __vitePreload(() => import('./Favorite.f74f092c.js'),true?["assets/Favorite.f74f092c.js","assets/EmptyLabel.80e8e034.js","assets/EmptyLabel.f5921f8a.css","assets/Ready.f644695f.js","assets/Favorite.3396c1d9.css"]:void 0),
+        component: () => __vitePreload(() => import('./Favorite.096a82ab.js'),true?["assets/Favorite.096a82ab.js","assets/EmptyLabel.bd4bae71.js","assets/EmptyLabel.f5921f8a.css","assets/Ready.8c05492b.js","assets/Favorite.3396c1d9.css"]:void 0),
         abort: []
     },
         {
             path: '/favorite/artists',
             name: 'favorite-artists',
-            component: () => __vitePreload(() => import('./Artists.a7e3c4c4.js'),true?["assets/Artists.a7e3c4c4.js","assets/Ready.f644695f.js","assets/EmptyLabel.80e8e034.js","assets/EmptyLabel.f5921f8a.css","assets/Artists.d1d2aada.css"]:void 0),
+            component: () => __vitePreload(() => import('./Artists.725ba2fd.js'),true?["assets/Artists.725ba2fd.js","assets/Ready.8c05492b.js","assets/EmptyLabel.bd4bae71.js","assets/EmptyLabel.f5921f8a.css","assets/Artists.d1d2aada.css"]:void 0),
             abort: []
         },
         {
             path: '/favorite/playlists',
             name: 'favorite-playlists',
-            component: () => __vitePreload(() => import('./Playlists.d3541b1b.js'),true?["assets/Playlists.d3541b1b.js","assets/Ready.f644695f.js","assets/EmptyLabel.80e8e034.js","assets/EmptyLabel.f5921f8a.css","assets/Playlists.82a285ca.css"]:void 0),
+            component: () => __vitePreload(() => import('./Playlists.26325054.js'),true?["assets/Playlists.26325054.js","assets/Ready.8c05492b.js","assets/EmptyLabel.bd4bae71.js","assets/EmptyLabel.f5921f8a.css","assets/Playlists.82a285ca.css"]:void 0),
             abort: []
         },
     {
         path: '/settings',
         name: 'settings',
-        component: () => __vitePreload(() => import('./Settings.e772b353.js'),true?["assets/Settings.e772b353.js","assets/Ready.f644695f.js","assets/Select.ca61af09.js","assets/Select.c2eabf07.css","assets/Settings.cbeceb52.css"]:void 0),
+        component: () => __vitePreload(() => import('./Settings.ec62b6e6.js'),true?["assets/Settings.ec62b6e6.js","assets/Ready.8c05492b.js","assets/Select.5fc2f3b6.js","assets/Select.c2eabf07.css","assets/Settings.cbeceb52.css"]:void 0),
         abort: []
     },
     {
         path: '/error',
         name: 'error',
-        component: () => __vitePreload(() => import('./Error.b67a824b.js'),true?["assets/Error.b67a824b.js","assets/EmptyLabel.80e8e034.js","assets/EmptyLabel.f5921f8a.css"]:void 0),
+        component: () => __vitePreload(() => import('./Error.f25b0ba6.js'),true?["assets/Error.f25b0ba6.js","assets/EmptyLabel.bd4bae71.js","assets/EmptyLabel.f5921f8a.css"]:void 0),
         abort: []
     },
     {
         path: '/access-denied',
         name: 'access-denied',
-        component: () => __vitePreload(() => import('./AccessDenied.4397c196.js'),true?["assets/AccessDenied.4397c196.js","assets/EmptyLabel.80e8e034.js","assets/EmptyLabel.f5921f8a.css","assets/AccessDenied.886229d6.css"]:void 0),
+        component: () => __vitePreload(() => import('./AccessDenied.81cd4c30.js'),true?["assets/AccessDenied.81cd4c30.js","assets/EmptyLabel.bd4bae71.js","assets/EmptyLabel.f5921f8a.css","assets/AccessDenied.886229d6.css"]:void 0),
         abort: []
     },
     {
@@ -48103,7 +48103,7 @@ const useUserApi = defineStore('user-api', {
                     method: 'POST',
                     url: '/user/externallogin',
                     data,
-                    signal: requests.signal('externallogin-check')
+                    signal: requests.signal('externallogin-auth')
                 });
 
                 if (result.status === 200) {
@@ -48274,6 +48274,17 @@ const useUserStore = defineStore('user', {
             const data = await api.user().createExternalLogin();
             this.externalCode = data?.code;
             this.externalToken = data?.token;
+        },
+        async checkExternalLogin() {
+            return await api.user().checkExternalLogin({
+                value: this.externalCode,
+                token: this.externalToken
+            });
+        },
+        async externalLogin(value) {
+            return await api.user().authExternalLogin({
+                value
+            });
         }
     }
 });
@@ -55112,7 +55123,7 @@ const _export_sfc = (sfc, props) => {
 };
 
 const _hoisted_1$e = ["width", "height", "fill"];
-const _hoisted_2$b = { key: 0 };
+const _hoisted_2$a = { key: 0 };
 const _hoisted_3$5 = ["href", "xlink:href"];
 const _hoisted_4$5 = ["xlink:href", "width", "height"];
 
@@ -55145,7 +55156,7 @@ return (_ctx, _cache) => {
     (url.value.includes('/svg-sprite'))
       ? (openBlock(), createElementBlock(Fragment, { key: 0 }, [
           (props.title)
-            ? (openBlock(), createElementBlock("title", _hoisted_2$b, toDisplayString$1(props.title), 1 /* TEXT */))
+            ? (openBlock(), createElementBlock("title", _hoisted_2$a, toDisplayString$1(props.title), 1 /* TEXT */))
             : createCommentVNode("v-if", true),
           createBaseVNode("use", {
             href: url.value,
@@ -55693,14 +55704,14 @@ function _typeof(e){return _typeof="function"==typeof Symbol&&"symbol"==typeof S
 
 const Messages_vue_vue_type_style_index_0_scoped_2c35b512_lang = '';
 
-const _hoisted_1$d = { class: "messages" };
-const _hoisted_2$a = { class: "messages-container" };
+const _hoisted_1$d = { class: "messages-container" };
 
 const _sfc_main$j = {
   __name: 'Messages',
   setup(__props) {
 
 const messages = stores$1.messages();
+const modals = stores$1.modals();
 
 const classes = {
     info: 'info',
@@ -55717,21 +55728,25 @@ const icons = {
 return (_ctx, _cache) => {
   const _component_Icon = resolveComponent("Icon");
 
-  return (openBlock(), createElementBlock("div", _hoisted_1$d, [
-    createBaseVNode("div", _hoisted_2$a, [
-      (openBlock(true), createElementBlock(Fragment, null, renderList(unref(messages).messages, (message) => {
-        return (openBlock(), createElementBlock("div", {
-          key: message.id,
-          class: normalizeClass(["message", [message.type, message.config?.class ? message.config?.class : '', classes[message.type]]]),
-          style: normalizeStyle(message.config?.style ? message.config.style : {})
-        }, [
-          createVNode(_component_Icon, {
-            icon: message.config?.icon ? message.config.icon : icons[message.type]
-          }, null, 8 /* PROPS */, ["icon"]),
-          createBaseVNode("span", null, toDisplayString$1(message.text), 1 /* TEXT */)
-        ], 6 /* CLASS, STYLE */))
-      }), 128 /* KEYED_FRAGMENT */))
-    ])
+  return (openBlock(), createBlock(Teleport, { to: "body" }, [
+    createBaseVNode("div", {
+      class: normalizeClass(["messages", { 'modals-mode': unref(modals).openedModals?.length }])
+    }, [
+      createBaseVNode("div", _hoisted_1$d, [
+        (openBlock(true), createElementBlock(Fragment, null, renderList(unref(messages).messages, (message) => {
+          return (openBlock(), createElementBlock("div", {
+            key: message.id,
+            class: normalizeClass(["message", [message.type, message.config?.class ? message.config?.class : '', classes[message.type]]]),
+            style: normalizeStyle(message.config?.style ? message.config.style : {})
+          }, [
+            createVNode(_component_Icon, {
+              icon: message.config?.icon ? message.config.icon : icons[message.type]
+            }, null, 8 /* PROPS */, ["icon"]),
+            createBaseVNode("span", null, toDisplayString$1(message.text), 1 /* TEXT */)
+          ], 6 /* CLASS, STYLE */))
+        }), 128 /* KEYED_FRAGMENT */))
+      ])
+    ], 2 /* CLASS */)
   ]))
 }
 }
@@ -56846,7 +56861,7 @@ const { openedModals, confirmSettings, modalsComponents } = storeToRefs(modals);
 
 modals.register({
     loader: ModalLoader,
-    welcome: defineAsyncComponent(() => __vitePreload(() => import('./ModalWelcome.08f60f14.js'),true?["assets/ModalWelcome.08f60f14.js","assets/ModalWelcome.8956061c.css"]:void 0)),
+    welcome: defineAsyncComponent(() => __vitePreload(() => import('./ModalWelcome.802af7b4.js'),true?["assets/ModalWelcome.802af7b4.js","assets/ModalWelcome.8956061c.css"]:void 0)),
     success: ModalSuccess
 });
 
@@ -57174,7 +57189,7 @@ const browserExt = {
   },
   test: () => true,
   load: async () => {
-    await __vitePreload(() => import('./browserAll.0baa8598.js'),true?["assets/browserAll.0baa8598.js","assets/init.9f9825ee.js"]:void 0);
+    await __vitePreload(() => import('./browserAll.1a1983f5.js'),true?["assets/browserAll.1a1983f5.js","assets/init.6fc52f42.js"]:void 0);
   }
 };
 
@@ -57186,7 +57201,7 @@ const webworkerExt = {
   },
   test: () => typeof self !== "undefined" && self.WorkerGlobalScope !== void 0,
   load: async () => {
-    await __vitePreload(() => import('./webworkerAll.328302c9.js'),true?["assets/webworkerAll.328302c9.js","assets/init.9f9825ee.js"]:void 0);
+    await __vitePreload(() => import('./webworkerAll.d7b87ef1.js'),true?["assets/webworkerAll.d7b87ef1.js","assets/init.6fc52f42.js"]:void 0);
   }
 };
 
