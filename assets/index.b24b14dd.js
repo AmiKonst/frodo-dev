@@ -46095,49 +46095,49 @@ const routes = [
     {
         path: '/empty',
         name: 'empty',
-        component: () => __vitePreload(() => import('./Empty.85773302.js'),true?["assets/Empty.85773302.js","assets/Field.8d752581.js","assets/Field.3845c6b6.css","assets/Select.5fc2f3b6.js","assets/Select.c2eabf07.css","assets/EmptyLabel.bd4bae71.js","assets/EmptyLabel.f5921f8a.css","assets/Empty.5cb543c2.css"]:void 0),
+        component: () => __vitePreload(() => import('./Empty.5976cc29.js'),true?["assets/Empty.5976cc29.js","assets/Field.1a4f13c9.js","assets/Field.3845c6b6.css","assets/Select.9ec7ec40.js","assets/Select.c2eabf07.css","assets/EmptyLabel.5570714d.js","assets/EmptyLabel.f5921f8a.css","assets/Empty.5cb543c2.css"]:void 0),
         abort: []
     },
     {
         path: '/music',
         name: 'music',
-        component: () => __vitePreload(() => import('./Music.5463f25b.js'),true?["assets/Music.5463f25b.js","assets/Ready.8c05492b.js"]:void 0),
+        component: () => __vitePreload(() => import('./Music.11c5b211.js'),true?["assets/Music.11c5b211.js","assets/Ready.c494bcd7.js"]:void 0),
         abort: []
     },
     {
         path: '/favorite',
         name: 'favorite',
-        component: () => __vitePreload(() => import('./Favorite.096a82ab.js'),true?["assets/Favorite.096a82ab.js","assets/EmptyLabel.bd4bae71.js","assets/EmptyLabel.f5921f8a.css","assets/Ready.8c05492b.js","assets/Favorite.3396c1d9.css"]:void 0),
+        component: () => __vitePreload(() => import('./Favorite.beb063be.js'),true?["assets/Favorite.beb063be.js","assets/EmptyLabel.5570714d.js","assets/EmptyLabel.f5921f8a.css","assets/Ready.c494bcd7.js","assets/Favorite.3396c1d9.css"]:void 0),
         abort: []
     },
         {
             path: '/favorite/artists',
             name: 'favorite-artists',
-            component: () => __vitePreload(() => import('./Artists.725ba2fd.js'),true?["assets/Artists.725ba2fd.js","assets/Ready.8c05492b.js","assets/EmptyLabel.bd4bae71.js","assets/EmptyLabel.f5921f8a.css","assets/Artists.d1d2aada.css"]:void 0),
+            component: () => __vitePreload(() => import('./Artists.31aa0c4a.js'),true?["assets/Artists.31aa0c4a.js","assets/Ready.c494bcd7.js","assets/EmptyLabel.5570714d.js","assets/EmptyLabel.f5921f8a.css","assets/Artists.d1d2aada.css"]:void 0),
             abort: []
         },
         {
             path: '/favorite/playlists',
             name: 'favorite-playlists',
-            component: () => __vitePreload(() => import('./Playlists.26325054.js'),true?["assets/Playlists.26325054.js","assets/Ready.8c05492b.js","assets/EmptyLabel.bd4bae71.js","assets/EmptyLabel.f5921f8a.css","assets/Playlists.82a285ca.css"]:void 0),
+            component: () => __vitePreload(() => import('./Playlists.7f2d4249.js'),true?["assets/Playlists.7f2d4249.js","assets/Ready.c494bcd7.js","assets/EmptyLabel.5570714d.js","assets/EmptyLabel.f5921f8a.css","assets/Playlists.82a285ca.css"]:void 0),
             abort: []
         },
     {
         path: '/settings',
         name: 'settings',
-        component: () => __vitePreload(() => import('./Settings.ec62b6e6.js'),true?["assets/Settings.ec62b6e6.js","assets/Ready.8c05492b.js","assets/Select.5fc2f3b6.js","assets/Select.c2eabf07.css","assets/Settings.cbeceb52.css"]:void 0),
+        component: () => __vitePreload(() => import('./Settings.9e1233c4.js'),true?["assets/Settings.9e1233c4.js","assets/Ready.c494bcd7.js","assets/Select.9ec7ec40.js","assets/Select.c2eabf07.css","assets/Settings.cbeceb52.css"]:void 0),
         abort: []
     },
     {
         path: '/error',
         name: 'error',
-        component: () => __vitePreload(() => import('./Error.f25b0ba6.js'),true?["assets/Error.f25b0ba6.js","assets/EmptyLabel.bd4bae71.js","assets/EmptyLabel.f5921f8a.css"]:void 0),
+        component: () => __vitePreload(() => import('./Error.ebe48267.js'),true?["assets/Error.ebe48267.js","assets/EmptyLabel.5570714d.js","assets/EmptyLabel.f5921f8a.css"]:void 0),
         abort: []
     },
     {
         path: '/access-denied',
         name: 'access-denied',
-        component: () => __vitePreload(() => import('./AccessDenied.81cd4c30.js'),true?["assets/AccessDenied.81cd4c30.js","assets/EmptyLabel.bd4bae71.js","assets/EmptyLabel.f5921f8a.css","assets/AccessDenied.886229d6.css"]:void 0),
+        component: () => __vitePreload(() => import('./AccessDenied.2e969f21.js'),true?["assets/AccessDenied.2e969f21.js","assets/EmptyLabel.5570714d.js","assets/EmptyLabel.f5921f8a.css","assets/AccessDenied.886229d6.css"]:void 0),
         abort: []
     },
     {
@@ -48272,19 +48272,42 @@ const useUserStore = defineStore('user', {
         },
         async createExternalLogin() {
             const data = await api.user().createExternalLogin();
-            this.externalCode = data?.code;
+            this.externalCode = data?.value;
             this.externalToken = data?.token;
         },
         async checkExternalLogin() {
-            return await api.user().checkExternalLogin({
+            const { $cookies } = router.app.config.globalProperties;
+
+            const data = await api.user().checkExternalLogin({
                 value: this.externalCode,
                 token: this.externalToken
             });
+
+            if (!data?.token) {
+                return false;
+            }
+
+            $cookies.set('auth._token', data?.token);
+
+            this.token = data?.token;
+            this.profile = data?.user || {};
+
+            return true;
         },
         async externalLogin(value) {
             return await api.user().authExternalLogin({
                 value
             });
+        },
+        async checkHasToken() {
+            const { $cookies } = router.app.config.globalProperties;
+
+            if (!this.token) {
+                this.token = $cookies.get('auth._token');
+                await this.me();
+            }
+
+            return !!this.token;
         }
     }
 });
@@ -55702,6 +55725,162 @@ const Vue3TouchEvents = {
 
 function _typeof(e){return _typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},_typeof(e)}function plugin(e,n){if(!e.vueAxiosInstalled){var o=isAxiosLike(n)?migrateToMultipleInstances(n):n;if(isValidConfig(o)){var t=getVueVersion(e);if(t){var i=t<3?registerOnVue2:registerOnVue3;Object.keys(o).forEach((function(n){i(e,n,o[n]);})),e.vueAxiosInstalled=!0;}else console.error("[vue-axios] unknown Vue version");}else console.error("[vue-axios] configuration is invalid, expected options are either <axios_instance> or { <registration_key>: <axios_instance> }");}}function registerOnVue2(e,n,o){Object.defineProperty(e.prototype,n,{get:function(){return o}}),e[n]=o;}function registerOnVue3(e,n,o){e.config.globalProperties[n]=o,e[n]=o;}function isAxiosLike(e){return e&&"function"==typeof e.get&&"function"==typeof e.post}function migrateToMultipleInstances(e){return {axios:e,$http:e}}function isValidConfig(e){return "object"===_typeof(e)&&Object.keys(e).every((function(n){return isAxiosLike(e[n])}))}function getVueVersion(e){return e&&e.version&&Number(e.version.split(".")[0])}"object"==("undefined"==typeof exports?"undefined":_typeof(exports))?module.exports=plugin:"function"==typeof define&&define.amd?define([],(function(){return plugin})):window.Vue&&window.axios&&window.Vue.use&&Vue.use(plugin,window.axios);
 
+var vueCookies = {exports: {}};
+
+/**
+ * Vue Cookies v1.8.6
+ * https://github.com/cmp-cc/vue-cookies
+ *
+ * Copyright 2016, cmp-cc
+ * Released under the MIT license
+ */
+
+(function (module, exports) {
+	(function () {
+
+	  var defaultConfig = {
+	    expires: '1d',
+	    path: '; path=/',
+	    domain: '',
+	    secure: '',
+	    sameSite: '; SameSite=Lax',
+	    partitioned : ''
+	  };
+
+	  var VueCookies = {
+	    // install of Vue
+	    install: function (Vue, options) {
+	      if (options) this.config(options.expires, options.path, options.domain, options.secure, options.sameSite, options.partitioned);
+	      const isVue3 = Vue.config && Vue.config.globalProperties;
+	      if (isVue3) {
+	        Vue.config.globalProperties.$cookies = this;
+	        Vue.provide && Vue.provide('$cookies', this);
+	      }
+	      if (!isVue3 || Vue.prototype) {
+	        Vue.prototype.$cookies = this;
+	      }
+	      Vue.$cookies = this;
+	    },
+	    config: function (expires, path, domain, secure, sameSite, partitioned) {
+	      defaultConfig.expires = expires ? expires : '1d';
+	      defaultConfig.path = path ? '; path=' + path : '; path=/';
+	      defaultConfig.domain = domain ? '; domain=' + domain : '';
+	      defaultConfig.secure = secure ? '; Secure' : '';
+	      defaultConfig.sameSite = sameSite ? '; SameSite=' + sameSite : '; SameSite=Lax';
+	      defaultConfig.partitioned = partitioned ? '; Partitioned' : '';
+	    },
+	    get: function (key) {
+	      var value = decodeURIComponent(document.cookie.replace(new RegExp('(?:(?:^|.*;)\\s*' + encodeURIComponent(key).replace(/[\-\.\+\*]/g, '\\$&') + '\\s*\\=\\s*([^;]*).*$)|^.*$'), '$1')) || null;
+
+	      if (value && ((value.substring(0, 1) === '{' && value.substring(value.length - 1, value.length) === '}') || (value.substring(0, 1) === '[' && value.substring(value.length - 1, value.length) === ']'))) {
+	        try {
+	          value = JSON.parse(value);
+	        } catch (e) {
+	          return value;
+	        }
+	      }
+	      return value;
+	    },
+	    set: function (key, value, expires, path, domain, secure, sameSite, partitioned) {
+	      if (!key) {
+	        throw new Error('Cookie name is not found in the first argument.');
+	      } else if (/^(?:expires|max\-age|path|domain|secure|SameSite)$/i.test(key)) {
+	        throw new Error('Cookie name illegality. Cannot be set to ["expires","max-age","path","domain","secure","SameSite"]\t current key name: ' + key);
+	      }
+	      // support json object
+	      if (value && typeof value === 'object') {
+	        value = JSON.stringify(value);
+	      }
+	      var _expires = '';
+	      expires = expires === undefined ? defaultConfig.expires : expires;
+	      if (expires && expires !== 0) {
+	        switch (expires.constructor) {
+	          case Number:
+	            if (expires === Infinity || expires === -1) _expires = '; expires=Fri, 31 Dec 9999 23:59:59 GMT';
+	            else _expires = '; max-age=' + expires;
+	            break;
+	          case String:
+	            if (/^(?:\d+(y|m|d|h|min|s))$/i.test(expires)) {
+	              // get capture number group
+	              var _expireTime = expires.replace(/^(\d+)(?:y|m|d|h|min|s)$/i, '$1');
+	              // get capture type group , to lower case
+	              switch (expires.replace(/^(?:\d+)(y|m|d|h|min|s)$/i, '$1').toLowerCase()) {
+	                  // Frequency sorting
+	                case 'm':
+	                  _expires = '; max-age=' + +_expireTime * 2592000;
+	                  break; // 60 * 60 * 24 * 30
+	                case 'd':
+	                  _expires = '; max-age=' + +_expireTime * 86400;
+	                  break; // 60 * 60 * 24
+	                case 'h':
+	                  _expires = '; max-age=' + +_expireTime * 3600;
+	                  break; // 60 * 60
+	                case 'min':
+	                  _expires = '; max-age=' + +_expireTime * 60;
+	                  break; // 60
+	                case 's':
+	                  _expires = '; max-age=' + _expireTime;
+	                  break;
+	                case 'y':
+	                  _expires = '; max-age=' + +_expireTime * 31104000;
+	                  break; // 60 * 60 * 24 * 30 * 12
+	              }
+	            } else {
+	              _expires = '; expires=' + expires;
+	            }
+	            break;
+	          case Date:
+	            _expires = '; expires=' + expires.toUTCString();
+	            break;
+	        }
+	      }
+	      document.cookie =
+	          encodeURIComponent(key) + '=' + encodeURIComponent(value) +
+	          _expires +
+	          (domain ? '; domain=' + domain : defaultConfig.domain) +
+	          (path ? '; path=' + path : defaultConfig.path) +
+	          (secure === undefined ? defaultConfig.secure : secure ? '; Secure' : '') +
+	          (sameSite === undefined ? defaultConfig.sameSite : (sameSite ? '; SameSite=' + sameSite : '')) +
+	          (partitioned === undefined ? defaultConfig.partitioned : partitioned ? '; Partitioned' : '');
+	      return this;
+	    },
+	    remove: function (key, path, domain) {
+	      if (!key || !this.isKey(key)) {
+	        return false;
+	      }
+	      document.cookie = encodeURIComponent(key) +
+	          '=; expires=Thu, 01 Jan 1970 00:00:00 GMT' +
+	          (domain ? '; domain=' + domain : defaultConfig.domain) +
+	          (path ? '; path=' + path : defaultConfig.path) +
+	          '; SameSite=Lax';
+	      return true;
+	    },
+	    isKey: function (key) {
+	      return (new RegExp('(?:^|;\\s*)' + encodeURIComponent(key).replace(/[\-\.\+\*]/g, '\\$&') + '\\s*\\=')).test(document.cookie);
+	    },
+	    keys: function () {
+	      if (!document.cookie) return [];
+	      var _keys = document.cookie.replace(/((?:^|\s*;)[^\=]+)(?=;|$)|^\s*|\s*(?:\=[^;]*)?(?:\1|$)/g, '').split(/\s*(?:\=[^;]*)?;\s*/);
+	      for (var _index = 0; _index < _keys.length; _index++) {
+	        _keys[_index] = decodeURIComponent(_keys[_index]);
+	      }
+	      return _keys;
+	    }
+	  };
+
+	  {
+	    module.exports = VueCookies;
+	  }
+	  // vue-cookies can exist independently,no dependencies library
+	  if (typeof window !== 'undefined') {
+	    window.$cookies = VueCookies;
+	  }
+
+	})();
+} (vueCookies));
+
+const VueCookies = vueCookies.exports;
+
 const Messages_vue_vue_type_style_index_0_scoped_2c35b512_lang = '';
 
 const _hoisted_1$d = { class: "messages-container" };
@@ -56861,7 +57040,7 @@ const { openedModals, confirmSettings, modalsComponents } = storeToRefs(modals);
 
 modals.register({
     loader: ModalLoader,
-    welcome: defineAsyncComponent(() => __vitePreload(() => import('./ModalWelcome.802af7b4.js'),true?["assets/ModalWelcome.802af7b4.js","assets/ModalWelcome.8956061c.css"]:void 0)),
+    welcome: defineAsyncComponent(() => __vitePreload(() => import('./ModalWelcome.43390345.js'),true?["assets/ModalWelcome.43390345.js","assets/ModalWelcome.8956061c.css"]:void 0)),
     success: ModalSuccess
 });
 
@@ -57189,7 +57368,7 @@ const browserExt = {
   },
   test: () => true,
   load: async () => {
-    await __vitePreload(() => import('./browserAll.1a1983f5.js'),true?["assets/browserAll.1a1983f5.js","assets/init.6fc52f42.js"]:void 0);
+    await __vitePreload(() => import('./browserAll.c21dc8ca.js'),true?["assets/browserAll.c21dc8ca.js","assets/init.300e88c7.js"]:void 0);
   }
 };
 
@@ -57201,7 +57380,7 @@ const webworkerExt = {
   },
   test: () => typeof self !== "undefined" && self.WorkerGlobalScope !== void 0,
   load: async () => {
-    await __vitePreload(() => import('./webworkerAll.d7b87ef1.js'),true?["assets/webworkerAll.d7b87ef1.js","assets/init.6fc52f42.js"]:void 0);
+    await __vitePreload(() => import('./webworkerAll.550a9ce7.js'),true?["assets/webworkerAll.550a9ce7.js","assets/init.300e88c7.js"]:void 0);
   }
 };
 
@@ -65982,6 +66161,7 @@ pinia.use(({ store }) => {
 app.use(pinia);
 app.use(Vue3TouchEvents);
 app.use(plugin, axios$1);
+app.use(VueCookies);
 app.use(stores$1.locale().create());
 
 app.component('Datepicker', Gn);
