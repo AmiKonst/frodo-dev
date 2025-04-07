@@ -42306,7 +42306,7 @@ const useOthersStore = defineStore('others', {
         },
         svgSpritePath: (state) => {
             if (state.theme === 'dark') {
-                return new URL("/frodo-dev/assets/svg-sprite.25081f90.svg", self.location).href;
+                return new URL("/frodo-dev/assets/svg-sprite.e33161dc.svg", self.location).href;
             }
             return new URL("/frodo-dev/assets/svg-sprite.6d1cdc5c.svg", self.location).href;
         },
@@ -46095,49 +46095,49 @@ const routes = [
     {
         path: '/empty',
         name: 'empty',
-        component: () => __vitePreload(() => import('./Empty.b605c57e.js'),true?["assets/Empty.b605c57e.js","assets/Field.fdeaf880.js","assets/Field.3845c6b6.css","assets/Select.85bc85db.js","assets/Select.c2eabf07.css","assets/EmptyLabel.5aea7f02.js","assets/EmptyLabel.f5921f8a.css","assets/Empty.5cb543c2.css"]:void 0),
+        component: () => __vitePreload(() => import('./Empty.d1e8af3f.js'),true?["assets/Empty.d1e8af3f.js","assets/Field.b4337b51.js","assets/Field.3845c6b6.css","assets/Select.ca61af09.js","assets/Select.c2eabf07.css","assets/EmptyLabel.80e8e034.js","assets/EmptyLabel.f5921f8a.css","assets/Empty.5cb543c2.css"]:void 0),
         abort: []
     },
     {
         path: '/music',
         name: 'music',
-        component: () => __vitePreload(() => import('./Music.18a1735d.js'),true?["assets/Music.18a1735d.js","assets/Ready.66bd3ebd.js"]:void 0),
+        component: () => __vitePreload(() => import('./Music.399f68fc.js'),true?["assets/Music.399f68fc.js","assets/Ready.f644695f.js"]:void 0),
         abort: []
     },
     {
         path: '/favorite',
         name: 'favorite',
-        component: () => __vitePreload(() => import('./Favorite.d56e7808.js'),true?["assets/Favorite.d56e7808.js","assets/EmptyLabel.5aea7f02.js","assets/EmptyLabel.f5921f8a.css","assets/Ready.66bd3ebd.js","assets/Favorite.3396c1d9.css"]:void 0),
+        component: () => __vitePreload(() => import('./Favorite.f74f092c.js'),true?["assets/Favorite.f74f092c.js","assets/EmptyLabel.80e8e034.js","assets/EmptyLabel.f5921f8a.css","assets/Ready.f644695f.js","assets/Favorite.3396c1d9.css"]:void 0),
         abort: []
     },
         {
             path: '/favorite/artists',
             name: 'favorite-artists',
-            component: () => __vitePreload(() => import('./Artists.bd6448d4.js'),true?["assets/Artists.bd6448d4.js","assets/Ready.66bd3ebd.js","assets/EmptyLabel.5aea7f02.js","assets/EmptyLabel.f5921f8a.css","assets/Artists.d1d2aada.css"]:void 0),
+            component: () => __vitePreload(() => import('./Artists.a7e3c4c4.js'),true?["assets/Artists.a7e3c4c4.js","assets/Ready.f644695f.js","assets/EmptyLabel.80e8e034.js","assets/EmptyLabel.f5921f8a.css","assets/Artists.d1d2aada.css"]:void 0),
             abort: []
         },
         {
             path: '/favorite/playlists',
             name: 'favorite-playlists',
-            component: () => __vitePreload(() => import('./Playlists.f012a731.js'),true?["assets/Playlists.f012a731.js","assets/Ready.66bd3ebd.js","assets/EmptyLabel.5aea7f02.js","assets/EmptyLabel.f5921f8a.css","assets/Playlists.82a285ca.css"]:void 0),
+            component: () => __vitePreload(() => import('./Playlists.d3541b1b.js'),true?["assets/Playlists.d3541b1b.js","assets/Ready.f644695f.js","assets/EmptyLabel.80e8e034.js","assets/EmptyLabel.f5921f8a.css","assets/Playlists.82a285ca.css"]:void 0),
             abort: []
         },
     {
         path: '/settings',
         name: 'settings',
-        component: () => __vitePreload(() => import('./Settings.af242dab.js'),true?["assets/Settings.af242dab.js","assets/Ready.66bd3ebd.js","assets/Select.85bc85db.js","assets/Select.c2eabf07.css","assets/Settings.cbeceb52.css"]:void 0),
+        component: () => __vitePreload(() => import('./Settings.e772b353.js'),true?["assets/Settings.e772b353.js","assets/Ready.f644695f.js","assets/Select.ca61af09.js","assets/Select.c2eabf07.css","assets/Settings.cbeceb52.css"]:void 0),
         abort: []
     },
     {
         path: '/error',
         name: 'error',
-        component: () => __vitePreload(() => import('./Error.b504b3f1.js'),true?["assets/Error.b504b3f1.js","assets/EmptyLabel.5aea7f02.js","assets/EmptyLabel.f5921f8a.css"]:void 0),
+        component: () => __vitePreload(() => import('./Error.b67a824b.js'),true?["assets/Error.b67a824b.js","assets/EmptyLabel.80e8e034.js","assets/EmptyLabel.f5921f8a.css"]:void 0),
         abort: []
     },
     {
         path: '/access-denied',
         name: 'access-denied',
-        component: () => __vitePreload(() => import('./AccessDenied.0517a46e.js'),true?["assets/AccessDenied.0517a46e.js","assets/EmptyLabel.5aea7f02.js","assets/EmptyLabel.f5921f8a.css","assets/AccessDenied.886229d6.css"]:void 0),
+        component: () => __vitePreload(() => import('./AccessDenied.4397c196.js'),true?["assets/AccessDenied.4397c196.js","assets/EmptyLabel.80e8e034.js","assets/EmptyLabel.f5921f8a.css","assets/AccessDenied.886229d6.css"]:void 0),
         abort: []
     },
     {
@@ -56846,7 +56846,7 @@ const { openedModals, confirmSettings, modalsComponents } = storeToRefs(modals);
 
 modals.register({
     loader: ModalLoader,
-    welcome: defineAsyncComponent(() => __vitePreload(() => import('./ModalWelcome.891b9949.js'),true?["assets/ModalWelcome.891b9949.js","assets/ModalWelcome.8956061c.css"]:void 0)),
+    welcome: defineAsyncComponent(() => __vitePreload(() => import('./ModalWelcome.08f60f14.js'),true?["assets/ModalWelcome.08f60f14.js","assets/ModalWelcome.8956061c.css"]:void 0)),
     success: ModalSuccess
 });
 
@@ -57174,7 +57174,7 @@ const browserExt = {
   },
   test: () => true,
   load: async () => {
-    await __vitePreload(() => import('./browserAll.e177c8e1.js'),true?["assets/browserAll.e177c8e1.js","assets/init.abafd4cb.js"]:void 0);
+    await __vitePreload(() => import('./browserAll.0baa8598.js'),true?["assets/browserAll.0baa8598.js","assets/init.9f9825ee.js"]:void 0);
   }
 };
 
@@ -57186,7 +57186,7 @@ const webworkerExt = {
   },
   test: () => typeof self !== "undefined" && self.WorkerGlobalScope !== void 0,
   load: async () => {
-    await __vitePreload(() => import('./webworkerAll.bd4bea82.js'),true?["assets/webworkerAll.bd4bea82.js","assets/init.abafd4cb.js"]:void 0);
+    await __vitePreload(() => import('./webworkerAll.328302c9.js'),true?["assets/webworkerAll.328302c9.js","assets/init.9f9825ee.js"]:void 0);
   }
 };
 
