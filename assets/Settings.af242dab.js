@@ -1,6 +1,6 @@
-import { _ as _export_sfc, x as useI18n, D as stores, m as resolveComponent, o as openBlock, c as createElementBlock, i as createBaseVNode, g as createVNode, t as toDisplayString, B as unref, n as normalizeClass, H as createStaticVNode, h as computed, r as ref, I as IconButton, K as message, a as reactive, d as createBlock, e as createCommentVNode, Q as defineAsyncComponent, R as onBeforeUnmount, E as Toggler, F as Fragment, S as __vitePreload } from './index.7080bd8b.js';
-import { R as Ready } from './Ready.4cf987b4.js';
-import { S as Select } from './Select.0612bfec.js';
+import { _ as _export_sfc, x as useI18n, D as stores, m as resolveComponent, o as openBlock, c as createElementBlock, i as createBaseVNode, g as createVNode, t as toDisplayString, B as unref, n as normalizeClass, H as createStaticVNode, h as computed, r as ref, I as IconButton, K as message, a as reactive, d as createBlock, e as createCommentVNode, Q as defineAsyncComponent, R as onBeforeUnmount, E as Toggler, F as Fragment, S as __vitePreload } from './index.0f573481.js';
+import { R as Ready } from './Ready.66bd3ebd.js';
+import { S as Select } from './Select.85bc85db.js';
 
 const Theme_vue_vue_type_style_index_0_scoped_ef1ff130_lang = '';
 
@@ -80,6 +80,7 @@ const _sfc_main$4 = {
         acceptedFormats: { type: Array, default: () => ([]) },
         maxSize: { type: Number, default: 50 * 1024 * 1024 },
         maxFiles: { type: Number, default: 1 },
+        icon: { type: String, default: 'upload' },
         loading: { type: Boolean, default: false }
     },
   emits: ['change'],
@@ -155,11 +156,11 @@ return (_ctx, _cache) => {
       onChange: handleFileChange
     }, null, 40 /* PROPS, NEED_HYDRATION */, _hoisted_1$2),
     createVNode(IconButton, {
-      icon: "upload",
+      icon: props.icon,
       class: "size-l round upload",
       loading: props.loading,
       onClick: selectFile
-    }, null, 8 /* PROPS */, ["loading"])
+    }, null, 8 /* PROPS */, ["icon", "loading"])
   ]))
 }
 }
@@ -234,6 +235,7 @@ return (_ctx, _cache) => {
       : createCommentVNode("v-if", true),
     createVNode(FileUploader, {
       class: "upload",
+      icon: "upload-img",
       acceptedFormats: ['image/png', 'image/jpeg', 'image/jpg', 'image/gif', 'image/jfif'],
       loading: data.loading,
       onChange: updateAvatar
@@ -358,8 +360,8 @@ const _sfc_main = {
     };
 
     modals.register({
-        'studio-auth': defineAsyncComponent(() => __vitePreload(() => import('./ModalStudioAuth.edda20e6.js'),true?["assets/ModalStudioAuth.edda20e6.js","assets/index.7080bd8b.js","assets/index.eb68e211.css","assets/ModalStudioAuth.adc11dd1.css"]:void 0)),
-        'edit-firstname': defineAsyncComponent(() => __vitePreload(() => import('./ModalEditFirstName.08d1ebcb.js'),true?["assets/ModalEditFirstName.08d1ebcb.js","assets/index.7080bd8b.js","assets/index.eb68e211.css","assets/Field.4187aeef.js","assets/Field.3845c6b6.css","assets/ModalEditFirstName.fdfb513e.css"]:void 0))
+        'studio-auth': defineAsyncComponent(() => __vitePreload(() => import('./ModalStudioAuth.d0c25f2a.js'),true?["assets/ModalStudioAuth.d0c25f2a.js","assets/index.0f573481.js","assets/index.3ed79583.css","assets/ModalStudioAuth.adc11dd1.css"]:void 0)),
+        'edit-firstname': defineAsyncComponent(() => __vitePreload(() => import('./ModalEditFirstName.ffe7bfa1.js'),true?["assets/ModalEditFirstName.ffe7bfa1.js","assets/index.0f573481.js","assets/index.3ed79583.css","assets/Field.fdeaf880.js","assets/Field.3845c6b6.css","assets/ModalEditFirstName.fdfb513e.css"]:void 0))
     });
 
     onBeforeUnmount(() => {

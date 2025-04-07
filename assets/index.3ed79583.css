@@ -1406,7 +1406,7 @@ div.success span.devider[data-v-740ad6d1] {
   min-height: 40px;
 }
 .modal-box.mobile {
-  bottom: 0px;
+  bottom: 0svh;
   left: 0;
   right: 0;
   max-height: 360px;
