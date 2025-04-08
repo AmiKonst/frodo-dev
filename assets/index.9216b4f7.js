@@ -46095,49 +46095,49 @@ const routes = [
     {
         path: '/empty',
         name: 'empty',
-        component: () => __vitePreload(() => import('./Empty.5976cc29.js'),true?["assets/Empty.5976cc29.js","assets/Field.1a4f13c9.js","assets/Field.3845c6b6.css","assets/Select.9ec7ec40.js","assets/Select.c2eabf07.css","assets/EmptyLabel.5570714d.js","assets/EmptyLabel.f5921f8a.css","assets/Empty.5cb543c2.css"]:void 0),
+        component: () => __vitePreload(() => import('./Empty.d044d956.js'),true?["assets/Empty.d044d956.js","assets/Field.1d957c78.js","assets/Field.3845c6b6.css","assets/Select.7e395b1b.js","assets/Select.c2eabf07.css","assets/EmptyLabel.2d38c8c4.js","assets/EmptyLabel.f5921f8a.css","assets/Empty.5cb543c2.css"]:void 0),
         abort: []
     },
     {
         path: '/music',
         name: 'music',
-        component: () => __vitePreload(() => import('./Music.11c5b211.js'),true?["assets/Music.11c5b211.js","assets/Ready.c494bcd7.js"]:void 0),
+        component: () => __vitePreload(() => import('./Music.5276e388.js'),true?["assets/Music.5276e388.js","assets/Ready.98172907.js"]:void 0),
         abort: []
     },
     {
         path: '/favorite',
         name: 'favorite',
-        component: () => __vitePreload(() => import('./Favorite.beb063be.js'),true?["assets/Favorite.beb063be.js","assets/EmptyLabel.5570714d.js","assets/EmptyLabel.f5921f8a.css","assets/Ready.c494bcd7.js","assets/Favorite.3396c1d9.css"]:void 0),
+        component: () => __vitePreload(() => import('./Favorite.c590a46c.js'),true?["assets/Favorite.c590a46c.js","assets/EmptyLabel.2d38c8c4.js","assets/EmptyLabel.f5921f8a.css","assets/Ready.98172907.js","assets/Favorite.3396c1d9.css"]:void 0),
         abort: []
     },
         {
             path: '/favorite/artists',
             name: 'favorite-artists',
-            component: () => __vitePreload(() => import('./Artists.31aa0c4a.js'),true?["assets/Artists.31aa0c4a.js","assets/Ready.c494bcd7.js","assets/EmptyLabel.5570714d.js","assets/EmptyLabel.f5921f8a.css","assets/Artists.d1d2aada.css"]:void 0),
+            component: () => __vitePreload(() => import('./Artists.83a22e26.js'),true?["assets/Artists.83a22e26.js","assets/Ready.98172907.js","assets/EmptyLabel.2d38c8c4.js","assets/EmptyLabel.f5921f8a.css","assets/Artists.d1d2aada.css"]:void 0),
             abort: []
         },
         {
             path: '/favorite/playlists',
             name: 'favorite-playlists',
-            component: () => __vitePreload(() => import('./Playlists.7f2d4249.js'),true?["assets/Playlists.7f2d4249.js","assets/Ready.c494bcd7.js","assets/EmptyLabel.5570714d.js","assets/EmptyLabel.f5921f8a.css","assets/Playlists.82a285ca.css"]:void 0),
+            component: () => __vitePreload(() => import('./Playlists.9d092a85.js'),true?["assets/Playlists.9d092a85.js","assets/Ready.98172907.js","assets/EmptyLabel.2d38c8c4.js","assets/EmptyLabel.f5921f8a.css","assets/Playlists.82a285ca.css"]:void 0),
             abort: []
         },
     {
         path: '/settings',
         name: 'settings',
-        component: () => __vitePreload(() => import('./Settings.9e1233c4.js'),true?["assets/Settings.9e1233c4.js","assets/Ready.c494bcd7.js","assets/Select.9ec7ec40.js","assets/Select.c2eabf07.css","assets/Settings.cbeceb52.css"]:void 0),
+        component: () => __vitePreload(() => import('./Settings.0f6c1044.js'),true?["assets/Settings.0f6c1044.js","assets/Ready.98172907.js","assets/Select.7e395b1b.js","assets/Select.c2eabf07.css","assets/Settings.cbeceb52.css"]:void 0),
         abort: []
     },
     {
         path: '/error',
         name: 'error',
-        component: () => __vitePreload(() => import('./Error.ebe48267.js'),true?["assets/Error.ebe48267.js","assets/EmptyLabel.5570714d.js","assets/EmptyLabel.f5921f8a.css"]:void 0),
+        component: () => __vitePreload(() => import('./Error.f36a50c4.js'),true?["assets/Error.f36a50c4.js","assets/EmptyLabel.2d38c8c4.js","assets/EmptyLabel.f5921f8a.css"]:void 0),
         abort: []
     },
     {
         path: '/access-denied',
         name: 'access-denied',
-        component: () => __vitePreload(() => import('./AccessDenied.2e969f21.js'),true?["assets/AccessDenied.2e969f21.js","assets/EmptyLabel.5570714d.js","assets/EmptyLabel.f5921f8a.css","assets/AccessDenied.886229d6.css"]:void 0),
+        component: () => __vitePreload(() => import('./AccessDenied.0136a90a.js'),true?["assets/AccessDenied.0136a90a.js","assets/EmptyLabel.2d38c8c4.js","assets/EmptyLabel.f5921f8a.css","assets/AccessDenied.886229d6.css"]:void 0),
         abort: []
     },
     {
@@ -46296,9 +46296,9 @@ const onRequestDefaultError = (e) => {
                 message.error(t('utils.request.authError'));
             }, 200);
 
-            // if (useNavStore().page !== 'error') {
-            //     useNavStore().open('error');
-            // }
+            if (useNavStore().page !== 'login') {
+                useNavStore().open('login');
+            }
         } else if (e?.response?.status === 422) {
             if (useNavStore().page !== 'access-denied') {
                 useNavStore().open('access-denied');
@@ -48110,7 +48110,7 @@ const useUserApi = defineStore('user-api', {
                     return true;
                 }
             } catch (e) {
-                onRequestDefaultError(e);
+                // onRequestDefaultError(e);
             }
         }
     }
@@ -48242,8 +48242,8 @@ const useUserStore = defineStore('user', {
         async me() {
             const data = await api.user().getMyProfile();
 
-            if (data?.user) {
-                this.profile = data.user;
+            if (data?.id) {
+                this.profile = data;
             }
         },
         async updateAvatar(file) {
@@ -48308,6 +48308,12 @@ const useUserStore = defineStore('user', {
             }
 
             return !!this.token;
+        },
+        logout() {
+            const { $cookies } = router.app.config.globalProperties;
+
+            $cookies.remove('auth._token');
+            this.token = null;
         }
     }
 });
@@ -57040,7 +57046,7 @@ const { openedModals, confirmSettings, modalsComponents } = storeToRefs(modals);
 
 modals.register({
     loader: ModalLoader,
-    welcome: defineAsyncComponent(() => __vitePreload(() => import('./ModalWelcome.43390345.js'),true?["assets/ModalWelcome.43390345.js","assets/ModalWelcome.8956061c.css"]:void 0)),
+    welcome: defineAsyncComponent(() => __vitePreload(() => import('./ModalWelcome.3130db9e.js'),true?["assets/ModalWelcome.3130db9e.js","assets/ModalWelcome.8956061c.css"]:void 0)),
     success: ModalSuccess
 });
 
@@ -57368,7 +57374,7 @@ const browserExt = {
   },
   test: () => true,
   load: async () => {
-    await __vitePreload(() => import('./browserAll.c21dc8ca.js'),true?["assets/browserAll.c21dc8ca.js","assets/init.300e88c7.js"]:void 0);
+    await __vitePreload(() => import('./browserAll.f6805912.js'),true?["assets/browserAll.f6805912.js","assets/init.625ce1e0.js"]:void 0);
   }
 };
 
@@ -57380,7 +57386,7 @@ const webworkerExt = {
   },
   test: () => typeof self !== "undefined" && self.WorkerGlobalScope !== void 0,
   load: async () => {
-    await __vitePreload(() => import('./webworkerAll.550a9ce7.js'),true?["assets/webworkerAll.550a9ce7.js","assets/init.300e88c7.js"]:void 0);
+    await __vitePreload(() => import('./webworkerAll.e734ef9a.js'),true?["assets/webworkerAll.e734ef9a.js","assets/init.625ce1e0.js"]:void 0);
   }
 };
 
