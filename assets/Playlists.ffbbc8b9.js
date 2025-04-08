@@ -1,6 +1,6 @@
-import { _ as _export_sfc, x as useI18n, D as stores, o as openBlock, c as createElementBlock, i as createBaseVNode, g as createVNode, B as unref, I as IconButton, t as toDisplayString, F as Fragment } from './index.a2dd9624.js';
-import { R as Ready } from './Ready.9bcf40be.js';
-import { E as EmptyLabel } from './EmptyLabel.959635f9.js';
+import { _ as _export_sfc, x as useI18n, D as stores, o as openBlock, c as createElementBlock, i as createBaseVNode, g as createVNode, B as unref, I as IconButton, t as toDisplayString, F as Fragment } from './index.fb257985.js';
+import { R as Ready } from './Ready.7544ab74.js';
+import { E as EmptyLabel } from './EmptyLabel.d0b6ca09.js';
 
 const Playlists_vue_vue_type_style_index_0_scoped_04c5d775_lang = '';
 
@@ -26,7 +26,7 @@ return (_ctx, _cache) => {
     createBaseVNode("div", _hoisted_1, [
       createVNode(IconButton, {
         icon: "chevron-left",
-        class: "tertiary size-l",
+        class: "tertiary size-m",
         onClick: _cache[0] || (_cache[0] = $event => (unref(nav).back()))
       }),
       createBaseVNode("label", _hoisted_2, toDisplayString(unref(t)('pages.favorite-playlists.title')), 1 /* TEXT */)
