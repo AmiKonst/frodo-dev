@@ -149,7 +149,7 @@ div.field > div svg.icon-info[data-v-c964e307]:hover {
 }
 div.field > div svg[data-v-c964e307]:not(.icon-info) {
   position: absolute;
-  left: 10px;
+  left: 20px;
   top: 50%;
   transform: translateY(-50%);
   width: 20px;
@@ -158,10 +158,10 @@ div.field > div svg[data-v-c964e307]:not(.icon-info) {
   stroke: var(--dark-80);
 }
 div.field.with-icon > div input[data-v-c964e307] {
-  padding-left: 46px;
+  padding-left: 56px;
 }
 div.field.with-icon > div .placeholder[data-v-c964e307] {
-  left: 47px;
+  left: 57px;
 }
 div.field > .error[data-v-c964e307] {
   font: var(--font-label);

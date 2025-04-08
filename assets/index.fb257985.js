@@ -46095,7 +46095,7 @@ const routes = [
     {
         path: '/empty',
         name: 'empty',
-        component: () => __vitePreload(() => import('./Empty.efac7117.js'),true?["assets/Empty.efac7117.js","assets/Field.07c408a8.js","assets/Field.42cd149a.css","assets/Select.70a439b1.js","assets/Select.6cc79be5.css","assets/EmptyLabel.d0b6ca09.js","assets/EmptyLabel.f5921f8a.css","assets/Empty.c1458830.css"]:void 0),
+        component: () => __vitePreload(() => import('./Empty.efac7117.js'),true?["assets/Empty.efac7117.js","assets/Field.07c408a8.js","assets/Field.3845c6b6.css","assets/Select.70a439b1.js","assets/Select.c2eabf07.css","assets/EmptyLabel.d0b6ca09.js","assets/EmptyLabel.f5921f8a.css","assets/Empty.5cb543c2.css"]:void 0),
         abort: []
     },
     {
@@ -46107,25 +46107,25 @@ const routes = [
     {
         path: '/favorite',
         name: 'favorite',
-        component: () => __vitePreload(() => import('./Favorite.c194d86c.js'),true?["assets/Favorite.c194d86c.js","assets/EmptyLabel.d0b6ca09.js","assets/EmptyLabel.f5921f8a.css","assets/Ready.7544ab74.js","assets/Favorite.e4a133a6.css"]:void 0),
+        component: () => __vitePreload(() => import('./Favorite.c194d86c.js'),true?["assets/Favorite.c194d86c.js","assets/EmptyLabel.d0b6ca09.js","assets/EmptyLabel.f5921f8a.css","assets/Ready.7544ab74.js","assets/Favorite.af01eb6d.css"]:void 0),
         abort: []
     },
         {
             path: '/favorite/artists',
             name: 'favorite-artists',
-            component: () => __vitePreload(() => import('./Artists.ed6874c9.js'),true?["assets/Artists.ed6874c9.js","assets/Ready.7544ab74.js","assets/EmptyLabel.d0b6ca09.js","assets/EmptyLabel.f5921f8a.css","assets/Artists.51045d73.css"]:void 0),
+            component: () => __vitePreload(() => import('./Artists.ed6874c9.js'),true?["assets/Artists.ed6874c9.js","assets/Ready.7544ab74.js","assets/EmptyLabel.d0b6ca09.js","assets/EmptyLabel.f5921f8a.css","assets/Artists.f65ad4f9.css"]:void 0),
             abort: []
         },
         {
             path: '/favorite/playlists',
             name: 'favorite-playlists',
-            component: () => __vitePreload(() => import('./Playlists.ffbbc8b9.js'),true?["assets/Playlists.ffbbc8b9.js","assets/Ready.7544ab74.js","assets/EmptyLabel.d0b6ca09.js","assets/EmptyLabel.f5921f8a.css","assets/Playlists.ac850e8e.css"]:void 0),
+            component: () => __vitePreload(() => import('./Playlists.ffbbc8b9.js'),true?["assets/Playlists.ffbbc8b9.js","assets/Ready.7544ab74.js","assets/EmptyLabel.d0b6ca09.js","assets/EmptyLabel.f5921f8a.css","assets/Playlists.d2846a60.css"]:void 0),
             abort: []
         },
     {
         path: '/settings',
         name: 'settings',
-        component: () => __vitePreload(() => import('./Settings.5b264ae7.js'),true?["assets/Settings.5b264ae7.js","assets/Ready.7544ab74.js","assets/Select.70a439b1.js","assets/Select.6cc79be5.css","assets/Settings.e3eea803.css"]:void 0),
+        component: () => __vitePreload(() => import('./Settings.5b264ae7.js'),true?["assets/Settings.5b264ae7.js","assets/Ready.7544ab74.js","assets/Select.70a439b1.js","assets/Select.c2eabf07.css","assets/Settings.ea008444.css"]:void 0),
         abort: []
     },
     {

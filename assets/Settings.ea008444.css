@@ -194,7 +194,7 @@ div.profile .roles[data-v-96b8be53] {
 div.profile .upload[data-v-96b8be53] {
   position: absolute;
   bottom: 12px;
-  right: 10px;
+  right: 20px;
   transform: translateY(50%);
   z-index: 1;
 }@keyframes fade-up-e143f0dd {
@@ -222,7 +222,7 @@ div.profile .upload[data-v-96b8be53] {
   flex-direction: row;
   align-items: center;
   gap: 0;
-  padding: 0 10px 0 0;
+  padding: 0 12px 0 0;
   height: 60px;
   flex-shrink: 0;
   width: 100%;
@@ -234,12 +234,13 @@ div.profile .upload[data-v-96b8be53] {
   margin-right: auto;
   padding: 0;
   margin-bottom: 0;
+  margin-top: 2px;
 }
 .title[data-v-e143f0dd] {
   font: var(--font-h6);
   font-weight: bold;
   color: var(--dark-500);
-  padding: 0 10px;
+  padding: 0 20px;
   width: 100%;
   margin-bottom: 16px;
 }
@@ -268,7 +269,7 @@ div.profile .upload[data-v-96b8be53] {
   width: 100%;
 }
 .block > ul li.offset[data-v-e143f0dd] {
-  padding: 0 10px;
+  padding: 0 20px;
 }
 .block > ul li.clickable[data-v-e143f0dd] {
   position: relative;
