@@ -46095,49 +46095,49 @@ const routes = [
     {
         path: '/empty',
         name: 'empty',
-        component: () => __vitePreload(() => import('./Empty.a12767de.js'),true?["assets/Empty.a12767de.js","assets/Field.c9202ade.js","assets/Field.3845c6b6.css","assets/Select.b6b94882.js","assets/Select.c2eabf07.css","assets/EmptyLabel.16011e33.js","assets/EmptyLabel.f5921f8a.css","assets/Empty.5cb543c2.css"]:void 0),
+        component: () => __vitePreload(() => import('./Empty.6454b135.js'),true?["assets/Empty.6454b135.js","assets/Field.4bd5f8ba.js","assets/Field.3845c6b6.css","assets/Select.cb92a9f4.js","assets/Select.c2eabf07.css","assets/EmptyLabel.f51beb23.js","assets/EmptyLabel.f5921f8a.css","assets/Empty.5cb543c2.css"]:void 0),
         abort: []
     },
     {
         path: '/music',
         name: 'music',
-        component: () => __vitePreload(() => import('./Music.71fa461c.js'),true?["assets/Music.71fa461c.js","assets/Ready.395074d1.js"]:void 0),
+        component: () => __vitePreload(() => import('./Music.2b72df54.js'),true?["assets/Music.2b72df54.js","assets/Ready.9140b9f2.js"]:void 0),
         abort: []
     },
     {
         path: '/favorite',
         name: 'favorite',
-        component: () => __vitePreload(() => import('./Favorite.28343fd4.js'),true?["assets/Favorite.28343fd4.js","assets/EmptyLabel.16011e33.js","assets/EmptyLabel.f5921f8a.css","assets/Ready.395074d1.js","assets/Favorite.3396c1d9.css"]:void 0),
+        component: () => __vitePreload(() => import('./Favorite.a71e0064.js'),true?["assets/Favorite.a71e0064.js","assets/EmptyLabel.f51beb23.js","assets/EmptyLabel.f5921f8a.css","assets/Ready.9140b9f2.js","assets/Favorite.3396c1d9.css"]:void 0),
         abort: []
     },
         {
             path: '/favorite/artists',
             name: 'favorite-artists',
-            component: () => __vitePreload(() => import('./Artists.de18f641.js'),true?["assets/Artists.de18f641.js","assets/Ready.395074d1.js","assets/EmptyLabel.16011e33.js","assets/EmptyLabel.f5921f8a.css","assets/Artists.d1d2aada.css"]:void 0),
+            component: () => __vitePreload(() => import('./Artists.65eb756a.js'),true?["assets/Artists.65eb756a.js","assets/Ready.9140b9f2.js","assets/EmptyLabel.f51beb23.js","assets/EmptyLabel.f5921f8a.css","assets/Artists.d1d2aada.css"]:void 0),
             abort: []
         },
         {
             path: '/favorite/playlists',
             name: 'favorite-playlists',
-            component: () => __vitePreload(() => import('./Playlists.e4795a80.js'),true?["assets/Playlists.e4795a80.js","assets/Ready.395074d1.js","assets/EmptyLabel.16011e33.js","assets/EmptyLabel.f5921f8a.css","assets/Playlists.82a285ca.css"]:void 0),
+            component: () => __vitePreload(() => import('./Playlists.06730ee2.js'),true?["assets/Playlists.06730ee2.js","assets/Ready.9140b9f2.js","assets/EmptyLabel.f51beb23.js","assets/EmptyLabel.f5921f8a.css","assets/Playlists.82a285ca.css"]:void 0),
             abort: []
         },
     {
         path: '/settings',
         name: 'settings',
-        component: () => __vitePreload(() => import('./Settings.db715799.js'),true?["assets/Settings.db715799.js","assets/Ready.395074d1.js","assets/Select.b6b94882.js","assets/Select.c2eabf07.css","assets/Settings.cbeceb52.css"]:void 0),
+        component: () => __vitePreload(() => import('./Settings.0bb66e5e.js'),true?["assets/Settings.0bb66e5e.js","assets/Ready.9140b9f2.js","assets/Select.cb92a9f4.js","assets/Select.c2eabf07.css","assets/Settings.cbeceb52.css"]:void 0),
         abort: []
     },
     {
         path: '/error',
         name: 'error',
-        component: () => __vitePreload(() => import('./Error.698bd627.js'),true?["assets/Error.698bd627.js","assets/EmptyLabel.16011e33.js","assets/EmptyLabel.f5921f8a.css"]:void 0),
+        component: () => __vitePreload(() => import('./Error.559a1b85.js'),true?["assets/Error.559a1b85.js","assets/EmptyLabel.f51beb23.js","assets/EmptyLabel.f5921f8a.css"]:void 0),
         abort: []
     },
     {
         path: '/access-denied',
         name: 'access-denied',
-        component: () => __vitePreload(() => import('./AccessDenied.8682109a.js'),true?["assets/AccessDenied.8682109a.js","assets/EmptyLabel.16011e33.js","assets/EmptyLabel.f5921f8a.css","assets/AccessDenied.886229d6.css"]:void 0),
+        component: () => __vitePreload(() => import('./AccessDenied.3772befb.js'),true?["assets/AccessDenied.3772befb.js","assets/EmptyLabel.f51beb23.js","assets/EmptyLabel.f5921f8a.css","assets/AccessDenied.886229d6.css"]:void 0),
         abort: []
     },
     {
@@ -56537,6 +56537,12 @@ const endDrag = () => {
     data.opacity = 1;
 };
 
+const onResize = () => {
+    // if (!/iPhone|iPad|iPod/.test(window.navigator.userAgent)) {
+        const afterHeight = window.visualViewport?.height || window.innerHeight;
+        data.bottom = `${Math.abs(data.beforeHeight - afterHeight)}px`;
+    // }
+};
 
 onMounted(() => {
     if (props.field) {
@@ -56561,11 +56567,12 @@ onMounted(() => {
     if (data.isMobile) {
         document.querySelector('html').style['overflow-y'] = 'hidden';
 
+        if (window.visualViewport) {
+            window.visualViewport.addEventListener("resize", onResize);
+        }
+
         setTimeout(() => {
-            // if (!/iPhone|iPad|iPod/.test(window.navigator.userAgent)) {
-                const afterHeight = window.visualViewport?.height || window.innerHeight;
-                data.bottom = `${Math.abs(data.beforeHeight - afterHeight)}px`;
-            // }
+            onResize();
         }, 100);
     }
 });
@@ -56573,6 +56580,7 @@ onMounted(() => {
 onBeforeUnmount(() => {
     if (data.isMobile) {
         document.querySelector('html').style['overflow-y'] = 'auto';
+        window.visualViewport.removeEventListener("resize", onResize);
     }
 });
 
@@ -57055,7 +57063,7 @@ const { openedModals, confirmSettings, modalsComponents } = storeToRefs(modals);
 
 modals.register({
     loader: ModalLoader,
-    welcome: defineAsyncComponent(() => __vitePreload(() => import('./ModalWelcome.90065ad1.js'),true?["assets/ModalWelcome.90065ad1.js","assets/ModalWelcome.8956061c.css"]:void 0)),
+    welcome: defineAsyncComponent(() => __vitePreload(() => import('./ModalWelcome.fc49c36d.js'),true?["assets/ModalWelcome.fc49c36d.js","assets/ModalWelcome.8956061c.css"]:void 0)),
     success: ModalSuccess
 });
 
@@ -57383,7 +57391,7 @@ const browserExt = {
   },
   test: () => true,
   load: async () => {
-    await __vitePreload(() => import('./browserAll.32783f73.js'),true?["assets/browserAll.32783f73.js","assets/init.5fb1b4bc.js"]:void 0);
+    await __vitePreload(() => import('./browserAll.2fca697e.js'),true?["assets/browserAll.2fca697e.js","assets/init.6c4667c3.js"]:void 0);
   }
 };
 
@@ -57395,7 +57403,7 @@ const webworkerExt = {
   },
   test: () => typeof self !== "undefined" && self.WorkerGlobalScope !== void 0,
   load: async () => {
-    await __vitePreload(() => import('./webworkerAll.4ffd2d52.js'),true?["assets/webworkerAll.4ffd2d52.js","assets/init.5fb1b4bc.js"]:void 0);
+    await __vitePreload(() => import('./webworkerAll.4e1c2c55.js'),true?["assets/webworkerAll.4e1c2c55.js","assets/init.6c4667c3.js"]:void 0);
   }
 };
 
