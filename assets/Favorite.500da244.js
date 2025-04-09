@@ -1,6 +1,6 @@
-import { _ as _export_sfc, x as useI18n, D as stores, k as onMounted, Q as onBeforeUnmount, o as openBlock, c as createElementBlock, i as createBaseVNode, t as toDisplayString, B as unref, e as createCommentVNode, g as createVNode, G as Button, F as Fragment } from './index.4819bc0b.js';
-import { E as EmptyLabel } from './EmptyLabel.c45fa388.js';
-import { R as Ready } from './Ready.3c65d799.js';
+import { _ as _export_sfc, x as useI18n, D as stores, k as onMounted, Q as onBeforeUnmount, o as openBlock, c as createElementBlock, i as createBaseVNode, t as toDisplayString, B as unref, g as createVNode, I as IconButton, G as Button, F as Fragment } from './index.f88b6ca8.js';
+import { E as EmptyLabel } from './EmptyLabel.7d798d64.js';
+import { R as Ready } from './Ready.30faa147.js';
 
 const Favorite_vue_vue_type_style_index_0_scoped_a46f63b4_lang = '';
 
@@ -35,7 +35,11 @@ return (_ctx, _cache) => {
   return (openBlock(), createElementBlock(Fragment, null, [
     createBaseVNode("div", _hoisted_1, [
       createBaseVNode("label", _hoisted_2, toDisplayString(unref(t)('pages.favorite.title')), 1 /* TEXT */),
-      createCommentVNode(" <IconButton icon=\"settings\" class=\"tertiary size-l\" @click=\"nav.open('settings')\" /> ")
+      createVNode(IconButton, {
+        icon: "settings",
+        class: "tertiary size-l",
+        onClick: _cache[0] || (_cache[0] = $event => (unref(nav).open('settings')))
+      })
     ]),
     createVNode(EmptyLabel, {
       "animate-icon": "tracks",
@@ -49,13 +53,13 @@ return (_ctx, _cache) => {
           icon: "playlist",
           name: unref(t)('pages.favorite.playlists.title'),
           class: "tap",
-          onClick: _cache[0] || (_cache[0] = $event => (unref(nav).open('favorite-playlists')))
+          onClick: _cache[1] || (_cache[1] = $event => (unref(nav).open('favorite-playlists')))
         }, null, 8 /* PROPS */, ["name"]),
         createVNode(Button, {
           icon: "artists",
           name: unref(t)('pages.favorite.artists.title'),
           class: "tap",
-          onClick: _cache[1] || (_cache[1] = $event => (unref(nav).open('favorite-artists')))
+          onClick: _cache[2] || (_cache[2] = $event => (unref(nav).open('favorite-artists')))
         }, null, 8 /* PROPS */, ["name"])
       ])
     ]),

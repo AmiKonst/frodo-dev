@@ -1,4 +1,4 @@
-@keyframes fade-up-c2eb6455 {
+@keyframes fade-up-04c5d775 {
 0% {
     opacity: 0;
     transform: translateY(50px);
@@ -8,7 +8,7 @@
     transform: translateY(0);
 }
 }
-@keyframes fade-center-c2eb6455 {
+@keyframes fade-center-04c5d775 {
 0% {
     opacity: 0;
     filter: blur(4px);
@@ -18,17 +18,17 @@
     filter: blur(0);
 }
 }
-.head[data-v-c2eb6455] {
+.head[data-v-04c5d775] {
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 8px;
   padding: 0 16px 0 16px;
-  height: 60px;
+  height: 50px;
   flex-shrink: 0;
   width: 100%;
 }
-.head .title[data-v-c2eb6455] {
+.head .title[data-v-04c5d775] {
   font: var(--font-body-1);
   font-weight: bold;
   color: var(--dark-500);
@@ -37,6 +37,6 @@
   margin-bottom: 0;
   margin-top: 2px;
 }
-.empty-label[data-v-c2eb6455] {
+.empty-label[data-v-04c5d775] {
   padding: 0 20px;
 }

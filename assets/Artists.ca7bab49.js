@@ -1,6 +1,6 @@
-import { _ as _export_sfc, x as useI18n, D as stores, k as onMounted, Q as onBeforeUnmount, o as openBlock, c as createElementBlock, i as createBaseVNode, t as toDisplayString, B as unref, g as createVNode, F as Fragment } from './index.4819bc0b.js';
-import { R as Ready } from './Ready.3c65d799.js';
-import { E as EmptyLabel } from './EmptyLabel.c45fa388.js';
+import { _ as _export_sfc, x as useI18n, D as stores, k as onMounted, Q as onBeforeUnmount, o as openBlock, c as createElementBlock, i as createBaseVNode, t as toDisplayString, B as unref, g as createVNode, F as Fragment } from './index.f88b6ca8.js';
+import { R as Ready } from './Ready.30faa147.js';
+import { E as EmptyLabel } from './EmptyLabel.7d798d64.js';
 
 const Artists_vue_vue_type_style_index_0_scoped_c2eb6455_lang = '';
 
