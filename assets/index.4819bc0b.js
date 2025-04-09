@@ -46095,49 +46095,49 @@ const routes = [
     {
         path: '/empty',
         name: 'empty',
-        component: () => __vitePreload(() => import('./Empty.efac7117.js'),true?["assets/Empty.efac7117.js","assets/Field.07c408a8.js","assets/Field.3845c6b6.css","assets/Select.70a439b1.js","assets/Select.c2eabf07.css","assets/EmptyLabel.d0b6ca09.js","assets/EmptyLabel.f5921f8a.css","assets/Empty.5cb543c2.css"]:void 0),
+        component: () => __vitePreload(() => import('./Empty.87f18773.js'),true?["assets/Empty.87f18773.js","assets/Field.7a138abc.js","assets/Field.fb2adcfc.css","assets/Select.e2307ac3.js","assets/Select.4bfbfc8a.css","assets/EmptyLabel.c45fa388.js","assets/EmptyLabel.f5921f8a.css","assets/Empty.b10e8b97.css"]:void 0),
         abort: []
     },
     {
         path: '/music',
         name: 'music',
-        component: () => __vitePreload(() => import('./Music.9e09d59e.js'),true?["assets/Music.9e09d59e.js","assets/Ready.7544ab74.js"]:void 0),
+        component: () => __vitePreload(() => import('./Music.52e83090.js'),true?["assets/Music.52e83090.js","assets/Ready.3c65d799.js"]:void 0),
         abort: []
     },
     {
         path: '/favorite',
         name: 'favorite',
-        component: () => __vitePreload(() => import('./Favorite.c194d86c.js'),true?["assets/Favorite.c194d86c.js","assets/EmptyLabel.d0b6ca09.js","assets/EmptyLabel.f5921f8a.css","assets/Ready.7544ab74.js","assets/Favorite.af01eb6d.css"]:void 0),
+        component: () => __vitePreload(() => import('./Favorite.10d41853.js'),true?["assets/Favorite.10d41853.js","assets/EmptyLabel.c45fa388.js","assets/EmptyLabel.f5921f8a.css","assets/Ready.3c65d799.js","assets/Favorite.824bd5ac.css"]:void 0),
         abort: []
     },
         {
             path: '/favorite/artists',
             name: 'favorite-artists',
-            component: () => __vitePreload(() => import('./Artists.ed6874c9.js'),true?["assets/Artists.ed6874c9.js","assets/Ready.7544ab74.js","assets/EmptyLabel.d0b6ca09.js","assets/EmptyLabel.f5921f8a.css","assets/Artists.f65ad4f9.css"]:void 0),
+            component: () => __vitePreload(() => import('./Artists.28aa6e96.js'),true?["assets/Artists.28aa6e96.js","assets/Ready.3c65d799.js","assets/EmptyLabel.c45fa388.js","assets/EmptyLabel.f5921f8a.css","assets/Artists.53827459.css"]:void 0),
             abort: []
         },
         {
             path: '/favorite/playlists',
             name: 'favorite-playlists',
-            component: () => __vitePreload(() => import('./Playlists.ffbbc8b9.js'),true?["assets/Playlists.ffbbc8b9.js","assets/Ready.7544ab74.js","assets/EmptyLabel.d0b6ca09.js","assets/EmptyLabel.f5921f8a.css","assets/Playlists.d2846a60.css"]:void 0),
+            component: () => __vitePreload(() => import('./Playlists.f56f9685.js'),true?["assets/Playlists.f56f9685.js","assets/Ready.3c65d799.js","assets/EmptyLabel.c45fa388.js","assets/EmptyLabel.f5921f8a.css","assets/Playlists.bd624030.css"]:void 0),
             abort: []
         },
     {
         path: '/settings',
         name: 'settings',
-        component: () => __vitePreload(() => import('./Settings.5b264ae7.js'),true?["assets/Settings.5b264ae7.js","assets/Ready.7544ab74.js","assets/Select.70a439b1.js","assets/Select.c2eabf07.css","assets/Settings.ea008444.css"]:void 0),
+        component: () => __vitePreload(() => import('./Settings.631972cb.js'),true?["assets/Settings.631972cb.js","assets/Ready.3c65d799.js","assets/Select.e2307ac3.js","assets/Select.4bfbfc8a.css","assets/Settings.fd2355a1.css"]:void 0),
         abort: []
     },
     {
         path: '/error',
         name: 'error',
-        component: () => __vitePreload(() => import('./Error.feefc37f.js'),true?["assets/Error.feefc37f.js","assets/EmptyLabel.d0b6ca09.js","assets/EmptyLabel.f5921f8a.css"]:void 0),
+        component: () => __vitePreload(() => import('./Error.8f78c95d.js'),true?["assets/Error.8f78c95d.js","assets/EmptyLabel.c45fa388.js","assets/EmptyLabel.f5921f8a.css"]:void 0),
         abort: []
     },
     {
         path: '/access-denied',
         name: 'access-denied',
-        component: () => __vitePreload(() => import('./AccessDenied.289d9eb8.js'),true?["assets/AccessDenied.289d9eb8.js","assets/EmptyLabel.d0b6ca09.js","assets/EmptyLabel.f5921f8a.css","assets/AccessDenied.886229d6.css"]:void 0),
+        component: () => __vitePreload(() => import('./AccessDenied.311493f9.js'),true?["assets/AccessDenied.311493f9.js","assets/EmptyLabel.c45fa388.js","assets/EmptyLabel.f5921f8a.css","assets/AccessDenied.886229d6.css"]:void 0),
         abort: []
     },
     {
@@ -55069,12 +55069,13 @@ const useTgStore = defineStore('tg', {
         async init() {
             if (window.Telegram?.WebApp) {
                 window.Telegram?.WebApp.expand();
+                // window.Telegram?.WebApp.requestFullscreen();
                 window.Telegram?.WebApp.disableVerticalSwipes();
 
                 // Locale
                 const locale = Telegram.WebApp?.initDataUnsafe?.user?.language_code;
                 if (locale) {
-                    sharedStores.locale().parseTgLocale(locale);
+                    stores$1.locale().parseTgLocale(locale);
                 }
 
                 // Theme
@@ -55090,7 +55091,7 @@ const useTgStore = defineStore('tg', {
             }
         },
         updateTgColors() {
-            if (sharedStores.others().theme === 'light') {
+            if (stores$1.others().theme === 'light') {
                 window.Telegram?.WebApp.setHeaderColor('#ffffff');
                 window.Telegram?.WebApp.setBackgroundColor('#ffffff');
             } else {
@@ -55119,7 +55120,64 @@ const useTgStore = defineStore('tg', {
             } else {
                 window.open(external_url, '_blank');
             }
+        },
+        showBackButton() {
+            const button = window.Telegram.WebApp?.BackButton;
+            if (!button) {
+                return;
+            }
+
+            if (button.isVisible) {
+                return;
+            }
+
+            button.show();
+            window.Telegram?.WebApp.onEvent('backButtonClicked', () => {
+                stores$1.nav().back();
+            });
+        },
+        hideBackButton() {
+            const button = window.Telegram.WebApp?.BackButton;
+            if (!button) {
+                return;
+            }
+
+            if (!button.isVisible) {
+                return;
+            }
+
+            button.hide();
+            window.Telegram?.WebApp.offEvent('backButtonClicked');
+        },
+        showSettingsButton() {
+            const button = window.Telegram.WebApp?.SettingsButton;
+            if (!button) {
+                return;
+            }
+
+            if (button.isVisible) {
+                return;
+            }
+
+            button.show();
+            window.Telegram?.WebApp.onEvent('settingsButtonClicked', () => {
+                stores$1.nav().open('settings');
+            });
+        },
+        hideSettingsButton() {
+            const button = window.Telegram.WebApp?.SettingsButton;
+            if (!button) {
+                return;
+            }
+
+            if (!button.isVisible) {
+                return;
+            }
+
+            button.hide();
+            window.Telegram?.WebApp.offEvent('settingsButtonClicked');
         }
+        
     }
 });
 
@@ -57046,7 +57104,7 @@ const { openedModals, confirmSettings, modalsComponents } = storeToRefs(modals);
 
 modals.register({
     loader: ModalLoader,
-    welcome: defineAsyncComponent(() => __vitePreload(() => import('./ModalWelcome.38fc31ff.js'),true?["assets/ModalWelcome.38fc31ff.js","assets/ModalWelcome.8956061c.css"]:void 0)),
+    welcome: defineAsyncComponent(() => __vitePreload(() => import('./ModalWelcome.cb901e7d.js'),true?["assets/ModalWelcome.cb901e7d.js","assets/ModalWelcome.8956061c.css"]:void 0)),
     success: ModalSuccess
 });
 
@@ -57374,7 +57432,7 @@ const browserExt = {
   },
   test: () => true,
   load: async () => {
-    await __vitePreload(() => import('./browserAll.53b641b3.js'),true?["assets/browserAll.53b641b3.js","assets/init.a5ef37fe.js"]:void 0);
+    await __vitePreload(() => import('./browserAll.50e25aab.js'),true?["assets/browserAll.50e25aab.js","assets/init.f230a105.js"]:void 0);
   }
 };
 
@@ -57386,7 +57444,7 @@ const webworkerExt = {
   },
   test: () => typeof self !== "undefined" && self.WorkerGlobalScope !== void 0,
   load: async () => {
-    await __vitePreload(() => import('./webworkerAll.f666579a.js'),true?["assets/webworkerAll.f666579a.js","assets/init.a5ef37fe.js"]:void 0);
+    await __vitePreload(() => import('./webworkerAll.6aa7f3de.js'),true?["assets/webworkerAll.6aa7f3de.js","assets/init.f230a105.js"]:void 0);
   }
 };
 
@@ -66199,4 +66257,4 @@ app.config.globalProperties.$message = message;
 
 app.mount('#bilbo-app');
 
-export { UPDATE_PRIORITY as $, createTextVNode as A, unref as B, delay as C, stores$1 as D, Toggler as E, Fragment as F, Button as G, createStaticVNode as H, IconButton as I, DateField as J, message as K, Loader as L, ModalBox as M, resolveDirective as N, maskTime as O, storeToRefs as P, defineAsyncComponent as Q, onBeforeUnmount as R, __vitePreload as S, Teleport as T, baseUrl as U, BaseModal as V, Point as W, removeItems as X, ExtensionType as Y, Ticker as Z, _export_sfc as _, reactive as a, EventEmitter as a0, warn as a1, extensions as a2, Container as a3, DOMAdapter as a4, uid as a5, deprecation as a6, v8_0_0 as a7, Color as a8, Texture as a9, ImageSource as aa, Matrix as ab, Rectangle as ac, Bounds as ad, earcut$1 as ae, BigPool as af, InstructionSet as ag, v8_3_4 as ah, nextPow2 as ai, Cache as aj, TextureSource as ak, boundsPool as al, ViewContainer as am, updateQuadBounds as an, renderSlot as b, createElementBlock as c, createBlock as d, createCommentVNode as e, withModifiers as f, createVNode as g, computed as h, createBaseVNode as i, normalizeStyle as j, onMounted as k, watch as l, resolveComponent as m, normalizeClass as n, openBlock as o, pageSizeOptions as p, renderList as q, ref$1 as r, withDirectives as s, toDisplayString$1 as t, nextTick as u, vShow as v, withCtx as w, useI18n as x, vModelText as y, withKeys as z };
+export { UPDATE_PRIORITY as $, createTextVNode as A, unref as B, delay as C, stores$1 as D, Toggler as E, Fragment as F, Button as G, createStaticVNode as H, IconButton as I, DateField as J, message as K, Loader as L, ModalBox as M, resolveDirective as N, maskTime as O, storeToRefs as P, onBeforeUnmount as Q, defineAsyncComponent as R, __vitePreload as S, Teleport as T, baseUrl as U, BaseModal as V, Point as W, removeItems as X, ExtensionType as Y, Ticker as Z, _export_sfc as _, reactive as a, EventEmitter as a0, warn as a1, extensions as a2, Container as a3, DOMAdapter as a4, uid as a5, deprecation as a6, v8_0_0 as a7, Color as a8, Texture as a9, ImageSource as aa, Matrix as ab, Rectangle as ac, Bounds as ad, earcut$1 as ae, BigPool as af, InstructionSet as ag, v8_3_4 as ah, nextPow2 as ai, Cache as aj, TextureSource as ak, boundsPool as al, ViewContainer as am, updateQuadBounds as an, renderSlot as b, createElementBlock as c, createBlock as d, createCommentVNode as e, withModifiers as f, createVNode as g, computed as h, createBaseVNode as i, normalizeStyle as j, onMounted as k, watch as l, resolveComponent as m, normalizeClass as n, openBlock as o, pageSizeOptions as p, renderList as q, ref$1 as r, withDirectives as s, toDisplayString$1 as t, nextTick as u, vShow as v, withCtx as w, useI18n as x, vModelText as y, withKeys as z };

@@ -1,6 +1,6 @@
-import { _ as _export_sfc, x as useI18n, D as stores, o as openBlock, c as createElementBlock, i as createBaseVNode, g as createVNode, B as unref, I as IconButton, t as toDisplayString, F as Fragment } from './index.fb257985.js';
-import { R as Ready } from './Ready.7544ab74.js';
-import { E as EmptyLabel } from './EmptyLabel.d0b6ca09.js';
+import { _ as _export_sfc, x as useI18n, D as stores, k as onMounted, Q as onBeforeUnmount, o as openBlock, c as createElementBlock, i as createBaseVNode, t as toDisplayString, B as unref, g as createVNode, F as Fragment } from './index.4819bc0b.js';
+import { R as Ready } from './Ready.3c65d799.js';
+import { E as EmptyLabel } from './EmptyLabel.c45fa388.js';
 
 const Playlists_vue_vue_type_style_index_0_scoped_04c5d775_lang = '';
 
@@ -16,19 +16,22 @@ const _sfc_main = {
 
     // import { storeToRefs } from 'pinia';
     stores.user();
-    const nav = stores.nav();
+    stores.nav();
+    const tg = stores.tg();
 
     stores.others();
-    // const { ready } = storeToRefs(others);
+
+    onMounted(() => {
+        tg.showBackButton();
+    });
+
+    onBeforeUnmount(() => {
+        tg.hideBackButton();
+    });
 
 return (_ctx, _cache) => {
   return (openBlock(), createElementBlock(Fragment, null, [
     createBaseVNode("div", _hoisted_1, [
-      createVNode(IconButton, {
-        icon: "chevron-left",
-        class: "tertiary size-m",
-        onClick: _cache[0] || (_cache[0] = $event => (unref(nav).back()))
-      }),
       createBaseVNode("label", _hoisted_2, toDisplayString(unref(t)('pages.favorite-playlists.title')), 1 /* TEXT */)
     ]),
     createVNode(EmptyLabel, {

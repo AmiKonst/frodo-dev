@@ -266,7 +266,7 @@ div span i[data-v-2b5b57c3] {
 }
 .autocomplete-field > div > svg:not(.arrow-down) {
   position: absolute;
-  left: 20px;
+  left: 16px;
   top: 50%;
   transform: translateY(-50%);
   width: 20px;
@@ -401,10 +401,10 @@ div span i[data-v-2b5b57c3] {
   color: var(--secondary-500) !important;
 }
 .autocomplete-field.with-icon > div input {
-  padding-left: 56px;
+  padding-left: 52px;
 }
 .autocomplete-field.with-icon > div .placeholder {
-  left: 57px;
+  left: 53px;
 }
 .autocomplete-field.light > div input {
   padding-top: 8px;

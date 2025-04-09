@@ -1,6 +1,6 @@
-import { _ as _export_sfc, x as useI18n, D as stores, m as resolveComponent, o as openBlock, c as createElementBlock, i as createBaseVNode, g as createVNode, t as toDisplayString, B as unref, n as normalizeClass, H as createStaticVNode, h as computed, r as ref, I as IconButton, K as message, a as reactive, d as createBlock, e as createCommentVNode, Q as defineAsyncComponent, R as onBeforeUnmount, E as Toggler, F as Fragment, S as __vitePreload } from './index.fb257985.js';
-import { R as Ready } from './Ready.7544ab74.js';
-import { S as Select } from './Select.70a439b1.js';
+import { _ as _export_sfc, x as useI18n, D as stores, m as resolveComponent, o as openBlock, c as createElementBlock, i as createBaseVNode, g as createVNode, t as toDisplayString, B as unref, n as normalizeClass, H as createStaticVNode, h as computed, r as ref, I as IconButton, K as message, a as reactive, d as createBlock, e as createCommentVNode, R as defineAsyncComponent, k as onMounted, Q as onBeforeUnmount, E as Toggler, F as Fragment, S as __vitePreload } from './index.4819bc0b.js';
+import { R as Ready } from './Ready.3c65d799.js';
+import { S as Select } from './Select.e2307ac3.js';
 
 const Theme_vue_vue_type_style_index_0_scoped_ef1ff130_lang = '';
 
@@ -343,7 +343,8 @@ const _sfc_main = {
 
     const modals = stores.modals();
     const user = stores.user();
-    const nav = stores.nav();
+    stores.nav();
+    const tg = stores.tg();
     stores.others();
 
 
@@ -360,11 +361,16 @@ const _sfc_main = {
     };
 
     modals.register({
-        'studio-auth': defineAsyncComponent(() => __vitePreload(() => import('./ModalStudioAuth.87abaa67.js'),true?["assets/ModalStudioAuth.87abaa67.js","assets/index.fb257985.js","assets/index.bdd3c241.css","assets/ModalStudioAuth.adc11dd1.css"]:void 0)),
-        'edit-firstname': defineAsyncComponent(() => __vitePreload(() => import('./ModalEditFirstName.33f5cd6f.js'),true?["assets/ModalEditFirstName.33f5cd6f.js","assets/index.fb257985.js","assets/index.bdd3c241.css","assets/Field.07c408a8.js","assets/Field.3845c6b6.css","assets/ModalEditFirstName.fdfb513e.css"]:void 0))
+        'studio-auth': defineAsyncComponent(() => __vitePreload(() => import('./ModalStudioAuth.caa4fab4.js'),true?["assets/ModalStudioAuth.caa4fab4.js","assets/index.4819bc0b.js","assets/index.2366eef5.css","assets/ModalStudioAuth.adc11dd1.css"]:void 0)),
+        'edit-firstname': defineAsyncComponent(() => __vitePreload(() => import('./ModalEditFirstName.525822d8.js'),true?["assets/ModalEditFirstName.525822d8.js","assets/index.4819bc0b.js","assets/index.2366eef5.css","assets/Field.7a138abc.js","assets/Field.fb2adcfc.css","assets/ModalEditFirstName.fdfb513e.css"]:void 0))
+    });
+
+    onMounted(() => {
+        tg.showBackButton();
     });
 
     onBeforeUnmount(() => {
+        tg.hideBackButton();
         modals.unRegister(['studio-auth', 'edit-firstname']);
     });
 
@@ -373,11 +379,6 @@ return (_ctx, _cache) => {
 
   return (openBlock(), createElementBlock(Fragment, null, [
     createBaseVNode("div", _hoisted_1, [
-      createVNode(IconButton, {
-        icon: "chevron-left",
-        class: "tertiary size-m",
-        onClick: _cache[0] || (_cache[0] = $event => (unref(nav).back()))
-      }),
       createBaseVNode("label", _hoisted_2, toDisplayString(unref(t)('pages.settings.title')), 1 /* TEXT */)
     ]),
     createBaseVNode("div", _hoisted_3, [
