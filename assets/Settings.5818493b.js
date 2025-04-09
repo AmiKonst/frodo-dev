@@ -1,6 +1,6 @@
-import { _ as _export_sfc, x as useI18n, D as stores, m as resolveComponent, o as openBlock, c as createElementBlock, i as createBaseVNode, g as createVNode, t as toDisplayString, B as unref, n as normalizeClass, H as createStaticVNode, h as computed, r as ref, I as IconButton, K as message, a as reactive, d as createBlock, e as createCommentVNode, R as defineAsyncComponent, k as onMounted, Q as onBeforeUnmount, E as Toggler, F as Fragment, S as __vitePreload } from './index.405681d1.js';
-import { R as Ready } from './Ready.9e34e8ad.js';
-import { S as Select } from './Select.fe2949da.js';
+import { _ as _export_sfc, x as useI18n, D as stores, m as resolveComponent, o as openBlock, c as createElementBlock, i as createBaseVNode, g as createVNode, t as toDisplayString, B as unref, n as normalizeClass, H as createStaticVNode, h as computed, r as ref, I as IconButton, K as message, a as reactive, d as createBlock, e as createCommentVNode, R as defineAsyncComponent, k as onMounted, Q as onBeforeUnmount, E as Toggler, F as Fragment, S as __vitePreload } from './index.87ceb933.js';
+import { R as Ready } from './Ready.a467c56a.js';
+import { S as Select } from './Select.da4bfb51.js';
 
 const Theme_vue_vue_type_style_index_0_scoped_ef1ff130_lang = '';
 
@@ -361,8 +361,8 @@ const _sfc_main = {
     };
 
     modals.register({
-        'studio-auth': defineAsyncComponent(() => __vitePreload(() => import('./ModalStudioAuth.f5c799e7.js'),true?["assets/ModalStudioAuth.f5c799e7.js","assets/index.405681d1.js","assets/index.9a44dc61.css","assets/ModalStudioAuth.adc11dd1.css"]:void 0)),
-        'edit-firstname': defineAsyncComponent(() => __vitePreload(() => import('./ModalEditFirstName.969866ed.js'),true?["assets/ModalEditFirstName.969866ed.js","assets/index.405681d1.js","assets/index.9a44dc61.css","assets/Field.5adf2402.js","assets/Field.fb2adcfc.css","assets/ModalEditFirstName.fdfb513e.css"]:void 0))
+        'studio-auth': defineAsyncComponent(() => __vitePreload(() => import('./ModalStudioAuth.d5be5872.js'),true?["assets/ModalStudioAuth.d5be5872.js","assets/index.87ceb933.js","assets/index.9a44dc61.css","assets/ModalStudioAuth.adc11dd1.css"]:void 0)),
+        'edit-firstname': defineAsyncComponent(() => __vitePreload(() => import('./ModalEditFirstName.3e435444.js'),true?["assets/ModalEditFirstName.3e435444.js","assets/index.87ceb933.js","assets/index.9a44dc61.css","assets/Field.d47f33ea.js","assets/Field.fb2adcfc.css","assets/ModalEditFirstName.fdfb513e.css"]:void 0))
     });
 
     onMounted(() => {
