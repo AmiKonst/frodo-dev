@@ -46095,49 +46095,49 @@ const routes = [
     {
         path: '/empty',
         name: 'empty',
-        component: () => __vitePreload(() => import('./Empty.809b90ab.js'),true?["assets/Empty.809b90ab.js","assets/Field.d47f33ea.js","assets/Field.fb2adcfc.css","assets/Select.da4bfb51.js","assets/Select.4bfbfc8a.css","assets/EmptyLabel.8a1877fd.js","assets/EmptyLabel.f5921f8a.css","assets/Empty.b10e8b97.css"]:void 0),
+        component: () => __vitePreload(() => import('./Empty.c1a0ed03.js'),true?["assets/Empty.c1a0ed03.js","assets/Field.f16056c5.js","assets/Field.fb2adcfc.css","assets/Select.7b1b7bc4.js","assets/Select.4bfbfc8a.css","assets/EmptyLabel.bd701813.js","assets/EmptyLabel.f5921f8a.css","assets/Empty.b10e8b97.css"]:void 0),
         abort: []
     },
     {
         path: '/music',
         name: 'music',
-        component: () => __vitePreload(() => import('./Music.b99a7bcf.js'),true?["assets/Music.b99a7bcf.js","assets/Ready.a467c56a.js"]:void 0),
+        component: () => __vitePreload(() => import('./Music.ce098a9b.js'),true?["assets/Music.ce098a9b.js","assets/Ready.4e02c554.js"]:void 0),
         abort: []
     },
     {
         path: '/favorite',
         name: 'favorite',
-        component: () => __vitePreload(() => import('./Favorite.0a220702.js'),true?["assets/Favorite.0a220702.js","assets/EmptyLabel.8a1877fd.js","assets/EmptyLabel.f5921f8a.css","assets/Ready.a467c56a.js","assets/Favorite.bcb46ab3.css"]:void 0),
+        component: () => __vitePreload(() => import('./Favorite.27a4dc02.js'),true?["assets/Favorite.27a4dc02.js","assets/EmptyLabel.bd701813.js","assets/EmptyLabel.f5921f8a.css","assets/Ready.4e02c554.js","assets/Favorite.bcb46ab3.css"]:void 0),
         abort: []
     },
         {
             path: '/favorite/artists',
             name: 'favorite-artists',
-            component: () => __vitePreload(() => import('./Artists.982cb2fe.js'),true?["assets/Artists.982cb2fe.js","assets/Ready.a467c56a.js","assets/EmptyLabel.8a1877fd.js","assets/EmptyLabel.f5921f8a.css","assets/Artists.282f2955.css"]:void 0),
+            component: () => __vitePreload(() => import('./Artists.611197d7.js'),true?["assets/Artists.611197d7.js","assets/Ready.4e02c554.js","assets/EmptyLabel.bd701813.js","assets/EmptyLabel.f5921f8a.css","assets/Artists.282f2955.css"]:void 0),
             abort: []
         },
         {
             path: '/favorite/playlists',
             name: 'favorite-playlists',
-            component: () => __vitePreload(() => import('./Playlists.c60eea80.js'),true?["assets/Playlists.c60eea80.js","assets/Ready.a467c56a.js","assets/EmptyLabel.8a1877fd.js","assets/EmptyLabel.f5921f8a.css","assets/Playlists.dc790eb2.css"]:void 0),
+            component: () => __vitePreload(() => import('./Playlists.985fea3a.js'),true?["assets/Playlists.985fea3a.js","assets/Ready.4e02c554.js","assets/EmptyLabel.bd701813.js","assets/EmptyLabel.f5921f8a.css","assets/Playlists.dc790eb2.css"]:void 0),
             abort: []
         },
     {
         path: '/settings',
         name: 'settings',
-        component: () => __vitePreload(() => import('./Settings.5818493b.js'),true?["assets/Settings.5818493b.js","assets/Ready.a467c56a.js","assets/Select.da4bfb51.js","assets/Select.4bfbfc8a.css","assets/Settings.ea1f9279.css"]:void 0),
+        component: () => __vitePreload(() => import('./Settings.53e3f132.js'),true?["assets/Settings.53e3f132.js","assets/Ready.4e02c554.js","assets/Select.7b1b7bc4.js","assets/Select.4bfbfc8a.css","assets/Settings.ea1f9279.css"]:void 0),
         abort: []
     },
     {
         path: '/error',
         name: 'error',
-        component: () => __vitePreload(() => import('./Error.543bf2e1.js'),true?["assets/Error.543bf2e1.js","assets/EmptyLabel.8a1877fd.js","assets/EmptyLabel.f5921f8a.css"]:void 0),
+        component: () => __vitePreload(() => import('./Error.4e145ff6.js'),true?["assets/Error.4e145ff6.js","assets/EmptyLabel.bd701813.js","assets/EmptyLabel.f5921f8a.css"]:void 0),
         abort: []
     },
     {
         path: '/access-denied',
         name: 'access-denied',
-        component: () => __vitePreload(() => import('./AccessDenied.a49ebee6.js'),true?["assets/AccessDenied.a49ebee6.js","assets/EmptyLabel.8a1877fd.js","assets/EmptyLabel.f5921f8a.css","assets/AccessDenied.886229d6.css"]:void 0),
+        component: () => __vitePreload(() => import('./AccessDenied.6f3e4174.js'),true?["assets/AccessDenied.6f3e4174.js","assets/EmptyLabel.bd701813.js","assets/EmptyLabel.f5921f8a.css","assets/AccessDenied.886229d6.css"]:void 0),
         abort: []
     },
     {
@@ -56596,7 +56596,7 @@ const endDrag = () => {
 };
 
 const onResize = () => {
-    if (!/iPhone|iPad|iPod/.test(window.navigator.userAgent)) {
+    if (/iPhone|iPad|iPod/.test(window.navigator.userAgent)) {
         message.success('Resize случился');
 
         const afterHeight = window.visualViewport?.height || window.innerHeight;
@@ -57119,7 +57119,7 @@ const { openedModals, confirmSettings, modalsComponents } = storeToRefs(modals);
 
 modals.register({
     loader: ModalLoader,
-    welcome: defineAsyncComponent(() => __vitePreload(() => import('./ModalWelcome.af2f60bb.js'),true?["assets/ModalWelcome.af2f60bb.js","assets/ModalWelcome.8956061c.css"]:void 0)),
+    welcome: defineAsyncComponent(() => __vitePreload(() => import('./ModalWelcome.99da40c8.js'),true?["assets/ModalWelcome.99da40c8.js","assets/ModalWelcome.8956061c.css"]:void 0)),
     success: ModalSuccess
 });
 
@@ -57447,7 +57447,7 @@ const browserExt = {
   },
   test: () => true,
   load: async () => {
-    await __vitePreload(() => import('./browserAll.5f910c2e.js'),true?["assets/browserAll.5f910c2e.js","assets/init.7a37ecff.js"]:void 0);
+    await __vitePreload(() => import('./browserAll.b11fa963.js'),true?["assets/browserAll.b11fa963.js","assets/init.f7e1aec7.js"]:void 0);
   }
 };
 
@@ -57459,7 +57459,7 @@ const webworkerExt = {
   },
   test: () => typeof self !== "undefined" && self.WorkerGlobalScope !== void 0,
   load: async () => {
-    await __vitePreload(() => import('./webworkerAll.82d6ef46.js'),true?["assets/webworkerAll.82d6ef46.js","assets/init.7a37ecff.js"]:void 0);
+    await __vitePreload(() => import('./webworkerAll.42c679f2.js'),true?["assets/webworkerAll.42c679f2.js","assets/init.f7e1aec7.js"]:void 0);
   }
 };
 
