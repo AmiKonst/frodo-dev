@@ -1,6 +1,6 @@
-import { _ as _export_sfc, x as useI18n, D as stores, k as onMounted, Q as onBeforeUnmount, o as openBlock, c as createElementBlock, i as createBaseVNode, t as toDisplayString, B as unref, g as createVNode, I as IconButton, G as Button, F as Fragment } from './index.f88b6ca8.js';
-import { E as EmptyLabel } from './EmptyLabel.7d798d64.js';
-import { R as Ready } from './Ready.30faa147.js';
+import { _ as _export_sfc, x as useI18n, D as stores, k as onMounted, Q as onBeforeUnmount, o as openBlock, c as createElementBlock, i as createBaseVNode, t as toDisplayString, B as unref, g as createVNode, I as IconButton, G as Button, F as Fragment } from './index.405681d1.js';
+import { E as EmptyLabel } from './EmptyLabel.ce1889d2.js';
+import { R as Ready } from './Ready.9e34e8ad.js';
 
 const Favorite_vue_vue_type_style_index_0_scoped_a46f63b4_lang = '';
 
