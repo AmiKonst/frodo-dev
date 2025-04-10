@@ -1189,7 +1189,7 @@ div.success span.devider[data-v-740ad6d1] {
   background: var(--white-80);
   backdrop-filter: blur(8px);
   box-shadow: 0px 0px 6px -3px var(--dark-500);
-  position: absolute;
+  position: fixed;
   border-radius: 10px;
   padding: 8px 0;
   transition: transform 0.3s ease-out;
