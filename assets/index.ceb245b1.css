@@ -405,9 +405,12 @@ button.size-s[data-v-702b1db3] {
 button.size-s[data-v-702b1db3]:before {
   border-radius: 16px;
 }
+button.size-s span[data-v-702b1db3] {
+  padding-top: 1px;
+}
 button.size-s svg[data-v-702b1db3] {
-  width: 12px;
-  height: 12px;
+  width: 16px;
+  height: 16px;
 }
 button.secondary[data-v-702b1db3] {
   background-color: transparent;
@@ -504,6 +507,16 @@ button.loader > .inside[data-v-702b1db3] {
   top: 0;
   bottom: 0;
   opacity: 1;
+  transform: translateY(18px);
+}
+button.loader.size-s > .inside[data-v-702b1db3] {
+  transform: translateY(0);
+}
+button.loader.size-m > .inside[data-v-702b1db3] {
+  transform: translateY(6px);
+}
+button.loader.size-l > .inside[data-v-702b1db3] {
+  transform: translateY(12px);
 }
 button.icon-mode[data-v-702b1db3] {
   padding: 0;
