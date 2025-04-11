@@ -21,7 +21,7 @@
 .messages[data-v-2c35b512] {
   width: 100%;
   position: fixed;
-  top: 0;
+  top: calc(var(--tg-safe-area-inset-top, 0px) + var(--tg-content-safe-area-inset-top, 0px));
   z-index: 9999;
   pointer-events: none;
 }

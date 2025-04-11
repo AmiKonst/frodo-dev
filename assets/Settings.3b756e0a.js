@@ -361,8 +361,8 @@ const _sfc_main = {
     };
 
     modals.register({
-        'studio-auth': defineAsyncComponent(() => __vitePreload(() => import('./ModalStudioAuth.98627061.js'),true?["assets/ModalStudioAuth.98627061.js","assets/index.ac0aca1c.js","assets/index.ceb245b1.css","assets/ModalStudioAuth.adc11dd1.css"]:void 0)),
-        'edit-firstname': defineAsyncComponent(() => __vitePreload(() => import('./ModalEditFirstName.342158db.js'),true?["assets/ModalEditFirstName.342158db.js","assets/index.ac0aca1c.js","assets/index.ceb245b1.css","assets/Field.9dde2db9.js","assets/Field.fb2adcfc.css","assets/ModalEditFirstName.fdfb513e.css"]:void 0))
+        'studio-auth': defineAsyncComponent(() => __vitePreload(() => import('./ModalStudioAuth.98627061.js'),true?["assets/ModalStudioAuth.98627061.js","assets/index.ac0aca1c.js","assets/index.d5cb9a4f.css","assets/ModalStudioAuth.adc11dd1.css"]:void 0)),
+        'edit-firstname': defineAsyncComponent(() => __vitePreload(() => import('./ModalEditFirstName.342158db.js'),true?["assets/ModalEditFirstName.342158db.js","assets/index.ac0aca1c.js","assets/index.d5cb9a4f.css","assets/Field.9dde2db9.js","assets/Field.fb2adcfc.css","assets/ModalEditFirstName.fdfb513e.css"]:void 0))
     });
 
     onMounted(() => {
