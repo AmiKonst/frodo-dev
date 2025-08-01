@@ -1,6 +1,6 @@
-import { _ as _export_sfc, s as stores, z as useI18n, r as ref, l as onMounted, Q as resolveDirective, v as withDirectives, o as openBlock, c as createElementBlock, u as toDisplayString, E as unref, e as createCommentVNode, F as Fragment, t as renderList, d as createBlock, n as normalizeClass, H as Button, y as nextTick, h as computed, m as watch, k as normalizeStyle, b as renderSlot, R as api, a as reactive, g as createVNode, j as createBaseVNode, w as withCtx, x as vShow, S as shuffleArray, D as createTextVNode } from './index.ef20c9e0.js';
-import { I as Img } from './Img.341864b1.js';
-import { R as Ready } from './Ready.12215ac5.js';
+import { _ as _export_sfc, s as stores, z as useI18n, r as ref, l as onMounted, Q as resolveDirective, v as withDirectives, o as openBlock, c as createElementBlock, u as toDisplayString, E as unref, e as createCommentVNode, F as Fragment, t as renderList, d as createBlock, n as normalizeClass, H as Button, y as nextTick, h as computed, m as watch, k as normalizeStyle, b as renderSlot, R as api, a as reactive, g as createVNode, j as createBaseVNode, w as withCtx, x as vShow, S as shuffleArray, D as createTextVNode } from './index.f8c26b5f.js';
+import { I as Img } from './Img.6ed3ddbf.js';
+import { R as Ready } from './Ready.5652172b.js';
 
 const TitleWithMenu_vue_vue_type_style_index_0_scoped_5fb99fec_lang = '';
 
@@ -379,12 +379,16 @@ const onScroll = () => {
     clearTimeout(scrollEndTimeout);
     scrollEndTimeout = setTimeout(() => {
         updateActiveColByScroll();
-    }, 100);
+    }, 700);
 };
 
 const onScrollEnd = () => {
-    clearTimeout(scrollEndTimeout);
-    updateActiveColByScroll();
+    // console.log('end')
+    // clearTimeout(scrollEndTimeout);
+    // scrollEndTimeout = setTimeout(() => {
+    //     console.log('>')
+    //     updateActiveColByScroll();
+    // }, 600);
 };
 
 const updateActiveColByScroll = () => {
@@ -576,7 +580,7 @@ return (_ctx, _cache) => {
     }, null, 8 /* PROPS */, ["items", "value"]),
     createBaseVNode("div", _hoisted_2, [
       createVNode(Slider, {
-        colPreloadCount: 3,
+        colPreloadCount: 4,
         items: data.items,
         itemsInCol: 1,
         loop: true,
@@ -641,7 +645,7 @@ const _sfc_main = {
 
 return (_ctx, _cache) => {
   return (openBlock(), createElementBlock(Fragment, null, [
-    _cache[1] || (_cache[1] = createTextVNode(" Music page ")),
+    _cache[1] || (_cache[1] = createTextVNode(" {Здесь будет большая кнопка} ")),
     (data.ready)
       ? (openBlock(), createBlock(MoreDiscoveries, { key: 0 }))
       : createCommentVNode("v-if", true),

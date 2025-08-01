@@ -1,7 +1,7 @@
-import { _ as _export_sfc, z as useI18n, a as reactive, h as computed, l as onMounted, o as openBlock, c as createElementBlock, F as Fragment, t as renderList, e as createCommentVNode, d as createBlock, E as unref, H as Button, R as api, n as normalizeClass, j as createBaseVNode, u as toDisplayString, s as stores, i as onBeforeUnmount, g as createVNode } from './index.ef20c9e0.js';
-import { R as Ready } from './Ready.12215ac5.js';
-import { E as EmptyLabel } from './EmptyLabel.cc03967a.js';
-import { I as Img } from './Img.341864b1.js';
+import { _ as _export_sfc, z as useI18n, a as reactive, h as computed, l as onMounted, q as resolveComponent, o as openBlock, c as createElementBlock, F as Fragment, t as renderList, e as createCommentVNode, d as createBlock, E as unref, H as Button, R as api, n as normalizeClass, j as createBaseVNode, u as toDisplayString, g as createVNode, s as stores, i as onBeforeUnmount } from './index.f8c26b5f.js';
+import { R as Ready } from './Ready.5652172b.js';
+import { E as EmptyLabel } from './EmptyLabel.3e87a4c5.js';
+import { I as Img } from './Img.6ed3ddbf.js';
 
 const Artists_vue_vue_type_style_index_0_scoped_bfbf5f53_lang = '';
 
@@ -67,7 +67,7 @@ const _sfc_main$1 = {
 
         setTimeout(() => {
             if (payload?.items?.length) {
-                data.items.splice(data.items.length, 0, ...(payload.items || []), ...(payload.items || []), ...(payload.items || []));
+                data.items.splice(data.items.length, 0, ...(payload.items || []));
             }
 
             data.skip = data.items.length;
@@ -91,6 +91,8 @@ const _sfc_main$1 = {
     });
 
 return (_ctx, _cache) => {
+  const _component_Icon = resolveComponent("Icon");
+
   return (openBlock(), createElementBlock("div", _hoisted_1$1, [
     (data.items.length)
       ? (openBlock(), createElementBlock("ul", _hoisted_2$1, [
@@ -105,10 +107,12 @@ return (_ctx, _cache) => {
                       key: 0,
                       preview: item.profileImage?.resized || defaultProfileImage.value?.resized,
                       original: item.profileImage?.original || defaultProfileImage.value?.original,
-                      alt: item?.name
+                      alt: item?.name,
+                      skeleton: true
                     }, null, 8 /* PROPS */, ["preview", "original", "alt"]))
                   : createCommentVNode("v-if", true),
-                createBaseVNode("span", null, toDisplayString(item.name), 1 /* TEXT */)
+                createBaseVNode("span", null, toDisplayString(item.name), 1 /* TEXT */),
+                createVNode(_component_Icon, { icon: "chevron-right" })
               ])
             ], 10 /* CLASS, PROPS */, _hoisted_3))
           }), 256 /* UNKEYED_FRAGMENT */))
