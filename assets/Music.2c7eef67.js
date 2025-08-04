@@ -1,6 +1,6 @@
-import { _ as _export_sfc, s as stores, z as useI18n, r as ref, l as onMounted, Q as resolveDirective, v as withDirectives, o as openBlock, c as createElementBlock, u as toDisplayString, E as unref, e as createCommentVNode, F as Fragment, t as renderList, d as createBlock, n as normalizeClass, H as Button, y as nextTick, h as computed, m as watch, k as normalizeStyle, b as renderSlot, R as api, a as reactive, g as createVNode, j as createBaseVNode, w as withCtx, x as vShow, S as shuffleArray, D as createTextVNode } from './index.f8c26b5f.js';
-import { I as Img } from './Img.6ed3ddbf.js';
-import { R as Ready } from './Ready.5652172b.js';
+import { _ as _export_sfc, s as stores, z as useI18n, r as ref, l as onMounted, Q as resolveDirective, v as withDirectives, o as openBlock, c as createElementBlock, u as toDisplayString, E as unref, e as createCommentVNode, F as Fragment, t as renderList, d as createBlock, n as normalizeClass, H as Button, y as nextTick, h as computed, m as watch, k as normalizeStyle, b as renderSlot, R as api, a as reactive, g as createVNode, j as createBaseVNode, w as withCtx, x as vShow, S as shuffleArray, D as createTextVNode } from './index.9a88f6c4.js';
+import { I as Img } from './Img.d57ddb60.js';
+import { R as Ready } from './Ready.af370880.js';
 
 const TitleWithMenu_vue_vue_type_style_index_0_scoped_5fb99fec_lang = '';
 
@@ -379,7 +379,7 @@ const onScroll = () => {
     clearTimeout(scrollEndTimeout);
     scrollEndTimeout = setTimeout(() => {
         updateActiveColByScroll();
-    }, 700);
+    }, 400);
 };
 
 const onScrollEnd = () => {
@@ -509,7 +509,7 @@ const MoreDiscoveries_vue_vue_type_style_index_0_scoped_f671185c_lang = '';
 
 const _hoisted_1 = { class: "block" };
 const _hoisted_2 = { class: "slider-box" };
-const _hoisted_3 = { class: "slide" };
+const _hoisted_3 = ["onClick"];
 const _hoisted_4 = {
   key: 0,
   class: "skeleton"
@@ -519,6 +519,7 @@ const _hoisted_5 = {
   class: "name"
 };
 
+
     
 const _sfc_main$1 = {
   __name: 'MoreDiscoveries',
@@ -527,6 +528,7 @@ const _sfc_main$1 = {
     useI18n();
 
     const dict = api.dict();
+    const nav = stores.nav();
 
     const sliderRef = ref();
 
@@ -536,14 +538,17 @@ const _sfc_main$1 = {
         loadedItems: [],
         types: [
             {
+                page: 'category',
                 code: 'categories',
                 name: 'pages.music.more-discoveries.categories.title'
             },
             {
+                page: 'genre',
                 code: 'genres',
                 name: 'pages.music.more-discoveries.genres.title'
             },
             {
+                page: 'mood',
                 code: 'moods',
                 name: 'pages.music.more-discoveries.moods.title'
             }
@@ -564,6 +569,16 @@ const _sfc_main$1 = {
 
     const handleError = (code) => {
         data.loadedItems.push(code);
+    };
+
+    const open = (payload) => {
+        const page = data.types.find(item => item.code === data.type)?.page;
+
+        if (!page) {
+            return;
+        }
+
+        nav.open(page, { code: payload?.code });
     };
 
     onMounted(() => {
@@ -593,7 +608,10 @@ return (_ctx, _cache) => {
         ref: sliderRef
       }, {
         default: withCtx(({ item }) => [
-          createBaseVNode("div", _hoisted_3, [
+          createBaseVNode("div", {
+            class: "slide",
+            onClick: $event => (open(item))
+          }, [
             (!item.cover || !data.loadedItems.includes(item.code))
               ? (openBlock(), createElementBlock("div", _hoisted_4))
               : createCommentVNode("v-if", true),
@@ -612,7 +630,7 @@ return (_ctx, _cache) => {
             (data.loadedItems.includes(item.code))
               ? (openBlock(), createElementBlock("span", _hoisted_5, toDisplayString(item.title), 1 /* TEXT */))
               : createCommentVNode("v-if", true)
-          ])
+          ], 8 /* PROPS */, _hoisted_3)
         ]),
         _: 1 /* STABLE */
       }, 8 /* PROPS */, ["items"])
