@@ -1,11 +1,11 @@
-import { _ as _export_sfc, R as api, s as stores, a as reactive, o as openBlock, c as createElementBlock, d as createBlock, e as createCommentVNode, g as createVNode, F as Fragment } from './index.9a88f6c4.js';
-import { D as Dictionary } from './Dictionary.86e95f25.js';
-import { R as Ready } from './Ready.af370880.js';
-import './Img.d57ddb60.js';
-import './EmptyLabel.8703e75e.js';
+import { _ as _export_sfc, R as api, s as stores, a as reactive, o as openBlock, c as createElementBlock, d as createBlock, e as createCommentVNode, g as createVNode, F as Fragment } from './index.c6fee8b2.js';
+import { D as Dictionary } from './Dictionary.b28f8bfa.js';
+import { R as Ready } from './Ready.6fb8daff.js';
+import './Img.7bc66220.js';
+import './EmptyLabel.4bc35eee.js';
 
 const _sfc_main = {
-  __name: 'Category',
+  __name: 'Genre',
   props: {
         code: { type: String }
     },
@@ -25,7 +25,7 @@ const _sfc_main = {
     const init = async () => {
         const types = await dict.getTypes();
 
-        data.type = types.find(item => item.code === 'categories');
+        data.type = types.find(item => item.code === 'genres');
         data.ready = true;
     };
 
@@ -39,7 +39,7 @@ return (_ctx, _cache) => {
         }, null, 8 /* PROPS */, ["code", "type"]))
       : createCommentVNode("v-if", true),
     createVNode(Ready, {
-      page: "category",
+      page: "mood",
       init: init
     })
   ], 64 /* STABLE_FRAGMENT */))
@@ -47,6 +47,6 @@ return (_ctx, _cache) => {
 }
 
 };
-const Category = /*#__PURE__*/_export_sfc(_sfc_main, [['__file',"D:/bilbo/bilbo/src/pages/Dictionaries/Category.vue"]]);
+const Genre = /*#__PURE__*/_export_sfc(_sfc_main, [['__file',"D:/bilbo/bilbo/src/pages/Dictionaries/Genre.vue"]]);
 
-export { Category as default };
+export { Genre as default };

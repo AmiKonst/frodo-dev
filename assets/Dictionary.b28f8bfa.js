@@ -1,6 +1,6 @@
-import { _ as _export_sfc, z as useI18n, R as api, s as stores, a as reactive, h as computed, l as onMounted, i as onBeforeUnmount, o as openBlock, c as createElementBlock, j as createBaseVNode, g as createVNode, u as toDisplayString, e as createCommentVNode, E as unref, H as Button, n as normalizeClass } from './index.9a88f6c4.js';
-import { I as Img } from './Img.d57ddb60.js';
-import { E as EmptyLabel } from './EmptyLabel.8703e75e.js';
+import { _ as _export_sfc, z as useI18n, R as api, s as stores, a as reactive, h as computed, l as onMounted, i as onBeforeUnmount, o as openBlock, c as createElementBlock, j as createBaseVNode, g as createVNode, u as toDisplayString, e as createCommentVNode, E as unref, H as Button, n as normalizeClass } from './index.c6fee8b2.js';
+import { I as Img } from './Img.7bc66220.js';
+import { E as EmptyLabel } from './EmptyLabel.4bc35eee.js';
 
 const Dictionary_vue_vue_type_style_index_0_scoped_db4e5d03_lang = '';
 
@@ -43,6 +43,7 @@ const _sfc_main = {
     };
 
 
+    document.body.classList.add('with-tg-header');
     onMounted(async () => {
         tg.showBackButton();
 
@@ -51,6 +52,7 @@ const _sfc_main = {
     });
 
     onBeforeUnmount(() => {
+        document.body.classList.remove('with-tg-header');
         tg.hideBackButton();
     });
 

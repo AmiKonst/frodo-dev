@@ -1,4 +1,4 @@
-import { a6 as DOMAdapter, a7 as uid, a2 as EventEmitter, $ as ExtensionType, a1 as UPDATE_PRIORITY, a0 as Ticker, a8 as deprecation, a9 as v8_0_0, aa as Color, ab as Texture, ac as ImageSource, ad as Matrix, a3 as warn, ae as Rectangle, af as Bounds, Y as Point, ag as earcut, a4 as extensions, ah as BigPool, ai as InstructionSet, aj as v8_3_4, ak as nextPow2, al as Cache, am as TextureSource, an as boundsPool, ao as ViewContainer, ap as updateQuadBounds } from './index.9a88f6c4.js';
+import { a6 as DOMAdapter, a7 as uid, a2 as EventEmitter, $ as ExtensionType, a1 as UPDATE_PRIORITY, a0 as Ticker, a8 as deprecation, a9 as v8_0_0, aa as Color, ab as Texture, ac as ImageSource, ad as Matrix, a3 as warn, ae as Rectangle, af as Bounds, Y as Point, ag as earcut, a4 as extensions, ah as BigPool, ai as InstructionSet, aj as v8_3_4, ak as nextPow2, al as Cache, am as TextureSource, an as boundsPool, ao as ViewContainer, ap as updateQuadBounds } from './index.c6fee8b2.js';
 
 const idCounts = /* @__PURE__ */ Object.create(null);
 const idHash = /* @__PURE__ */ Object.create(null);
