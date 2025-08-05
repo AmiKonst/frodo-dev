@@ -36,7 +36,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 68%, rgba(0, 0, 0, 0.8) 100%);
+  background: linear-gradient(to bottom, var(--white-0) 68%, var(--white-500) 100%);
   pointer-events: none;
 }
 .dictionary .wrapper[data-v-db4e5d03] {
@@ -57,6 +57,7 @@
   color: white;
   font-weight: bold;
   text-align: center;
+  -webkit-text-stroke: 1px rgba(0, 0, 0, 0.2);
 }
 .dictionary .wrapper .buttons[data-v-db4e5d03] {
   min-height: 38px;
@@ -71,18 +72,4 @@
 }
 .dictionary .empty[data-v-db4e5d03] {
   margin: auto;
-}
-.dictionary.dark .welcome[data-v-db4e5d03]:after {
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 68%, rgba(0, 0, 0, 0.8) 100%);
-}
-.dictionary.dark .wrapper .title[data-v-db4e5d03] {
-  color: white;
-  -webkit-text-stroke: 1px rgba(0, 0, 0, 0.2);
-}
-.dictionary.light .welcome[data-v-db4e5d03]:after {
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 68%, rgba(255, 255, 255, 0.8) 100%);
-}
-.dictionary.light .wrapper .title[data-v-db4e5d03] {
-  color: white;
-  -webkit-text-stroke: 1px rgba(54, 54, 54, 0.33);
 }

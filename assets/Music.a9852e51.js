@@ -1,6 +1,6 @@
-import { _ as _export_sfc, s as stores, z as useI18n, r as ref, l as onMounted, Q as resolveDirective, v as withDirectives, o as openBlock, c as createElementBlock, u as toDisplayString, E as unref, e as createCommentVNode, F as Fragment, t as renderList, d as createBlock, n as normalizeClass, H as Button, y as nextTick, h as computed, m as watch, k as normalizeStyle, b as renderSlot, R as api, a as reactive, g as createVNode, j as createBaseVNode, w as withCtx, x as vShow, S as shuffleArray, D as createTextVNode } from './index.c6fee8b2.js';
-import { I as Img } from './Img.7bc66220.js';
-import { R as Ready } from './Ready.6fb8daff.js';
+import { _ as _export_sfc, s as stores, z as useI18n, r as ref, l as onMounted, Q as resolveDirective, v as withDirectives, o as openBlock, c as createElementBlock, u as toDisplayString, E as unref, e as createCommentVNode, F as Fragment, t as renderList, d as createBlock, n as normalizeClass, H as Button, y as nextTick, R as onActivated, h as computed, m as watch, k as normalizeStyle, b as renderSlot, S as api, a as reactive, g as createVNode, j as createBaseVNode, w as withCtx, x as vShow, U as shuffleArray, i as onBeforeUnmount, D as createTextVNode } from './index.03e926d2.js';
+import { I as Img } from './Img.075d92f8.js';
+import { R as Ready } from './Ready.2324e011.js';
 
 const TitleWithMenu_vue_vue_type_style_index_0_scoped_5fb99fec_lang = '';
 
@@ -184,6 +184,11 @@ const activeColIndex = ref(0);
 
 const locale = stores.locale();
 
+
+onActivated(() => {
+    scrollToActiveCol(false);
+});
+
 // Разбиваем items на колонки по itemsInCol
 const cols = computed(() => {
     const result = [];
@@ -354,6 +359,9 @@ const setActiveCol = async (index) => {
         return;
     }
 
+    // Очистим отложенный таймер скролла — клик пользователя важнее
+    clearTimeout(scrollEndTimeout);
+
     // Установим выравнивание раньше, ДО прокрутки
     if (props.colAlign === 'auto-direction') {
         if (index > activeColIndex.value) {
@@ -377,6 +385,7 @@ let scrollEndTimeout = null;
 
 const onScroll = () => {
     clearTimeout(scrollEndTimeout);
+
     scrollEndTimeout = setTimeout(() => {
         updateActiveColByScroll();
     }, 400);
@@ -642,7 +651,9 @@ return (_ctx, _cache) => {
 };
 const MoreDiscoveries = /*#__PURE__*/_export_sfc(_sfc_main$1, [['__scopeId',"data-v-f671185c"],['__file',"D:/bilbo/bilbo/src/pages/Music/components/MoreDiscoveries.vue"]]);
 
-const _sfc_main = {
+const _sfc_main = Object.assign({
+        name: 'music'
+    }, {
   __name: 'Music',
   setup(__props) {
 
@@ -661,6 +672,12 @@ const _sfc_main = {
         data.ready = true;
     };
 
+    
+
+    onBeforeUnmount(() => {
+        console.log('>');
+    });
+
 return (_ctx, _cache) => {
   return (openBlock(), createElementBlock(Fragment, null, [
     _cache[1] || (_cache[1] = createTextVNode(" {Здесь будет большая кнопка} ")),
@@ -676,7 +693,7 @@ return (_ctx, _cache) => {
 }
 }
 
-};
+});
 const Music = /*#__PURE__*/_export_sfc(_sfc_main, [['__file',"D:/bilbo/bilbo/src/pages/Music/Music.vue"]]);
 
 export { Music as default };

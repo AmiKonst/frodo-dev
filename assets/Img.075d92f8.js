@@ -1,4 +1,4 @@
-import { _ as _export_sfc, r as ref, h as computed, o as openBlock, c as createElementBlock, e as createCommentVNode, n as normalizeClass, j as createBaseVNode, b as renderSlot, D as createTextVNode, u as toDisplayString, F as Fragment } from './index.c6fee8b2.js';
+import { _ as _export_sfc, r as ref, h as computed, o as openBlock, c as createElementBlock, e as createCommentVNode, n as normalizeClass, j as createBaseVNode, b as renderSlot, D as createTextVNode, u as toDisplayString, F as Fragment } from './index.03e926d2.js';
 
 const Img_vue_vue_type_style_index_0_scoped_eaa0f8c6_lang = '';
 
@@ -96,13 +96,16 @@ return (_ctx, _cache) => {
           key: 0,
           class: normalizeClass(["wathermark", props.wathermark])
         }, [
-          createBaseVNode("img", {
-            src: src.value,
-            alt: props.alt,
-            crossorigin: "anonymous",
-            onLoad: handleLoad,
-            onError: handleError
-          }, null, 40 /* PROPS, NEED_HYDRATION */, _hoisted_1),
+          (props.preview)
+            ? (openBlock(), createElementBlock("img", {
+                key: 0,
+                src: src.value,
+                alt: props.alt,
+                crossorigin: "anonymous",
+                onLoad: handleLoad,
+                onError: handleError
+              }, null, 40 /* PROPS, NEED_HYDRATION */, _hoisted_1))
+            : createCommentVNode("v-if", true),
           _cache[0] || (_cache[0] = createBaseVNode("span", null, null, -1 /* HOISTED */)),
           createBaseVNode("label", null, [
             renderSlot(_ctx.$slots, "default", {}, () => [
@@ -116,13 +119,16 @@ return (_ctx, _cache) => {
             createBaseVNode("div", {
               class: normalizeClass(["skeleton-wrapper", { loaded: isLoaded.value }])
             }, [
-              createBaseVNode("img", {
-                src: src.value,
-                alt: props.alt,
-                crossorigin: "anonymous",
-                onLoad: handleLoad,
-                onError: handleError
-              }, null, 40 /* PROPS, NEED_HYDRATION */, _hoisted_2)
+              (props.preview)
+                ? (openBlock(), createElementBlock("img", {
+                    key: 0,
+                    src: src.value,
+                    alt: props.alt,
+                    crossorigin: "anonymous",
+                    onLoad: handleLoad,
+                    onError: handleError
+                  }, null, 40 /* PROPS, NEED_HYDRATION */, _hoisted_2))
+                : createCommentVNode("v-if", true)
             ], 2 /* CLASS */)
           ], 2112 /* STABLE_FRAGMENT, DEV_ROOT_FRAGMENT */))
         : (openBlock(), createElementBlock(Fragment, { key: 2 }, [

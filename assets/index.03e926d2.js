@@ -2368,6 +2368,7 @@ const isArray$9 = Array.isArray;
 const isMap$2 = (val) => toTypeString$1(val) === "[object Map]";
 const isSet$2 = (val) => toTypeString$1(val) === "[object Set]";
 const isDate$6 = (val) => toTypeString$1(val) === "[object Date]";
+const isRegExp$5 = (val) => toTypeString$1(val) === "[object RegExp]";
 const isFunction$3 = (val) => typeof val === "function";
 const isString$7 = (val) => typeof val === "string";
 const isSymbol$2 = (val) => typeof val === "symbol";
@@ -6107,6 +6108,221 @@ function createInnerComp(comp, parent) {
 }
 
 const isKeepAlive = (vnode) => vnode.type.__isKeepAlive;
+const KeepAliveImpl = {
+  name: `KeepAlive`,
+  // Marker for special handling inside the renderer. We are not using a ===
+  // check directly on KeepAlive in the renderer, because importing it directly
+  // would prevent it from being tree-shaken.
+  __isKeepAlive: true,
+  props: {
+    include: [String, RegExp, Array],
+    exclude: [String, RegExp, Array],
+    max: [String, Number]
+  },
+  setup(props, { slots }) {
+    const instance = getCurrentInstance();
+    const sharedContext = instance.ctx;
+    if (!sharedContext.renderer) {
+      return () => {
+        const children = slots.default && slots.default();
+        return children && children.length === 1 ? children[0] : children;
+      };
+    }
+    const cache = /* @__PURE__ */ new Map();
+    const keys = /* @__PURE__ */ new Set();
+    let current = null;
+    {
+      instance.__v_cache = cache;
+    }
+    const parentSuspense = instance.suspense;
+    const {
+      renderer: {
+        p: patch,
+        m: move,
+        um: _unmount,
+        o: { createElement }
+      }
+    } = sharedContext;
+    const storageContainer = createElement("div");
+    sharedContext.activate = (vnode, container, anchor, namespace, optimized) => {
+      const instance2 = vnode.component;
+      move(vnode, container, anchor, 0, parentSuspense);
+      patch(
+        instance2.vnode,
+        vnode,
+        container,
+        anchor,
+        instance2,
+        parentSuspense,
+        namespace,
+        vnode.slotScopeIds,
+        optimized
+      );
+      queuePostRenderEffect(() => {
+        instance2.isDeactivated = false;
+        if (instance2.a) {
+          invokeArrayFns(instance2.a);
+        }
+        const vnodeHook = vnode.props && vnode.props.onVnodeMounted;
+        if (vnodeHook) {
+          invokeVNodeHook(vnodeHook, instance2.parent, vnode);
+        }
+      }, parentSuspense);
+      {
+        devtoolsComponentAdded(instance2);
+      }
+    };
+    sharedContext.deactivate = (vnode) => {
+      const instance2 = vnode.component;
+      invalidateMount(instance2.m);
+      invalidateMount(instance2.a);
+      move(vnode, storageContainer, null, 1, parentSuspense);
+      queuePostRenderEffect(() => {
+        if (instance2.da) {
+          invokeArrayFns(instance2.da);
+        }
+        const vnodeHook = vnode.props && vnode.props.onVnodeUnmounted;
+        if (vnodeHook) {
+          invokeVNodeHook(vnodeHook, instance2.parent, vnode);
+        }
+        instance2.isDeactivated = true;
+      }, parentSuspense);
+      {
+        devtoolsComponentAdded(instance2);
+      }
+    };
+    function unmount(vnode) {
+      resetShapeFlag(vnode);
+      _unmount(vnode, instance, parentSuspense, true);
+    }
+    function pruneCache(filter) {
+      cache.forEach((vnode, key) => {
+        const name = getComponentName(vnode.type);
+        if (name && !filter(name)) {
+          pruneCacheEntry(key);
+        }
+      });
+    }
+    function pruneCacheEntry(key) {
+      const cached = cache.get(key);
+      if (cached && (!current || !isSameVNodeType(cached, current))) {
+        unmount(cached);
+      } else if (current) {
+        resetShapeFlag(current);
+      }
+      cache.delete(key);
+      keys.delete(key);
+    }
+    watch(
+      () => [props.include, props.exclude],
+      ([include, exclude]) => {
+        include && pruneCache((name) => matches(include, name));
+        exclude && pruneCache((name) => !matches(exclude, name));
+      },
+      // prune post-render after `current` has been updated
+      { flush: "post", deep: true }
+    );
+    let pendingCacheKey = null;
+    const cacheSubtree = () => {
+      if (pendingCacheKey != null) {
+        if (isSuspense(instance.subTree.type)) {
+          queuePostRenderEffect(() => {
+            cache.set(pendingCacheKey, getInnerChild(instance.subTree));
+          }, instance.subTree.suspense);
+        } else {
+          cache.set(pendingCacheKey, getInnerChild(instance.subTree));
+        }
+      }
+    };
+    onMounted(cacheSubtree);
+    onUpdated(cacheSubtree);
+    onBeforeUnmount(() => {
+      cache.forEach((cached) => {
+        const { subTree, suspense } = instance;
+        const vnode = getInnerChild(subTree);
+        if (cached.type === vnode.type && cached.key === vnode.key) {
+          resetShapeFlag(vnode);
+          const da = vnode.component.da;
+          da && queuePostRenderEffect(da, suspense);
+          return;
+        }
+        unmount(cached);
+      });
+    });
+    return () => {
+      pendingCacheKey = null;
+      if (!slots.default) {
+        return current = null;
+      }
+      const children = slots.default();
+      const rawVNode = children[0];
+      if (children.length > 1) {
+        {
+          warn$1$1(`KeepAlive should contain exactly one component child.`);
+        }
+        current = null;
+        return children;
+      } else if (!isVNode$1(rawVNode) || !(rawVNode.shapeFlag & 4) && !(rawVNode.shapeFlag & 128)) {
+        current = null;
+        return rawVNode;
+      }
+      let vnode = getInnerChild(rawVNode);
+      if (vnode.type === Comment) {
+        current = null;
+        return vnode;
+      }
+      const comp = vnode.type;
+      const name = getComponentName(
+        isAsyncWrapper(vnode) ? vnode.type.__asyncResolved || {} : comp
+      );
+      const { include, exclude, max } = props;
+      if (include && (!name || !matches(include, name)) || exclude && name && matches(exclude, name)) {
+        vnode.shapeFlag &= ~256;
+        current = vnode;
+        return rawVNode;
+      }
+      const key = vnode.key == null ? comp : vnode.key;
+      const cachedVNode = cache.get(key);
+      if (vnode.el) {
+        vnode = cloneVNode(vnode);
+        if (rawVNode.shapeFlag & 128) {
+          rawVNode.ssContent = vnode;
+        }
+      }
+      pendingCacheKey = key;
+      if (cachedVNode) {
+        vnode.el = cachedVNode.el;
+        vnode.component = cachedVNode.component;
+        if (vnode.transition) {
+          setTransitionHooks(vnode, vnode.transition);
+        }
+        vnode.shapeFlag |= 512;
+        keys.delete(key);
+        keys.add(key);
+      } else {
+        keys.add(key);
+        if (max && keys.size > parseInt(max, 10)) {
+          pruneCacheEntry(keys.values().next().value);
+        }
+      }
+      vnode.shapeFlag |= 256;
+      current = vnode;
+      return isSuspense(rawVNode.type) ? rawVNode : vnode;
+    };
+  }
+};
+const KeepAlive = KeepAliveImpl;
+function matches(pattern, name) {
+  if (isArray$9(pattern)) {
+    return pattern.some((p) => matches(p, name));
+  } else if (isString$7(pattern)) {
+    return pattern.split(",").includes(name);
+  } else if (isRegExp$5(pattern)) {
+    pattern.lastIndex = 0;
+    return pattern.test(name);
+  }
+  return false;
+}
 function onActivated(hook, target) {
   registerKeepAliveHook(hook, "a", target);
 }
@@ -6146,6 +6362,13 @@ function injectToKeepAliveRoot(hook, type, target, keepAliveRoot) {
   onUnmounted(() => {
     remove(keepAliveRoot[type], injected);
   }, target);
+}
+function resetShapeFlag(vnode) {
+  vnode.shapeFlag &= ~256;
+  vnode.shapeFlag &= ~512;
+}
+function getInnerChild(vnode) {
+  return vnode.shapeFlag & 128 ? vnode.ssContent : vnode;
 }
 
 function injectHook(type, hook, target = currentInstance, prepend = false) {
@@ -45986,9 +46209,9 @@ const useOthersStore = defineStore('others', {
         },
         themePath: (state) => {
             if (state.theme === 'dark') {
-                return new URL("/frodo-dev/assets/variables.c3aaa7a3.css?v=2", self.location).href;
+                return new URL("/frodo-dev/assets/variables.58115f9b.css?v=2", self.location).href;
             }
-            return new URL("/frodo-dev/assets/variables.7039c547.css?v=2", self.location).href;
+            return new URL("/frodo-dev/assets/variables.b47992ff.css?v=2", self.location).href;
         },
         svgSpritePath: (state) => {
             if (state.theme === 'dark') {
@@ -49757,6 +49980,8 @@ function useRoute(_name) {
     return inject(routeLocationKey);
 }
 
+const componentKey = ref$1('initial');
+
 const handleRouterError = (error) => {
     const t = stores$1.locale().t();
     const errors = [
@@ -49784,76 +50009,76 @@ const routes = [
     {
         path: '/empty',
         name: 'empty',
-        component: () => __vitePreload(() => import('./Empty.cb0190e9.js'),true?["assets/Empty.cb0190e9.js","assets/Field.7c8de0df.js","assets/Field.0e27c001.css","assets/Select.2ebec98b.js","assets/Select.079ca2c0.css","assets/EmptyLabel.4bc35eee.js","assets/EmptyLabel.f5921f8a.css","assets/Empty.13435850.css"]:void 0),
+        component: () => __vitePreload(() => import('./Empty.b1937a8d.js'),true?["assets/Empty.b1937a8d.js","assets/Field.bcadf2b0.js","assets/Field.0e27c001.css","assets/Select.0bb90b5c.js","assets/Select.079ca2c0.css","assets/EmptyLabel.86a62113.js","assets/EmptyLabel.f5921f8a.css","assets/Empty.13435850.css"]:void 0),
         abort: []
     },
     {
         path: '/music',
         name: 'music',
-        component: () => __vitePreload(() => import('./Music.86cc1492.js'),true?["assets/Music.86cc1492.js","assets/Img.7bc66220.js","assets/Img.4838bcf3.css","assets/Ready.6fb8daff.js","assets/Music.804cbc2e.css"]:void 0),
+        component: () => __vitePreload(() => import('./Music.a9852e51.js'),true?["assets/Music.a9852e51.js","assets/Img.075d92f8.js","assets/Img.4838bcf3.css","assets/Ready.2324e011.js","assets/Music.804cbc2e.css"]:void 0),
         abort: []
     },
         {
             path: '/categories/:code',
             name: 'category',
-            component: () => __vitePreload(() => import('./Category.82e16ad2.js'),true?["assets/Category.82e16ad2.js","assets/Dictionary.b28f8bfa.js","assets/Img.7bc66220.js","assets/Img.4838bcf3.css","assets/EmptyLabel.4bc35eee.js","assets/EmptyLabel.f5921f8a.css","assets/Dictionary.273cdd4c.css","assets/Ready.6fb8daff.js"]:void 0),
+            component: () => __vitePreload(() => import('./Category.8429ff99.js'),true?["assets/Category.8429ff99.js","assets/Dictionary.1c331ca2.js","assets/Img.075d92f8.js","assets/Img.4838bcf3.css","assets/EmptyLabel.86a62113.js","assets/EmptyLabel.f5921f8a.css","assets/Dictionary.c55a2065.css","assets/Ready.2324e011.js"]:void 0),
             props: true,
             abort: []
         },
         {
             path: '/moods/:code',
             name: 'mood',
-            component: () => __vitePreload(() => import('./Mood.a9175d49.js'),true?["assets/Mood.a9175d49.js","assets/Dictionary.b28f8bfa.js","assets/Img.7bc66220.js","assets/Img.4838bcf3.css","assets/EmptyLabel.4bc35eee.js","assets/EmptyLabel.f5921f8a.css","assets/Dictionary.273cdd4c.css","assets/Ready.6fb8daff.js"]:void 0),
+            component: () => __vitePreload(() => import('./Mood.a1033183.js'),true?["assets/Mood.a1033183.js","assets/Dictionary.1c331ca2.js","assets/Img.075d92f8.js","assets/Img.4838bcf3.css","assets/EmptyLabel.86a62113.js","assets/EmptyLabel.f5921f8a.css","assets/Dictionary.c55a2065.css","assets/Ready.2324e011.js"]:void 0),
             props: true,
             abort: []
         },
         {
             path: '/genres/:code',
             name: 'genre',
-            component: () => __vitePreload(() => import('./Genre.c787d45d.js'),true?["assets/Genre.c787d45d.js","assets/Dictionary.b28f8bfa.js","assets/Img.7bc66220.js","assets/Img.4838bcf3.css","assets/EmptyLabel.4bc35eee.js","assets/EmptyLabel.f5921f8a.css","assets/Dictionary.273cdd4c.css","assets/Ready.6fb8daff.js"]:void 0),
+            component: () => __vitePreload(() => import('./Genre.677a1f2d.js'),true?["assets/Genre.677a1f2d.js","assets/Dictionary.1c331ca2.js","assets/Img.075d92f8.js","assets/Img.4838bcf3.css","assets/EmptyLabel.86a62113.js","assets/EmptyLabel.f5921f8a.css","assets/Dictionary.c55a2065.css","assets/Ready.2324e011.js"]:void 0),
             props: true,
             abort: []
         },
     {
         path: '/favorite',
         name: 'favorite',
-        component: () => __vitePreload(() => import('./Favorite.ea4afdd4.js'),true?["assets/Favorite.ea4afdd4.js","assets/EmptyLabel.4bc35eee.js","assets/EmptyLabel.f5921f8a.css","assets/Img.7bc66220.js","assets/Img.4838bcf3.css","assets/Ready.6fb8daff.js","assets/Favorite.0f2ffddd.css"]:void 0),
+        component: () => __vitePreload(() => import('./Favorite.e969f77e.js'),true?["assets/Favorite.e969f77e.js","assets/EmptyLabel.86a62113.js","assets/EmptyLabel.f5921f8a.css","assets/Img.075d92f8.js","assets/Img.4838bcf3.css","assets/Ready.2324e011.js","assets/Favorite.0f2ffddd.css"]:void 0),
         abort: []
     },
         {
             path: '/favorite/artists',
             name: 'favorite-artists',
-            component: () => __vitePreload(() => import('./Artists.e04989df.js'),true?["assets/Artists.e04989df.js","assets/Ready.6fb8daff.js","assets/EmptyLabel.4bc35eee.js","assets/EmptyLabel.f5921f8a.css","assets/Artists.3e1ec8b0.css"]:void 0),
+            component: () => __vitePreload(() => import('./Artists.682776e3.js'),true?["assets/Artists.682776e3.js","assets/Ready.2324e011.js","assets/EmptyLabel.86a62113.js","assets/EmptyLabel.f5921f8a.css","assets/Artists.3e1ec8b0.css"]:void 0),
             abort: []
         },
         {
             path: '/favorite/playlists',
             name: 'favorite-playlists',
-            component: () => __vitePreload(() => import('./Playlists.c81137a8.js'),true?["assets/Playlists.c81137a8.js","assets/Ready.6fb8daff.js","assets/EmptyLabel.4bc35eee.js","assets/EmptyLabel.f5921f8a.css","assets/Playlists.aba28cf9.css"]:void 0),
+            component: () => __vitePreload(() => import('./Playlists.194fb136.js'),true?["assets/Playlists.194fb136.js","assets/Ready.2324e011.js","assets/EmptyLabel.86a62113.js","assets/EmptyLabel.f5921f8a.css","assets/Playlists.aba28cf9.css"]:void 0),
             abort: []
         },
         {
             path: '/favorite/my-artists',
             name: 'favorite-my-artists',
-            component: () => __vitePreload(() => import('./MyArtists.8bc9ba44.js'),true?["assets/MyArtists.8bc9ba44.js","assets/Ready.6fb8daff.js","assets/EmptyLabel.4bc35eee.js","assets/EmptyLabel.f5921f8a.css","assets/Img.7bc66220.js","assets/Img.4838bcf3.css","assets/MyArtists.e5c5a175.css"]:void 0),
+            component: () => __vitePreload(() => import('./MyArtists.15049d27.js'),true?["assets/MyArtists.15049d27.js","assets/Ready.2324e011.js","assets/EmptyLabel.86a62113.js","assets/EmptyLabel.f5921f8a.css","assets/Img.075d92f8.js","assets/Img.4838bcf3.css","assets/MyArtists.e5c5a175.css"]:void 0),
             abort: []
         },
     {
         path: '/settings',
         name: 'settings',
-        component: () => __vitePreload(() => import('./Settings.30acdb6b.js'),true?["assets/Settings.30acdb6b.js","assets/Ready.6fb8daff.js","assets/Img.7bc66220.js","assets/Img.4838bcf3.css","assets/Select.2ebec98b.js","assets/Select.079ca2c0.css","assets/Settings.db83d747.css"]:void 0),
+        component: () => __vitePreload(() => import('./Settings.7685bd0f.js'),true?["assets/Settings.7685bd0f.js","assets/Ready.2324e011.js","assets/Img.075d92f8.js","assets/Img.4838bcf3.css","assets/Select.0bb90b5c.js","assets/Select.079ca2c0.css","assets/Settings.db83d747.css"]:void 0),
         abort: []
     },
     {
         path: '/error',
         name: 'error',
-        component: () => __vitePreload(() => import('./Error.3774e902.js'),true?["assets/Error.3774e902.js","assets/EmptyLabel.4bc35eee.js","assets/EmptyLabel.f5921f8a.css"]:void 0),
+        component: () => __vitePreload(() => import('./Error.504d62fc.js'),true?["assets/Error.504d62fc.js","assets/EmptyLabel.86a62113.js","assets/EmptyLabel.f5921f8a.css"]:void 0),
         abort: []
     },
     {
         path: '/access-denied',
         name: 'access-denied',
-        component: () => __vitePreload(() => import('./AccessDenied.50773a2e.js'),true?["assets/AccessDenied.50773a2e.js","assets/EmptyLabel.4bc35eee.js","assets/EmptyLabel.f5921f8a.css","assets/AccessDenied.886229d6.css"]:void 0),
+        component: () => __vitePreload(() => import('./AccessDenied.dad4a385.js'),true?["assets/AccessDenied.dad4a385.js","assets/EmptyLabel.86a62113.js","assets/EmptyLabel.f5921f8a.css","assets/AccessDenied.886229d6.css"]:void 0),
         abort: []
     },
     {
@@ -49897,6 +50122,18 @@ router.beforeEach((to, from, next) => {
     }
     next();
 });
+
+router.afterEach((to, from) => {
+    if (to.name === from.name) {
+        // Обновляем ключ, например, с помощью timestamp
+        componentKey.value = `${to.fullPath || to.name || 'default'}-${Date.now()}`;
+    } else {
+        // Для других маршрутов просто ключ равен имени маршрута (или пути)
+        componentKey.value = to.fullPath || to.name || 'default';
+    }
+});
+
+window.q = componentKey;
 
 router.onError(handleRouterError);
 
@@ -60732,7 +60969,7 @@ const { openedModals, confirmSettings, modalsComponents } = storeToRefs(modals);
 
 modals.register({
     loader: ModalLoader,
-    welcome: defineAsyncComponent(() => __vitePreload(() => import('./ModalWelcome.f2ee7aa5.js'),true?["assets/ModalWelcome.f2ee7aa5.js","assets/ModalWelcome.8956061c.css"]:void 0)),
+    welcome: defineAsyncComponent(() => __vitePreload(() => import('./ModalWelcome.c481119b.js'),true?["assets/ModalWelcome.c481119b.js","assets/ModalWelcome.8956061c.css"]:void 0)),
     success: ModalSuccess
 });
 
@@ -61060,7 +61297,7 @@ const browserExt = {
   },
   test: () => true,
   load: async () => {
-    await __vitePreload(() => import('./browserAll.55cb207f.js'),true?["assets/browserAll.55cb207f.js","assets/init.a0d4dd5a.js"]:void 0);
+    await __vitePreload(() => import('./browserAll.e587e92b.js'),true?["assets/browserAll.e587e92b.js","assets/init.7cb5817d.js"]:void 0);
   }
 };
 
@@ -61072,7 +61309,7 @@ const webworkerExt = {
   },
   test: () => typeof self !== "undefined" && self.WorkerGlobalScope !== void 0,
   load: async () => {
-    await __vitePreload(() => import('./webworkerAll.9a0676e5.js'),true?["assets/webworkerAll.9a0676e5.js","assets/init.a0d4dd5a.js"]:void 0);
+    await __vitePreload(() => import('./webworkerAll.1db1801c.js'),true?["assets/webworkerAll.1db1801c.js","assets/init.7cb5817d.js"]:void 0);
   }
 };
 
@@ -69777,7 +70014,7 @@ onMounted(async () => {
 });
 
 return (_ctx, _cache) => {
-  const _component_RouterView = resolveComponent("RouterView");
+  const _component_router_view = resolveComponent("router-view");
   const _directive_touch = resolveDirective("touch");
 
   return withDirectives((openBlock(), createElementBlock("div", _hoisted_1, [
@@ -69798,7 +70035,14 @@ return (_ctx, _cache) => {
         class: "move-2"
       })
     ]),
-    createVNode(_component_RouterView),
+    createVNode(_component_router_view, null, {
+      default: withCtx(({ Component }) => [
+        (openBlock(), createBlock(KeepAlive, { include: ['music'] }, [
+          (openBlock(), createBlock(resolveDynamicComponent(Component), { key: unref(componentKey) }))
+        ], 1024 /* DYNAMIC_SLOTS */))
+      ]),
+      _: 1 /* STABLE */
+    }),
     createBaseVNode("div", _hoisted_4, [
       createVNode(Navigation),
       createVNode(Messages),
@@ -69891,4 +70135,4 @@ app.config.globalProperties.$message = message;
 
 app.mount('#bilbo-app');
 
-export { ExtensionType as $, isMobile as A, vModelText as B, withKeys as C, createTextVNode as D, unref as E, Fragment as F, Toggler as G, Button as H, IconButton as I, createStaticVNode as J, DateField as K, message as L, ModalBox as M, Loader as N, IMask as O, storeToRefs as P, resolveDirective as Q, api as R, shuffleArray as S, Teleport as T, defineAsyncComponent as U, __vitePreload as V, baseUrl as W, BaseModal as X, Point as Y, removeItems as Z, _export_sfc as _, reactive as a, Ticker as a0, UPDATE_PRIORITY as a1, EventEmitter as a2, warn as a3, extensions as a4, Container as a5, DOMAdapter as a6, uid as a7, deprecation as a8, v8_0_0 as a9, Color as aa, Texture as ab, ImageSource as ac, Matrix as ad, Rectangle as ae, Bounds as af, earcut$1 as ag, BigPool as ah, InstructionSet as ai, v8_3_4 as aj, nextPow2 as ak, Cache as al, TextureSource as am, boundsPool as an, ViewContainer as ao, updateQuadBounds as ap, renderSlot as b, createElementBlock as c, createBlock as d, createCommentVNode as e, withModifiers as f, createVNode as g, computed as h, onBeforeUnmount as i, createBaseVNode as j, normalizeStyle as k, onMounted as l, watch as m, normalizeClass as n, openBlock as o, pageSizeOptions as p, resolveComponent as q, ref$1 as r, stores$1 as s, renderList as t, toDisplayString$1 as u, withDirectives as v, withCtx as w, vShow as x, nextTick as y, useI18n as z };
+export { removeItems as $, isMobile as A, vModelText as B, withKeys as C, createTextVNode as D, unref as E, Fragment as F, Toggler as G, Button as H, IconButton as I, createStaticVNode as J, DateField as K, message as L, ModalBox as M, Loader as N, IMask as O, storeToRefs as P, resolveDirective as Q, onActivated as R, api as S, Teleport as T, shuffleArray as U, defineAsyncComponent as V, __vitePreload as W, baseUrl as X, BaseModal as Y, Point as Z, _export_sfc as _, reactive as a, ExtensionType as a0, Ticker as a1, UPDATE_PRIORITY as a2, EventEmitter as a3, warn as a4, extensions as a5, Container as a6, DOMAdapter as a7, uid as a8, deprecation as a9, v8_0_0 as aa, Color as ab, Texture as ac, ImageSource as ad, Matrix as ae, Rectangle as af, Bounds as ag, earcut$1 as ah, BigPool as ai, InstructionSet as aj, v8_3_4 as ak, nextPow2 as al, Cache as am, TextureSource as an, boundsPool as ao, ViewContainer as ap, updateQuadBounds as aq, renderSlot as b, createElementBlock as c, createBlock as d, createCommentVNode as e, withModifiers as f, createVNode as g, computed as h, onBeforeUnmount as i, createBaseVNode as j, normalizeStyle as k, onMounted as l, watch as m, normalizeClass as n, openBlock as o, pageSizeOptions as p, resolveComponent as q, ref$1 as r, stores$1 as s, renderList as t, toDisplayString$1 as u, withDirectives as v, withCtx as w, vShow as x, nextTick as y, useI18n as z };
